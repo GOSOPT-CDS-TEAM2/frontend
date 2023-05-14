@@ -29,8 +29,6 @@ const St = {
     width: 37.5rem;
     height: 4.7rem;
 
-    margin: 0 auto;
-
     & > button {
       padding: 0;
 
@@ -56,12 +54,12 @@ const St = {
   SearchBar: styled.input`
     width: 16rem;
 
-    background: none;
-    border: none;
-
     padding: 0;
     margin-left: 0.2rem;
 
+    background: none;
+    border: none;
+    ${({ theme }) => theme.fonts.Title2};
     color: ${({ theme }) => theme.colors.gray_300};
 
     &:focus {
