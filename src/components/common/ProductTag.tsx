@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-interface ProductTagContainerProps {
-  width: number;
-  color: string;
-  children: string;
-}
-
 interface ProductTagProps {
   children: string;
 }
@@ -49,7 +43,7 @@ const ProductTag = (props: ProductTagProps) => {
 export default ProductTag;
 
 const St = {
-  ProductTagContainer: styled.span<ProductTagContainerProps>`
+  ProductTagContainer: styled.span<{ width: number; color: string }>`
     display: flex;
     justify-content: center;
     align-items: center;
