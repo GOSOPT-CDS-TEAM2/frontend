@@ -44,8 +44,7 @@ const St = {
     height: 3.3rem;
 
     padding: 0 1.3rem;
-    margin-left: 0.2rem;
-    margin-top: 1.1rem;
+    margin: 1.1rem 0.1rem 0 0.2rem;
 
     border-radius: 1.7rem;
     border: none;
@@ -54,7 +53,6 @@ const St = {
   SearchBar: styled.input`
     width: 16rem;
 
-    padding: 0;
     margin-left: 0.2rem;
 
     background: none;
