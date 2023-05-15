@@ -13,9 +13,9 @@ const Header = () => {
       <button type="button">
         <img src={AddressIcon} alt="배달 주소 아이콘" />
       </button>
-      <button type="button">
+      <a href="/">
         <img src={BagIcon} alt="장바구니 아이콘" />
-      </button>
+      </a>
     </St.HeaderContainer>
   );
 };
