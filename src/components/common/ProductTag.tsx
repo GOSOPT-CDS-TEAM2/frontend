@@ -6,7 +6,8 @@ interface ProductTagProps {
 
 const ProductTag = (props: ProductTagProps) => {
   const { children } = props;
-  let width, color;
+  let width = 0,
+    color = '';
 
   switch (children) {
     case 'BEST':
