@@ -49,7 +49,7 @@ const St = {
     justify-content: center;
     align-items: center;
 
-    width: ${(props) => props.width + 'rem;'};
+    width: ${({ width }) => width + 'rem;'};
     height: 1.6rem;
 
     border-radius: 0.8rem;
