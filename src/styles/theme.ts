@@ -49,7 +49,7 @@ const fonts = {
     font-weight: 600;
     font-size: 2.6rem;
     line-height: 2rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.02rem;
   `,
   Head3: css`
     font-family: 'Pretendard';
@@ -96,7 +96,7 @@ const fonts = {
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 1.6rem;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.02rem;
   `,
   Title2: css`
     font-family: 'Pretendard';
@@ -120,7 +120,7 @@ const fonts = {
     font-weight: 500;
     font-size: 1.2rem;
     line-height: 1.6rem;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.02rem;
   `,
   SubTitle3: css`
     font-family: 'Pretendard';
