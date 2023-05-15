@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { BackIcon, BagIcon, SearchIcon } from '../assets/icon';
+import PremiumBrand from '../components/PremiumBrand';
 
 const PremiumPage = () => {
   return (
@@ -14,6 +15,7 @@ const PremiumPage = () => {
       <St.NavWrapper>
         전체 오특 신상 랭킹 기획전 이벤트
       </St.NavWrapper>
+      <PremiumBrand />
     </>
   );
 };
