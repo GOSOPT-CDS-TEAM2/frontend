@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import SwiperCore, { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import {
   AwardsIcon,
@@ -12,8 +14,15 @@ import {
   ReveiwIcon,
   WomanCareIcon,
 } from '../../assets/icon';
-import { AdSpringImg, MainThumbNailImg } from '../../assets/image';
 
+// import 'swiper/swiper.scss';
+// import 'swiper/components/navigation/navigation.scss';
+// import 'swiper/components/pagination/pagination.scss';
+
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+// import 'swiper/css/scrollbar';
 interface Menu {
   url: string;
   description: string;
@@ -40,7 +49,7 @@ const MenuSection = () => {
   const renderMenu = ({ url, description, link }: Menu) => {
     return (
       <a key={description} type="button" href={link}>
-        <img src={url} alt={description} />
+        <img src={url} alt={description} width={80} />
       </a>
     );
   };
@@ -50,21 +59,28 @@ const MenuSection = () => {
 
   return (
     <St.MenuSectionContainer>
-      <img src={MainThumbNailImg} alt="첫번째 광고 썸네일 이미지" />
       <St.MenuContainer>{MainMenuList}</St.MenuContainer>
-      <St.SubMenuContainer>
-        <St.MenuContainer className={'sub firstPage'} onScroll={() => console.log('here')}>
-          {SubMenuList}
-        </St.MenuContainer>
-        <St.MenuContainer className={'sub SecondPage'}>
-          <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" />
-        </St.MenuContainer>
-      </St.SubMenuContainer>
+
+      <Swiper
+        pagination={{ clickable: true }} // 우측의 점을 클릭했을 때, 클릭한 슬라이드로 이동하게 됩니다.
+        speed={700} // 슬라이드가 넘어가는 속도를 조정. 700ms
+      >
+        <SwiperSlide>
+          <St.MenuContainer className={'sub firstPage'} onScroll={() => console.log('here')}>
+            {SubMenuList}
+          </St.MenuContainer>
+        </SwiperSlide>
+        <SwiperSlide>
+          <St.MenuContainer className={'sub SecondPage'}>
+            <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" />
+          </St.MenuContainer>
+        </SwiperSlide>
+      </Swiper>
+
       <St.PageContainer>
         <St.Page className={nowPage === 'first' ? 'nowPage' : ''} />
         <St.Page className={nowPage === 'second' ? 'nowPage' : ''} />
       </St.PageContainer>
-      <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
     </St.MenuSectionContainer>
   );
 };
@@ -77,37 +93,24 @@ const St = {
     flex-direction: column;
     align-items: center;
 
-    width: 100%;
-    & > img {
-      width: 100%;
+    & > .swiper > .swiper-wrapper {
+      display: flex;
+      width: 100vw;
+      height: 5.7rem;
+
+      margin-top: 0.9rem;
     }
   `,
+
   MenuContainer: styled.section`
-    display: flex;
-    gap: 0.8rem;
-
-    width: 34.4rem;
-
-    & > a {
-      & > img {
-        width: 8rem;
-      }
-    }
-
-    &.sub {
-    }
-  `,
-  SubMenuContainer: styled.div`
-    display: flex;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 8rem);
+    column-gap: 0.8rem;
 
     width: 100vw;
-    height: 5.7rem;
-
-    margin-top: 0.9rem;
-
-    overflow-y: hidden;
-    overflow-x: hidden;
   `,
+
   PageContainer: styled.div`
     display: flex;
     gap: 0.8rem;
