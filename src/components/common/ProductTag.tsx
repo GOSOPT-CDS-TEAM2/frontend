@@ -36,8 +36,6 @@ const ProductTag = (props: ProductTagProps) => {
       break;
 
     default:
-      width = 3.6;
-      color = 'pink_100';
       break;
   }
 
