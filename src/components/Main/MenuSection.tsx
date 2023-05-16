@@ -18,28 +18,29 @@ interface Menu {
   url: string;
   description: string;
   link: string;
+  type: string;
 }
 
 const MainMenu: Menu[] = [
-  { url: MainIcon, description: '라이브 버튼 아이콘', link: '/' },
-  { url: DiscountIcon, description: '세일 버튼 아이콘', link: '/' },
-  { url: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium' },
-  { url: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/' },
+  { url: MainIcon, description: '라이브 버튼 아이콘', link: '/', type: 'main' },
+  { url: DiscountIcon, description: '세일 버튼 아이콘', link: '/', type: 'main' },
+  { url: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium', type: 'main' },
+  { url: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/', type: 'main' },
 ];
 
 const SubMenu: Menu[] = [
-  { url: GiftIcon, description: '선물하기 버튼 아이콘', link: '/' },
-  { url: AwardsIcon, description: '어워드 버튼 아이콘', link: '/' },
-  { url: WomanCareIcon, description: '여성 케어 버튼 아이콘', link: '/' },
-  { url: ReveiwIcon, description: '리뷰 버튼 아이콘', link: '/' },
+  { url: GiftIcon, description: '선물하기 버튼 아이콘', link: '/', type: 'sub' },
+  { url: AwardsIcon, description: '어워드 버튼 아이콘', link: '/', type: 'sub' },
+  { url: WomanCareIcon, description: '여성 케어 버튼 아이콘', link: '/', type: 'sub' },
+  { url: ReveiwIcon, description: '리뷰 버튼 아이콘', link: '/', type: 'sub' },
 ];
 
 const MenuSection = () => {
   SwiperCore.use([Pagination]);
 
-  const renderMenu = ({ url, description, link }: Menu) => {
+  const renderMenu = ({ url, description, link, type }: Menu) => {
     return (
-      <a key={description} href={link}>
+      <a key={description} href={link} className={type}>
         <img src={url} alt={description} width={80} />
       </a>
     );
@@ -94,7 +95,7 @@ const St = {
 
         margin: 8.2rem 0.4rem 0;
 
-        background-color: ${({ theme }) => theme.colors.gray_200};
+        background-color: ${({ theme }) => theme.colors.gray_300};
       }
       & .swiper-pagination-bullet-active {
         background-color: ${({ theme }) => theme.colors.gray_700};
@@ -117,5 +118,9 @@ const St = {
     column-gap: 0.8rem;
 
     width: 100vw;
+
+    & > .main {
+      filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.25));
+    }
   `,
 };

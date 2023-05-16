@@ -30,10 +30,8 @@ const St = {
 
     overflow-x: hidden;
 
-    & > main {
+    & > main > img {
       width: 100%;
-      & img {
-      }
     }
   `,
 };
