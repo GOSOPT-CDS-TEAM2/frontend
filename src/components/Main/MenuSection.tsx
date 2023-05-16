@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -40,13 +39,13 @@ const MenuSection = () => {
 
   const renderMenu = ({ url, description, link }: Menu) => {
     return (
-      <a key={description} type="button" href={link}>
+      <a key={description} href={link}>
         <img src={url} alt={description} width={80} />
       </a>
     );
   };
-  const MainMenuList = MainMenu.map(renderMenu);
 
+  const MainMenuList = MainMenu.map(renderMenu);
   const SubMenuList = SubMenu.map(renderMenu);
 
   return (
@@ -63,7 +62,9 @@ const MenuSection = () => {
 
         <SwiperSlide>
           <St.MenuContainer className={'sub'}>
-            <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" />
+            <a href={'/'}>
+              <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" />
+            </a>
           </St.MenuContainer>
         </SwiperSlide>
       </Swiper>
@@ -86,6 +87,7 @@ const St = {
       justify-content: center;
 
       margin-bottom: 3.7rem;
+
       & .swiper-pagination-bullet {
         width: 0.6rem;
         height: 0.6rem;
