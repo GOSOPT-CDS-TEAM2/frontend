@@ -23,7 +23,7 @@ interface Menu {
 const MainMenu: Menu[] = [
   { url: MainIcon, description: '라이브 버튼 아이콘', link: '/' },
   { url: DiscountIcon, description: '세일 버튼 아이콘', link: '/' },
-  { url: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/' },
+  { url: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium' },
   { url: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/' },
 ];
 
