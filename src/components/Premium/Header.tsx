@@ -27,9 +27,11 @@ export default Header;
 const St = {
   HeaderContainer: styled.div`
     display: flex;
+
     width: 100%;
     height: 4.6rem;
     margin: 0rem;
+    
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
   `,
 
@@ -42,11 +44,8 @@ const St = {
     height: 2.2rem;
     margin: 1.2rem 5.8rem 1.2rem 10.6rem;
 
-
     ${({ theme }) => theme.fonts.SubHead2};
     ${({ theme }) => theme.colors.gray_900};
-
-    // subhead2 style과 다른 부분 추가
     font-size: 1.6rem;
     letter-spacing: -0.04em;
   `,
@@ -59,7 +58,8 @@ const St = {
     width: 2.4rem;
     height: 2.4rem;
     margin: 1.2rem;
-    background-color: white;
+    
+    background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
   `,
 };

@@ -24,7 +24,6 @@ const St = {
     flex-direction : column;
     
     width : 100%;
-  
   `,
 
 };

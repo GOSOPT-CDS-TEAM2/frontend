@@ -8,10 +8,10 @@ const PremiumBrand = () => {
     <St.PremiumBrandContainer>
       <St.Header> 프리미엄 브랜드 </St.Header>
       <St.SortContainer>
-        <St.AllLikeButton>
+        <St.AllLikeButton type = "button">
           <img src={AllLikeIcon} alt = "전체/좋아요" />
         </St.AllLikeButton>
-        <St.SortButton>
+        <St.SortButton type = "button">
           <img src={BrandNameListIcon} alt = "브랜드 이름 정렬"/>
         </St.SortButton>
       </St.SortContainer>
@@ -35,10 +35,9 @@ const St = {
     align-items: flex-start;
     flex-direction: column;
 
-    padding: 1.7rem;
     width: 100%;
-
-  `,
+    padding: 1.7rem;
+    `,
 
   Header: styled.header`
     display: flex;
@@ -46,12 +45,11 @@ const St = {
 
     width: 9.9rem;
     height: 2.0rem;
+    margin: 0.7rem 25.9rem 1.6rem 0rem;
     
     ${({ theme }) => theme.fonts.SubHead1};
     ${({ theme }) => theme.colors.gray_900};
-    
     letter-spacing: -0.02em;
-    margin: 0.7rem 25.9rem 1.6rem 0rem;
   `,
 
   SortContainer: styled.section`
@@ -68,9 +66,9 @@ const St = {
 
     width: 7.2rem;
     height: 1.7rem;
-    
     margin: 0.3rem 1.0rem 1.9rem 0rem;
-    background-color: white;
+    
+    background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
   `,
 
@@ -81,9 +79,9 @@ const St = {
 
     width: 7.5rem;
     height: 2.4rem;
-    
     margin: 0rem 0rem 1.rem 0rem;
-    background-color: white;
+    
+    background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
   `,
 
