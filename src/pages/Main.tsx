@@ -10,9 +10,11 @@ const Main = () => {
     <St.MainContainer>
       <Header />
       <CategoryNav />
-      <img src={MainThumbNailImg} alt="첫번째 광고 썸네일 이미지" />
-      <MenuSection />
-      <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
+      <main>
+        <img src={MainThumbNailImg} alt="첫번째 광고 썸네일 이미지" />
+        <MenuSection />
+        <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
+      </main>
     </St.MainContainer>
   );
 };
@@ -28,8 +30,10 @@ const St = {
 
     overflow-x: hidden;
 
-    & > img {
+    & > main {
       width: 100%;
+      & img {
+      }
     }
   `,
 };
