@@ -64,7 +64,7 @@ const fonts = {
     font-style: normal;
     font-weight: 600;
     font-size: 1.8rem;
-    line-height: 2.2em;
+    line-height: 2.2rem;
   `,
   SubHead1: css`
     font-family: 'Pretendard';
@@ -143,7 +143,7 @@ const fonts = {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    line-height: 1.2em;
+    line-height: 1.2rem;
   `,
   Body2: css`
     font-family: 'Pretendard';
@@ -158,7 +158,7 @@ const fonts = {
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.2em;
+    line-height: 1.2rem;
   `,
   Body4: css`
     font-family: 'Pretendard';
@@ -173,14 +173,14 @@ const fonts = {
     font-style: normal;
     font-weight: 700;
     font-size: 0.9rem;
-    line-height: 1.1em;
+    line-height: 1.1rem;
   `,
   Caption2: css`
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
     font-size: 0.7rem;
-    line-height: 0.8em;
+    line-height: 0.8rem;
   `,
 };
 
