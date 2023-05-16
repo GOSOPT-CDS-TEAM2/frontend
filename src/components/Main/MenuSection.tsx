@@ -16,33 +16,33 @@ import {
 } from '../../assets/icon';
 
 interface Menu {
-  url: string;
+  imgUrl: string;
   description: string;
   link: string;
   type: string;
 }
 
 const MainMenu: Menu[] = [
-  { url: MainIcon, description: '라이브 버튼 아이콘', link: '/', type: 'main' },
-  { url: DiscountIcon, description: '세일 버튼 아이콘', link: '/', type: 'main' },
-  { url: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium', type: 'main' },
-  { url: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/', type: 'main' },
+  { imgUrl: MainIcon, description: '라이브 버튼 아이콘', link: '/', type: 'main' },
+  { imgUrl: DiscountIcon, description: '세일 버튼 아이콘', link: '/', type: 'main' },
+  { imgUrl: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium', type: 'main' },
+  { imgUrl: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/', type: 'main' },
 ];
 
 const SubMenu: Menu[] = [
-  { url: GiftIcon, description: '선물하기 버튼 아이콘', link: '/', type: 'sub' },
-  { url: AwardsIcon, description: '어워드 버튼 아이콘', link: '/', type: 'sub' },
-  { url: WomanCareIcon, description: '여성 케어 버튼 아이콘', link: '/', type: 'sub' },
-  { url: ReveiwIcon, description: '리뷰 버튼 아이콘', link: '/', type: 'sub' },
+  { imgUrl: GiftIcon, description: '선물하기 버튼 아이콘', link: '/', type: 'sub' },
+  { imgUrl: AwardsIcon, description: '어워드 버튼 아이콘', link: '/', type: 'sub' },
+  { imgUrl: WomanCareIcon, description: '여성 케어 버튼 아이콘', link: '/', type: 'sub' },
+  { imgUrl: ReveiwIcon, description: '리뷰 버튼 아이콘', link: '/', type: 'sub' },
 ];
 
 const MenuSection = () => {
   SwiperCore.use([Pagination]);
 
-  const renderMenu = ({ url, description, link, type }: Menu) => {
+  const renderMenu = ({ imgUrl, description, link, type }: Menu) => {
     return (
       <Link key={description} to={link} className={type}>
-        <img src={url} alt={description} width={80} />
+        <img src={imgUrl} alt={description} width={80} />
       </Link>
     );
   };
