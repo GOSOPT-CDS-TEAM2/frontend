@@ -48,7 +48,6 @@ const St = {
     margin: 1.1rem 0.1rem 0 0.2rem;
 
     border-radius: 1.7rem;
-    border: none;
     background-color: ${({ theme }) => theme.colors.gray_100};
   `,
   SearchBar: styled.input`
