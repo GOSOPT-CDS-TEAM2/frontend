@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 import { LogoIcon } from '../assets/icon';
+import Product from '../components/common/Product';
 
 const Home = () => {
   return (
     <div>
       <St.Header>Vite + React</St.Header>
       <img src={LogoIcon} alt="로고" />
+      <Product />
     </div>
   );
 };
