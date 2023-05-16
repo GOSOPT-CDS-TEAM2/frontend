@@ -42,6 +42,7 @@ const St = {
     margin-top: 0.7rem;
 
     ${({ theme }) => theme.fonts.Title2};
+    color: ${({ theme }) => theme.colors.gray_500};
 
     &.selected {
       margin-top: 0.9rem;
