@@ -6,16 +6,16 @@ import { AddressIcon, BagIcon, LogoIcon, SearchIcon } from '../../assets/icon';
 const Header = () => {
   return (
     <St.HeaderContainer>
-      <img src={LogoIcon} alt="올리브영 로고 아이콘" />
+      <img src={LogoIcon} alt="올리브영 로고 아이콘" width={48} height={48} />
       <St.SearchBarContainer>
-        <img src={SearchIcon} alt="검색 아이콘" />
+        <img src={SearchIcon} alt="검색 아이콘" width={20} height={20} />
         <St.SearchBar type="text" placeholder="힐링버드 노워시 트리트먼트 ..." />
       </St.SearchBarContainer>
       <button type="button">
-        <img src={AddressIcon} alt="배달 주소 아이콘" />
+        <img src={AddressIcon} alt="배달 주소 아이콘" width={48} height={48} />
       </button>
       <Link to="/">
-        <img src={BagIcon} alt="장바구니 아이콘" />
+        <img src={BagIcon} alt="장바구니 아이콘" width={48} height={48} />
       </Link>
     </St.HeaderContainer>
   );

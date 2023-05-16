@@ -65,7 +65,7 @@ const MenuSection = () => {
         <SwiperSlide>
           <St.MenuContainer className={'sub'}>
             <Link to={'/'}>
-              <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" />
+              <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" width={80} height={57} />
             </Link>
           </St.MenuContainer>
         </SwiperSlide>
