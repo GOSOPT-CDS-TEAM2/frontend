@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -40,9 +41,9 @@ const MenuSection = () => {
 
   const renderMenu = ({ url, description, link, type }: Menu) => {
     return (
-      <a key={description} href={link} className={type}>
+      <Link key={description} to={link} className={type}>
         <img src={url} alt={description} width={80} />
-      </a>
+      </Link>
     );
   };
 
@@ -63,9 +64,9 @@ const MenuSection = () => {
 
         <SwiperSlide>
           <St.MenuContainer className={'sub'}>
-            <a href={'/'}>
+            <Link to={'/'}>
               <img src={GiftCardIcon} alt="기프트카드 버튼 아이콘" />
-            </a>
+            </Link>
           </St.MenuContainer>
         </SwiperSlide>
       </Swiper>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { AddressIcon, BagIcon, LogoIcon, SearchIcon } from '../../assets/icon';
@@ -13,9 +14,9 @@ const Header = () => {
       <button type="button">
         <img src={AddressIcon} alt="배달 주소 아이콘" />
       </button>
-      <a href="/">
+      <Link to="/">
         <img src={BagIcon} alt="장바구니 아이콘" />
-      </a>
+      </Link>
     </St.HeaderContainer>
   );
 };
