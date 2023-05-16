@@ -29,6 +29,8 @@ const St = {
     display: flex;
     width: 100%;
     height: 4.6rem;
+    margin: 0rem;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
   `,
 
   Header: styled.header`
@@ -40,23 +42,23 @@ const St = {
     height: 2.2rem;
     margin: 1.2rem 5.8rem 1.2rem 10.6rem;
 
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-size: 1.6rem;
-    font-weight: 60.0rem;
-    letter-spacing: -0.04em;
-    line-height: 2.2rem;
 
+    ${({ theme }) => theme.fonts.SubHead2};
+    ${({ theme }) => theme.colors.gray_900};
+
+    // subhead2 style과 다른 부분 추가
+    font-size: 1.6rem;
+    letter-spacing: -0.04em;
   `,
 
   Button: styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 4.8rem;
-    height: 4.8rem;
     
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 1.2rem;
     background-color: white;
     border: none;
   `,

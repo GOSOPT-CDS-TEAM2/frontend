@@ -23,7 +23,11 @@ const St = {
     align-items: center;
 
     width: 100%;
-    height: 5.2rem;
+    height: 4.4rem;
+
+    margin: 0rem;
+
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
   `,
 
   Button: styled.button`
@@ -32,11 +36,14 @@ const St = {
     align-items: center;
 
     width: 4.4rem;
-    height: 4.4rem;
+    height: 3.6rem;
     
+    margin: 0.8rem 1rem 0rem 0rem;
     padding: 0rem;
     
-    font-family: 'Pretendard';
+    
+    ${({ theme }) => theme.fonts.Title2};
+    color: ${({ theme }) => theme.colors.gray_500};
     font-size: 1.4rem;
     font-weight: 40.0rem;
     letter-spacing: -0.04em;

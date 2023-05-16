@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { AllLikeIcon, BrandNameListIcon } from '../../assets/icon';
+import { Component185Img, Component186Img, Component187Img, Component188Img } from '../../assets/image';
 
 const PremiumBrand = () => {
   return (
@@ -14,7 +15,12 @@ const PremiumBrand = () => {
           <img src={BrandNameListIcon} alt = "브랜드 이름 정렬"/>
         </St.SortButton>
       </St.SortContainer>
-      
+      <St.ImgContainer>
+        <img src = {Component185Img} alt = "꼬달리" />
+        <img src = {Component186Img} alt = "다비네스" />
+        <img src = {Component187Img} alt = "달팡" />
+        <img src = {Component188Img} alt = "더바디샵" />
+      </St.ImgContainer>
     </St.PremiumBrandContainer>
   );
 };
@@ -25,10 +31,11 @@ const St = {
 
   PremiumBrandContainer: styled.section`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
 
+    padding: 1.7rem;
     width: 100%;
 
   `,
@@ -39,20 +46,19 @@ const St = {
 
     width: 9.9rem;
     height: 2.0rem;
-    font-family: 'Pretendard';
-    font-size : 1.6rem;
-    font-weight: 70.0rem;
+    
+    ${({ theme }) => theme.fonts.SubHead1};
+    ${({ theme }) => theme.colors.gray_900};
+    
     letter-spacing: -0.02em;
-    line-height: 2.0rem;
-
-    margin: 1.6rem 25.9rem 1.9rem 1.7rem;
+    margin: 0.7rem 25.9rem 1.6rem 0rem;
   `,
 
   SortContainer: styled.section`
     display: flex;
-    justify-content: flex-start;
     flex-direction: row;
-    
+    margin: 0rem;
+    padding: 0rem;
   `,
 
   AllLikeButton: styled.button`
@@ -63,6 +69,7 @@ const St = {
     width: 7.2rem;
     height: 1.7rem;
     
+    margin: 0.3rem 1.0rem 1.9rem 0rem;
     background-color: white;
     border: none;
   `,
@@ -72,10 +79,15 @@ const St = {
     justify-content: center;
     align-items: center;
 
-    width: 7.2rem;
-    height: 1.7rem;
+    width: 7.5rem;
+    height: 2.4rem;
     
+    margin: 0rem 0rem 1.rem 0rem;
     background-color: white;
     border: none;
+  `,
+
+  ImgContainer: styled.section`
+    display: flex;
   `,
 };
