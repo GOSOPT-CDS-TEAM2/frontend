@@ -47,7 +47,7 @@ const CustomerGradeInfo = () => {
     <>
       {modalOpen && (
         <ModalPortal>
-          <GradeBenefitModal onClose={() => setModalOpen(false)} />
+          <GradeBenefitModal curGrade={grade} onClose={() => setModalOpen(false)} />
         </ModalPortal>
       )}
       <St.CustomerGradeInfoContainer>

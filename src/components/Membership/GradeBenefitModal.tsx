@@ -6,8 +6,13 @@ import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, Benef
 
 import { gradeRange } from './gradeRange';
 
-const GradeBenefitModal = ({ onClose }) => {
-  const [grade, setGrade] = useState('PINK');
+interface GradeBenefitModalProps {
+  onClose: void;
+  curGrade: string;
+}
+
+const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
+  const [grade, setGrade] = useState(curGrade);
 
   const gradeRangeReverse = [...gradeRange].reverse();
   const gradeList = gradeRangeReverse.map((item, idx) => {
