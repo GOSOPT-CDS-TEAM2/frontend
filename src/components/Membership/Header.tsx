@@ -11,7 +11,7 @@ const Header = () => {
       </button>
       <h2>멤버십/쿠폰</h2>
       <a id="cart" href="/">
-        <span id="cart-cnt">{cartCnt}</span>
+        <span id="cartCnt">{cartCnt}</span>
         <img src={BagIcon} alt="장바구니 아이콘" />
       </a>
     </St.HeaderContainer>
@@ -45,7 +45,7 @@ const St = {
       position: relative;
     }
 
-    #cart-cnt {
+    #cartCnt {
       position: absolute;
       left: 55%;
       top: 10%;
