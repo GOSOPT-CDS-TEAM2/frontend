@@ -173,6 +173,10 @@ const St = {
     flex-direction: column;
     justify-content: end;
 
+    & > div {
+      color: ${({ theme }) => theme.colors.gray_000};
+    }
+
     & > #gold {
       height: 8.8rem;
 
