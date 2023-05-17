@@ -10,6 +10,7 @@ import ModalPortal from './ModalPortal';
 const CustomerGradeInfo = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
+  // 구매한 금액에 따른 등급, 등급 전환까지 남은 금액, 전환될 등급을 가져오는 함수
   const getCustomerGrade = (paymentAmount: number) => {
     let grade = '';
     let remainAmount = 0;
@@ -28,8 +29,8 @@ const CustomerGradeInfo = () => {
   const customerInfo = {
     name: '황현진',
     paymentAmount: 178200, //6개월간 지불한 금액
-    remainDate: 64,
-    upgradePeriod: '2023년 하반기',
+    remainDate: 64, // 등급 유지까지 남은 기간
+    upgradePeriod: '2023년 하반기', // 등급 전환 시기
   };
 
   const { grade, remainAmount, nextGrade } = getCustomerGrade(customerInfo.paymentAmount);
@@ -77,7 +78,7 @@ const CustomerGradeInfo = () => {
         </div>
         <button
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // TODO: 클릭했을 때 부모 컴포넌트까지 재랜더링됨
             setModalOpen(true);
           }}>
           <span className="point">P</span>등급별 혜택 보기
@@ -98,7 +99,6 @@ const St = {
 
     & > div {
       height: 26rem;
-
       padding: 1.8rem 1.5rem 2.8rem 1.5rem;
 
       background: ${({ theme }) => theme.colors.pink_500};
@@ -129,13 +129,12 @@ const St = {
         justify-content: center;
         align-items: center;
 
-        ${({ theme }) => theme.fonts.Head1}
-        color: ${({ theme }) => theme.colors.pink_100};
-        background: ${({ theme }) => theme.colors.gray_000};
-
         width: 7rem;
         height: 7rem;
 
+        ${({ theme }) => theme.fonts.Head1}
+        color: ${({ theme }) => theme.colors.pink_100};
+        background: ${({ theme }) => theme.colors.gray_000};
         border-radius: 50%;
       }
 
@@ -165,7 +164,6 @@ const St = {
         text-align: center;
 
         width: 100%;
-
         margin-top: 1.2rem;
 
         & > ol {
@@ -176,7 +174,6 @@ const St = {
           margin-top: 0.6rem;
 
           color: ${({ theme }) => theme.colors.gray_200};
-
           ${({ theme }) => theme.fonts.SubTitle4}
 
           & > .selected {
@@ -196,9 +193,7 @@ const St = {
 
       ${({ theme }) => theme.fonts.SubTitle1}
       color:${({ theme }) => theme.colors.gray_700};
-
       background: ${({ theme }) => theme.colors.gray_000};
-
       border: 0.1rem solid ${({ theme }) => theme.colors.gray_200};
       border-radius: 0.4rem;
 
@@ -211,14 +206,12 @@ const St = {
 
         margin-right: 0.8rem;
         padding-left: 0.1rem;
-
         width: 1.7rem;
         height: 1.7rem;
 
         ${({ theme }) => theme.fonts.Caption1}
         color: ${({ theme }) => theme.colors.gray_000};
         background: ${({ theme }) => theme.colors.pink_500};
-
         border-radius: 50%;
       }
     }
