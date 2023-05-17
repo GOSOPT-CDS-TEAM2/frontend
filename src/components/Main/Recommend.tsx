@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
 
+const USER = '황현진';
+
 const Recommend = () => {
   return (
     <St.RecommendContainer>
       <St.Header>
-        <St.Title>황현진님을 위한 추천 상품</St.Title>
+        <St.Title>{USER}님을 위한 추천 상품</St.Title>
         <St.MoreButton type="button">
           더보기
           <img src={ArrowIcon} alt="더보기 아이콘" width={24} height={24} />
