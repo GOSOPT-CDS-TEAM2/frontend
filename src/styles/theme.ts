@@ -56,7 +56,7 @@ const fonts = {
     font-style: normal;
     font-weight: 700;
     font-size: 2.4rem;
-    line-height: 2.9rem;
+    line-height: 2.8rem;
     letter-spacing: -0.03em;
   `,
   Head4: css`
@@ -64,7 +64,8 @@ const fonts = {
     font-style: normal;
     font-weight: 600;
     font-size: 1.8rem;
-    line-height: 2.2rem;
+    line-height: 2.2em;
+    letter-spacing: -0.02em;
   `,
   SubHead1: css`
     font-family: 'Pretendard';
@@ -136,7 +137,7 @@ const fonts = {
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.4rem;
-    letter-spacing: -0.04em;
+    letter-spacing: 0.04em;
   `,
   Body1: css`
     font-family: 'Pretendard';
