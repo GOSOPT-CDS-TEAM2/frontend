@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import BrandIntroduction from '../components/Premium/BrandIntroduction';
 import Header from '../components/Premium/Header';
 import Menu from '../components/Premium/Menu';
 import PremiumBrand from '../components/Premium/PremiumBrand';
@@ -10,6 +11,7 @@ const PremiumPage = () => {
       <Header />
       <Menu />
       <PremiumBrand />
+      <BrandIntroduction />
     </St.PremiumContainer>
   );
 };
