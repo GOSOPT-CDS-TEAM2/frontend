@@ -75,7 +75,11 @@ const CustomerGradeInfo = () => {
             <ol>{gradeList}</ol>
           </figure>
         </div>
-        <button onClick={() => setModalOpen(true)}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setModalOpen(true);
+          }}>
           <span className="point">P</span>등급별 혜택 보기
         </button>
       </St.CustomerGradeInfoContainer>
