@@ -1,6 +1,6 @@
 // 명명규칙은 xxxxImg으로 통일
 // export { ReactComponent as AdobeLogo } from './AdobeCorporateLogo1.svg';
-export { default as Component185Img } from './Component185Img.svg';
-export { default as Component186Img } from './Component186Img.svg';
-export { default as Component187Img } from './Component187Img.svg';
-export { default as Component188Img } from './Component188Img.svg';
+export { default as 꼬달리 } from './꼬달리.svg';
+export { default as 다비네스 } from './다비네스.svg';
+export { default as 달팜 } from './달팜.svg';
+export { default as 더바디샵 } from './더바디샵.svg';

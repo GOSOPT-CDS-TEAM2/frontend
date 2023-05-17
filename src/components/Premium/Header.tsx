@@ -27,12 +27,12 @@ export default Header;
 const St = {
   HeaderContainer: styled.div`
     display: flex;
+    justify-content: space-between;
 
-    width: 100%;
+    width: 100vw;
     height: 4.6rem;
-    margin: 0rem;
     
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0rem 0.1rem 0rem rgba(0, 0, 0, 0.05);
   `,
 
   Header: styled.header`
@@ -45,9 +45,7 @@ const St = {
     margin: 1.2rem 5.8rem 1.2rem 10.6rem;
 
     ${({ theme }) => theme.fonts.SubHead2};
-    ${({ theme }) => theme.colors.gray_900};
-    font-size: 1.6rem;
-    letter-spacing: -0.04em;
+    color: ${({ theme }) => theme.colors.gray_900};
   `,
 
   Button: styled.button`

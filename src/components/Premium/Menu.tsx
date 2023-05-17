@@ -19,14 +19,13 @@ export default Menu;
 const St = {
   MenuContainer: styled.nav`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
-    width: 100%;
+    width: 100vw;
     height: 4.4rem;
-    margin: 0rem;
 
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0rem 0.1rem 0rem rgba(0, 0, 0, 0.05);
   `,
 
   Button: styled.button`
@@ -42,7 +41,6 @@ const St = {
     
     ${({ theme }) => theme.fonts.Title2};
     color: ${({ theme }) => theme.colors.gray_500};
-    letter-spacing: -0.04em;
     
     background-color: ${({ theme }) => theme.colors.gray_000};;
     border: none;
