@@ -7,6 +7,7 @@ export { default as BrandNameListIcon } from './btn_brand_name_list.svg';
 export { default as LogoIcon } from './btn_logo.svg';
 export { default as PremiumCardLikeIcon } from './btn_primeum_card_like.svg';
 export { default as BlackSearchIcon } from './btn_search.svg';
+export { default as ArrowIcon } from './ic_arrow.svg';
 export { default as GraySearchIcon } from './ic_search.svg';
 export { default as DiscountIcon } from './main_btn_discount.svg';
 export { default as MainIcon } from './main_btn_main.svg';

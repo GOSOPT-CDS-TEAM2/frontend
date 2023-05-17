@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { AdSpringImg, MainThumbNailImg } from '../assets/image';
 import CategoryNav from '../components/Main/CategoryNav';
-import CategoryRank from '../components/Main/CategoryRank';
+// import CategoryRank from '../components/Main/CategoryRank';
 import Header from '../components/Main/Header';
 import MenuSection from '../components/Main/MenuSection';
 import Recommend from '../components/Main/Recommend';
@@ -17,7 +17,7 @@ const Main = () => {
         <MenuSection />
         <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
         <Recommend />
-        <CategoryRank />
+        {/* <CategoryRank /> */}
       </main>
     </St.MainContainer>
   );
