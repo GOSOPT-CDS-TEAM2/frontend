@@ -2,7 +2,9 @@
 export { default as AddressIcon } from './btn_address.svg';
 export { default as BackIcon } from './btn_back.svg';
 export { default as BagIcon } from './btn_bag.svg';
+export { default as CloseIcon } from './btn_close.svg';
 export { default as LogoIcon } from './btn_logo.svg';
+export { default as InfoIcon } from './ic_info.svg';
 export { default as SearchIcon } from './ic_search.svg';
 export { default as DiscountIcon } from './main_btn_discount.svg';
 export { default as MainIcon } from './main_btn_main.svg';
