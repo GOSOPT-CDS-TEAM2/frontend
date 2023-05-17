@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { BagRankIcon, HeartRankFillIcon, HeartRankIcon } from '../../assets/icon';
@@ -8,6 +9,7 @@ const RankProduct = (props: ProductProps) => {
   const {
     productData: { name, originalPrice, discountRate, discountPrice, image, likeTF, tags },
   } = props;
+  const [heart, setHeart] = useState(likeTF);
 
   // tags 검사해서 tagList에 넣기
   const tagList = [];
@@ -36,7 +38,9 @@ const RankProduct = (props: ProductProps) => {
       </St.ProductInfo>
 
       <St.IconContainer>
-        <img src={likeTF ? HeartRankFillIcon : HeartRankIcon} alt="하트 아이콘" width={20} height={20} />
+        <button type="button" onClick={() => setHeart(!heart)}>
+          <img src={heart ? HeartRankFillIcon : HeartRankIcon} alt="하트 아이콘" width={20} height={20} />
+        </button>
         <img src={BagRankIcon} alt="장바구니 아이콘" width={20} height={20} />
       </St.IconContainer>
     </St.RankProductContainer>
@@ -110,5 +114,15 @@ const St = {
 
     margin-top: 0.6rem;
     margin-left: 1.7rem;
+
+    & > button {
+      width: 2rem;
+      height: 2rem;
+
+      padding: 0;
+
+      border: none;
+      background: none;
+    }
   `,
 };
