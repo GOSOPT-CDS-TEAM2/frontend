@@ -1,47 +1,14 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { GradeBarImg, SpeechBubbleImg } from '../../assets/image';
 
-interface gradeRange {
-  grade: string;
-  min: number;
-  max: number;
-  nextGrade: string | undefined;
-}
+import SuccessModal from './GradeBenefitModal';
+import { gradeRange } from './gradeRange';
+import ModalPortal from './ModalPortal';
 
 const CustomerGradeInfo = () => {
-  const gradeRange: gradeRange[] = [
-    {
-      grade: 'BABY',
-      min: 0,
-      max: 100000,
-      nextGrade: 'PINK',
-    },
-    {
-      grade: 'PINK',
-      min: 100000,
-      max: 400000,
-      nextGrade: 'GREEN',
-    },
-    {
-      grade: 'GREEN',
-      min: 400000,
-      max: 700000,
-      nextGrade: 'BLACK',
-    },
-    {
-      grade: 'BLACK',
-      min: 700000,
-      max: 1000000,
-      nextGrade: 'GOLD',
-    },
-    {
-      grade: 'GOLD',
-      min: 1000000,
-      max: Infinity,
-      nextGrade: undefined,
-    },
-  ];
+  const [modalOpen, setModalOpen] = useState(false);
 
   const getCustomerGrade = (paymentAmount: number) => {
     let grade = '';
@@ -76,36 +43,43 @@ const CustomerGradeInfo = () => {
   });
 
   return (
-    <St.CustomerGradeInfoContainer>
-      <div>
-        <section className="customerGradeInfo">
-          <div className="description">
-            <h1>
-              {customerInfo.name}님의 등급
-              <br /> {grade} OLIVE
-            </h1>
+    <>
+      {modalOpen && (
+        <ModalPortal>
+          <SuccessModal onClose={() => setModalOpen(false)} />
+        </ModalPortal>
+      )}
+      <St.CustomerGradeInfoContainer>
+        <div>
+          <section className="customerGradeInfo">
+            <div className="description">
+              <h1>
+                {customerInfo.name}님의 등급
+                <br /> {grade} OLIVE
+              </h1>
+              <p>
+                현재 등급 유지까지 <span>{customerInfo.remainDate}</span> 일 남았어요!
+              </p>
+            </div>
+            <span className="point">P</span>
+          </section>
+          <aside className="speechBubble">
+            <img src={SpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
             <p>
-              현재 등급 유지까지 <span>{customerInfo.remainDate}</span> 일 남았어요!
+              <span className="remainAmount">{remainAmount.toLocaleString()}원 </span>추가 구매 시<br />
+              {customerInfo.upgradePeriod} <span className="nextGrade">{nextGrade} OLIVE</span>
             </p>
-          </div>
-          <span className="point">P</span>
-        </section>
-        <aside className="speechBubble">
-          <img src={SpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
-          <p>
-            <span className="remainAmount">{remainAmount.toLocaleString()}원 </span>추가 구매 시<br />
-            {customerInfo.upgradePeriod} <span className="nextGrade">{nextGrade} OLIVE</span>
-          </p>
-        </aside>
-        <figure className="gradeBar">
-          <img src={GradeBarImg} alt="등급 위치를 알려주는 바"></img>
-          <ol>{gradeList}</ol>
-        </figure>
-      </div>
-      <button>
-        <span className="point">P</span>등급별 혜택 보기
-      </button>
-    </St.CustomerGradeInfoContainer>
+          </aside>
+          <figure className="gradeBar">
+            <img src={GradeBarImg} alt="등급 위치를 알려주는 바"></img>
+            <ol>{gradeList}</ol>
+          </figure>
+        </div>
+        <button onClick={() => setModalOpen(true)}>
+          <span className="point">P</span>등급별 혜택 보기
+        </button>
+      </St.CustomerGradeInfoContainer>
+    </>
   );
 };
 
