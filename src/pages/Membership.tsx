@@ -10,6 +10,7 @@ const Membership = () => {
       <Header />
       <CategoryNav />
       <CustomerGradeInfo />
+<<<<<<< HEAD
     </St.MembershipContainer>
   );
 };
@@ -35,6 +36,8 @@ const Membership = () => {
   return (
     <St.MembershipContainer>
       <Header />
+=======
+>>>>>>> c482c7d (feat/#4: 카테고리 nav 구현)
     </St.MembershipContainer>
   );
 };
@@ -42,5 +45,16 @@ const Membership = () => {
 export default Membership;
 
 const St = {
-  MembershipContainer: styled.div``,
+  MembershipContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100vw;
+
+    overflow-x: hidden;
+    /* & > main > img {
+      width: 100%;
+    } */
+  `,
 };
