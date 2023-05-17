@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 const Menu = () => {
+
+  const menuList = ["전체", "오특", "신상", "랭킹", "기획전", "이벤트"].map((item, idx) => { 
+    return <St.Button type = "button" key={idx}>{item}</St.Button>;
+  });
   return (
     <St.MenuContainer>
-      <St.Button type = "button"> 전체 </St.Button>
-      <St.Button type = "button"> 오특 </St.Button>
-      <St.Button type = "button"> 신상 </St.Button>
-      <St.Button type = "button"> 랭킹 </St.Button>
-      <St.Button type = "button"> 기획전 </St.Button>
-      <St.Button type = "button"> 이벤트 </St.Button>
+      {menuList}
     </St.MenuContainer>
 
   );

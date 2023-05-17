@@ -45,14 +45,13 @@ const St = {
 
   Header: styled.h1`
     display: flex;
-    justify-content: flex-start;
 
     width: 9.9rem;
     height: 2.0rem;
     margin: 0.7rem 25.9rem 1.6rem 0rem;
     
     ${({ theme }) => theme.fonts.SubHead1};
-    ${({ theme }) => theme.colors.gray_900};
+    color: ${({ theme }) => theme.colors.gray_900};
   `,
 
   SortContainer: styled.div`

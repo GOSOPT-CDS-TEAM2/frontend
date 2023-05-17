@@ -35,7 +35,7 @@ const St = {
     box-shadow: 0rem 0.1rem 0rem rgba(0, 0, 0, 0.05);
   `,
 
-  Header: styled.header`
+  Header: styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,9 +53,8 @@ const St = {
     justify-content: center;
     align-items: center;
     
-    width: 2.4rem;
-    height: 2.4rem;
-    margin: 1.2rem;
+    width: 4.8rem;
+    height: 4.8rem;
     
     background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
