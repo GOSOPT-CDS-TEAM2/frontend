@@ -18,8 +18,10 @@ export default Menu;
 const St = {
   MenuContainer: styled.nav`
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    gap: 0.9rem;
+    padding: 0 1.7rem;
 
     width: 100vw;
     height: 4.4rem;

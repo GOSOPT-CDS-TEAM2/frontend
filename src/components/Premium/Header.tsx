@@ -30,7 +30,7 @@ const St = {
     justify-content: space-between;
 
     width: 100vw;
-    height: 4.6rem;
+    height: 4.8rem;
     
     box-shadow: 0rem 0.1rem 0rem rgba(0, 0, 0, 0.05);
   `,
@@ -55,7 +55,7 @@ const St = {
     
     width: 4.8rem;
     height: 4.8rem;
-    
+    padding: 0rem;
     background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
   `,
