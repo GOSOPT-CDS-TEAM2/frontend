@@ -30,3 +30,17 @@ const St = {
     } */
   `,
 };
+
+const Membership = () => {
+  return (
+    <St.MembershipContainer>
+      <Header />
+    </St.MembershipContainer>
+  );
+};
+
+export default Membership;
+
+const St = {
+  MembershipContainer: styled.div``,
+};
