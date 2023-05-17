@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { BagRankIcon, HeartRankFillIcon, HeartRankIcon } from '../../assets/icon';
 import { ProductProps } from '../../types/common';
 import ProductTag from '../common/ProductTag';
 
@@ -35,8 +36,8 @@ const RankProduct = (props: ProductProps) => {
       </St.ProductInfo>
 
       <St.IconContainer>
-        {/* <img src={likeTF ? HeartFillIcon : HeartIcon} alt="하트 아이콘" width={35} height={36} />
-        <img src={BagGrayIcon} alt="장바구니 아이콘" width={35} height={36} /> */}
+        <img src={likeTF ? HeartRankFillIcon : HeartRankIcon} alt="하트 아이콘" width={20} height={20} />
+        <img src={BagRankIcon} alt="장바구니 아이콘" width={20} height={20} />
       </St.IconContainer>
     </St.RankProductContainer>
   );
@@ -47,6 +48,7 @@ export default RankProduct;
 const St = {
   RankProductContainer: styled.article`
     display: flex;
+
     & > img {
       border-radius: 0.5rem;
     }
@@ -56,8 +58,12 @@ const St = {
     flex-direction: column;
 
     width: 22.3rem;
+
+    margin-left: 1.2rem;
   `,
   ProductName: styled.header`
+    height: 3.2rem;
+
     ${({ theme }) => theme.fonts.SubTitle2};
     color: ${({ theme }) => theme.colors.gray_900};
   `,
@@ -70,7 +76,7 @@ const St = {
 
     height: 1.8rem;
 
-    margin-left: 1.2rem;
+    margin-top: 0.5rem;
   `,
   OriginalPrice: styled.s`
     color: ${({ theme }) => theme.colors.gray_300};
@@ -97,7 +103,12 @@ const St = {
   /* 아이콘 */
   IconContainer: styled.div`
     display: flex;
-    gap: 0.6rem;
-    margin-top: 0.8rem;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    height: 6.8rem;
+
+    margin-top: 0.6rem;
+    margin-left: 1.7rem;
   `,
 };

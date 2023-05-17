@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { AdSpringImg, MainThumbNailImg } from '../assets/image';
+import { AdHandCareImg, AdSpringImg, MainThumbNailImg } from '../assets/image';
 import CategoryNav from '../components/Main/CategoryNav';
 import CategoryRank from '../components/Main/CategoryRank';
 import Header from '../components/Main/Header';
@@ -18,6 +18,7 @@ const Main = () => {
         <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
         <Recommend />
         <CategoryRank />
+        <img src={AdHandCareImg} alt="핸드케어 광고 배너" />
       </main>
     </St.MainContainer>
   );

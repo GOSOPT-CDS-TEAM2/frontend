@@ -94,7 +94,7 @@ const St = {
   CategoryRankContainer: styled.section`
     position: relative;
 
-    margin-top: 3.4rem;
+    margin: 3.4rem 0 2rem;
   `,
   Title: styled.h1`
     margin-left: 1.4rem;
