@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { CloseIcon, InfoIcon } from '../../assets/icon';
+import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, BenefitPinkImg } from '../../assets/image';
 
 import { gradeRange } from './gradeRange';
 
@@ -15,7 +16,7 @@ const GradeBenefitModal = ({ onClose }) => {
         <St.gradeContainer
           id={item.grade.toLowerCase()}
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // TODO: 클릭했을 때 부모 컴포넌트까지 재랜더링됨
             setGrade(item.grade);
           }}>
           {item.grade}
@@ -26,12 +27,14 @@ const GradeBenefitModal = ({ onClose }) => {
     );
   });
 
+  // 현재 선택된 등급에 대한 정보를 가져오는 함수
   const curGradeInfo = gradeRange.filter((item) => {
     return item.grade === grade;
   })[0];
 
-  const gradeDescription = (curGrade: string) => {
-    switch (curGrade) {
+  // 현재 선택된 등급에 대한 구매 금액 관련 설명을 결정하는 함수
+  const gradeDescription = () => {
+    switch (grade) {
       case 'BABY':
         return `${curGradeInfo.max / 10000}만원 미만 구매`;
 
@@ -40,6 +43,21 @@ const GradeBenefitModal = ({ onClose }) => {
 
       default:
         return `${curGradeInfo.min / 10000}만원 이상 ~ ${curGradeInfo.max / 10000}만원 미만 구매`;
+    }
+  };
+
+  const gradeBenefitImg = () => {
+    switch (grade) {
+      case 'BABY':
+        return BenefitBabyImg;
+      case 'PINK':
+        return BenefitPinkImg;
+      case 'GREEN':
+        return BenefitGreenImg;
+      case 'BLACK':
+        return BenefitBlackImg;
+      case 'GOLD':
+        return BenefitGoldImg;
     }
   };
 
@@ -58,6 +76,7 @@ const GradeBenefitModal = ({ onClose }) => {
       </header>
       <figure>{gradeList}</figure>
       <small>6개월간 {gradeDescription(grade)}</small>
+      <img src={gradeBenefitImg()} alt={`${grade} 등급에 대한 혜택`}></img>
     </St.GradeBenefitModalContainer>
   );
 };
@@ -75,7 +94,7 @@ const St = {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    padding: 1.2rem 1.4rem 1.5rem 1.3rem;
+    padding: 1.2rem 1.4rem 3.5rem 1.3rem;
 
     width: 34.6rem;
 
@@ -118,6 +137,8 @@ const St = {
         }
 
         & > h4 {
+          margin-top: 0.6rem;
+
           ${({ theme }) => theme.fonts.SubTitle4}
         }
       }
@@ -144,6 +165,10 @@ const St = {
 
       ${({ theme }) => theme.fonts.SubTitle2}
       color: ${({ theme }) => theme.colors.gray_500};
+    }
+
+    & > img {
+      margin-top: 2.7rem;
     }
   `,
   gradeListContainer: styled.div`
