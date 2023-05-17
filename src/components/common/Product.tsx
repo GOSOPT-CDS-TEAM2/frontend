@@ -34,8 +34,8 @@ const Product = (props: ProductProps) => {
       <St.ProductTagContainer>{renderList}</St.ProductTagContainer>
 
       <St.IconContainer>
-        <img src={likeTF ? HeartFillIcon : HeartIcon} alt="하트 아이콘" />
-        <img src={BagGrayIcon} alt="장바구니 아이콘" />
+        <img src={likeTF ? HeartFillIcon : HeartIcon} alt="하트 아이콘" width={35} height={36} />
+        <img src={BagGrayIcon} alt="장바구니 아이콘" width={35} height={36} />
       </St.IconContainer>
     </St.ProductContainer>
   );
@@ -97,10 +97,5 @@ const St = {
     gap: 0.6rem;
 
     margin-top: 0.8rem;
-
-    & > img {
-      width: 3.5rem;
-      height: 3.6rem;
-    }
   `,
 };
