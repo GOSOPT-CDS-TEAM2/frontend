@@ -10,6 +10,13 @@ import ModalPortal from './ModalPortal';
 const CustomerGradeInfo = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const customerInfo = {
+    name: '황현진',
+    paymentAmount: 178200, //6개월간 지불한 금액
+    remainDate: 64, // 등급 유지까지 남은 기간
+    upgradePeriod: '2023년 하반기', // 등급 전환 시기
+  };
+
   // 구매한 금액에 따른 등급, 등급 전환까지 남은 금액, 전환될 등급을 가져오는 함수
   const getCustomerGrade = (paymentAmount: number) => {
     let grade = '';
@@ -24,13 +31,6 @@ const CustomerGradeInfo = () => {
       }
     });
     return { grade, remainAmount, nextGrade };
-  };
-
-  const customerInfo = {
-    name: '황현진',
-    paymentAmount: 178200, //6개월간 지불한 금액
-    remainDate: 64, // 등급 유지까지 남은 기간
-    upgradePeriod: '2023년 하반기', // 등급 전환 시기
   };
 
   const { grade, remainAmount, nextGrade } = getCustomerGrade(customerInfo.paymentAmount);
