@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Home from '../../pages/Home';
+import Main from '../../pages/Main';
 import Membership from '../../pages/Membership';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Main />} />
         <Route path="/membership" element={<Membership />} />
       </Routes>
     </BrowserRouter>
