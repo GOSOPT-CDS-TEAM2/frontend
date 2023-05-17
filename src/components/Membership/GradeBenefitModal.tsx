@@ -46,6 +46,7 @@ const GradeBenefitModal = ({ onClose }) => {
     }
   };
 
+  // 현재 선택된 등급에 대한 혜택 이미지 주소를 가져오는 함수
   const gradeBenefitImg = () => {
     switch (grade) {
       case 'BABY':
@@ -87,7 +88,6 @@ const St = {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     position: fixed;
     z-index: 1;
     top: 50%;
@@ -95,12 +95,10 @@ const St = {
     transform: translate(-50%, -50%);
 
     padding: 1.2rem 1.4rem 3.5rem 1.3rem;
-
     width: 34.6rem;
 
     border-radius: 2.1rem;
     box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.25);
-
     background: ${({ theme }) => theme.colors.gray_000};
 
     button {
@@ -149,7 +147,6 @@ const St = {
       justify-content: space-around;
 
       width: 31.9rem;
-
       margin-top: 2.7rem;
     }
 
@@ -210,12 +207,10 @@ const St = {
     text-align: center;
 
     padding-top: 0.7rem;
-
     width: 5.7rem;
 
     border-top-left-radius: 0.4rem;
     border-top-right-radius: 0.4rem;
-
     ${({ theme }) => theme.fonts.Body1}
     color:${({ theme }) => theme.colors.gray_100};
     background: ${({ theme }) => theme.colors.gray_100};
