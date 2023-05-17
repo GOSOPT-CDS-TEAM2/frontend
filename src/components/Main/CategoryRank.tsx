@@ -104,7 +104,6 @@ const St = {
   `,
   CategoryContainer: styled.ul`
     width: 100vw;
-    height: 3rem;
 
     margin-top: 0.6rem;
 
