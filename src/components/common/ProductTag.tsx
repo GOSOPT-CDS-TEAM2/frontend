@@ -30,6 +30,11 @@ const ProductTag = (props: ProductTagProps) => {
       color = 'red_300';
       break;
 
+    case '1+1':
+      width = 3;
+      color = 'gray_300';
+      break;
+
     default:
       break;
   }
