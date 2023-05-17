@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BackIcon, BagIcon, SearchIcon } from '../../assets/icon';
+import { BackIcon, BagIcon, BlackSearchIcon } from '../../assets/icon';
 
 const Header = () => {
 
@@ -12,7 +12,7 @@ const Header = () => {
       </St.Button>
       <St.Header> 프리미엄관 </St.Header>
       <St.Button type = "button">
-        <img src={SearchIcon} alt="검색 아이콘" />
+        <img src={BlackSearchIcon} alt="검색 아이콘" />
       </St.Button>
       <St.Button type = "button">
         <img src={BagIcon} alt="장바구니 아이콘" />
