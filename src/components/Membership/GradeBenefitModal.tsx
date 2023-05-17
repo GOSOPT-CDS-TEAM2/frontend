@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { CloseIcon, InfoIcon } from '../../assets/icon';
@@ -25,6 +25,24 @@ const GradeBenefitModal = ({ onClose }) => {
       </St.gradeListContainer>
     );
   });
+
+  const curGradeInfo = gradeRange.filter((item) => {
+    return item.grade === grade;
+  })[0];
+
+  const gradeDescription = (curGrade: string) => {
+    switch (curGrade) {
+      case 'BABY':
+        return `${curGradeInfo.max / 10000}만원 미만 구매`;
+
+      case 'GOLD':
+        return `${curGradeInfo.min / 10000}만원 이상 구매`;
+
+      default:
+        return `${curGradeInfo.min / 10000}만원 이상 ~ ${curGradeInfo.max / 10000}만원 미만 구매`;
+    }
+  };
+
   return (
     <St.GradeBenefitModalContainer>
       <header>
@@ -39,6 +57,7 @@ const GradeBenefitModal = ({ onClose }) => {
         </button>
       </header>
       <figure>{gradeList}</figure>
+      <small>6개월간 {gradeDescription(grade)}</small>
     </St.GradeBenefitModalContainer>
   );
 };
@@ -92,6 +111,10 @@ const St = {
           align-items: center;
 
           ${({ theme }) => theme.fonts.SubHead1}
+
+          & > img {
+            cursor: pointer;
+          }
         }
 
         & > h4 {
@@ -108,11 +131,19 @@ const St = {
 
       margin-top: 2.7rem;
     }
+
     #unactivated {
       & > div {
         background: ${({ theme }) => theme.colors.gray_100};
         color: ${({ theme }) => theme.colors.gray_300};
       }
+    }
+
+    small {
+      margin-top: 1.4rem;
+
+      ${({ theme }) => theme.fonts.SubTitle2}
+      color: ${({ theme }) => theme.colors.gray_500};
     }
   `,
   gradeListContainer: styled.div`
