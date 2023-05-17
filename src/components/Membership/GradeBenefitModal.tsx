@@ -75,7 +75,7 @@ const GradeBenefitModal = ({ onClose }) => {
         </button>
       </header>
       <figure>{gradeList}</figure>
-      <small>6개월간 {gradeDescription(grade)}</small>
+      <small>6개월간 {gradeDescription()}</small>
       <img src={gradeBenefitImg()} alt={`${grade} 등급에 대한 혜택`}></img>
     </St.GradeBenefitModalContainer>
   );

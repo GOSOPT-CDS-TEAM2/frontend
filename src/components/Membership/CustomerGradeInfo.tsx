@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { GradeBarImg, SpeechBubbleImg } from '../../assets/image';
 
-import SuccessModal from './GradeBenefitModal';
+import GradeBenefitModal from './GradeBenefitModal';
 import { gradeRange } from './gradeRange';
 import ModalPortal from './ModalPortal';
 
@@ -46,7 +46,7 @@ const CustomerGradeInfo = () => {
     <>
       {modalOpen && (
         <ModalPortal>
-          <SuccessModal onClose={() => setModalOpen(false)} />
+          <GradeBenefitModal onClose={() => setModalOpen(false)} />
         </ModalPortal>
       )}
       <St.CustomerGradeInfoContainer>
