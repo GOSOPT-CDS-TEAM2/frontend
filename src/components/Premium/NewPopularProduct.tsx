@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 import { BagGrayIcon, HeartFillIcon, HeartIcon } from '../../assets/icon';
+import ProductTag from '../../components/common/ProductTag';
 import { ProductProps } from '../../types/common';
-
-import ProductTag from './ProductTag';
 
 const NewPopularProduct = () => {
 
