@@ -64,7 +64,7 @@ const fonts = {
     font-style: normal;
     font-weight: 600;
     font-size: 1.8rem;
-    line-height: 2.2em;
+    line-height: 2.2rem;
     letter-spacing: -0.02em;
   `,
   SubHead1: css`
