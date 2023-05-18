@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { GradeBarImg, SpeechBubbleImg } from '../../assets/image';
 
+import { GRADE_RANGE } from './data/GRADE_RANGE';
 import GradeBenefitModal from './GradeBenefitModal';
-import { gradeRange } from './gradeRange';
 import ModalPortal from './ModalPortal';
 
 const CustomerGradeInfo = () => {
@@ -23,7 +23,7 @@ const CustomerGradeInfo = () => {
     let remainAmount = 0;
     let nextGrade: string | undefined = '';
 
-    gradeRange.map((range) => {
+    GRADE_RANGE.map((range) => {
       if (range.min <= paymentAmount && paymentAmount < range.max) {
         grade = range.grade;
         remainAmount = range.max - paymentAmount;
@@ -35,7 +35,7 @@ const CustomerGradeInfo = () => {
 
   const { grade, remainAmount, nextGrade } = getCustomerGrade(customerInfo.paymentAmount);
 
-  const gradeList = gradeRange.map((item, idx) => {
+  const gradeList = GRADE_RANGE.map((item, idx) => {
     return (
       <li key={idx} className={item.grade === nextGrade ? 'selected' : ''}>
         {item.grade}

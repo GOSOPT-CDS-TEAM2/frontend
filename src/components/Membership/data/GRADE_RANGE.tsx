@@ -5,7 +5,7 @@ interface gradeRange {
   nextGrade: string | undefined;
 }
 
-export const gradeRange: gradeRange[] = [
+export const GRADE_RANGE: gradeRange[] = [
   {
     grade: 'BABY',
     min: 0,
