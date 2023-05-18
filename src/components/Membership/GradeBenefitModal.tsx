@@ -96,9 +96,9 @@ const St = {
     align-items: center;
     position: fixed;
     z-index: 1;
-    top: 50%;
+    top: 17%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 
     padding: 1.2rem 1.4rem 3.5rem 1.3rem;
     width: 34.6rem;
