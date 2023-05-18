@@ -12,7 +12,8 @@ interface CouponProps {
   condition: string;
 }
 
-const Coupon = ({ name, grade, type, condition }: CouponProps) => {
+const Coupon = (props: CouponProps) => {
+  const { name, grade, type, condition } = props;
   return (
     <St.CouponContainer type={type}>
       <div className="content">
