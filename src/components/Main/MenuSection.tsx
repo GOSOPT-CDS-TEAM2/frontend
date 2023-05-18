@@ -22,14 +22,14 @@ interface Menu {
   type: string;
 }
 
-const MainMenu: Menu[] = [
+const MAIN_MENU: Menu[] = [
   { imgUrl: MainIcon, description: '라이브 버튼 아이콘', link: '/', type: 'main' },
   { imgUrl: DiscountIcon, description: '세일 버튼 아이콘', link: '/', type: 'main' },
   { imgUrl: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium', type: 'main' },
   { imgUrl: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/', type: 'main' },
 ];
 
-const SubMenu: Menu[] = [
+const SUB_MENU: Menu[] = [
   { imgUrl: GiftIcon, description: '선물하기 버튼 아이콘', link: '/', type: 'sub' },
   { imgUrl: AwardsIcon, description: '어워드 버튼 아이콘', link: '/', type: 'sub' },
   { imgUrl: WomanCareIcon, description: '여성 케어 버튼 아이콘', link: '/', type: 'sub' },
@@ -47,8 +47,8 @@ const MenuSection = () => {
     );
   };
 
-  const MainMenuList = MainMenu.map(renderMenu);
-  const SubMenuList = SubMenu.map(renderMenu);
+  const MainMenuList = MAIN_MENU.map(renderMenu);
+  const SubMenuList = SUB_MENU.map(renderMenu);
 
   return (
     <St.MenuSectionContainer>
