@@ -2,15 +2,7 @@ import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
 
-interface Event {
-  title: string;
-  content: string;
-}
-
-const CLAUSE_LIST: Event[] = [
-  { title: '멤버십 등급 기준', content: '' },
-  { title: '유의사항', content: '' },
-];
+import { CLAUSE_LIST } from './data/CLAUSE_LIST';
 
 const ClauseSection = () => {
   return (
