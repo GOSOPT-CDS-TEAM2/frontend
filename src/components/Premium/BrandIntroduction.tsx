@@ -1,19 +1,36 @@
 import styled from 'styled-components';
+import SwiperCore, { Mousewheel, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { 바비브라운, 숨, 헤라 } from '../../assets/image';
 
 const BrandIntroduction = () => {
-
+  SwiperCore.use([Mousewheel]);
   return (
 
     <St.BrandIntroContainer>
-      
+        
       <St.AdImg4>
         <img src={바비브라운} alt="베스트 향 광고"/>
         <St.AdHeader> 에스티로더그룹</St.AdHeader>
         <St.AdContent> 최대 1+1 대전 </St.AdContent>
       </St.AdImg4>
-
+      
+      <CustomSwiper
+        modules = {[Pagination, Navigation, Mousewheel, Scrollbar]}
+        slidesPerView = "auto"
+        spaceBetween = {18}
+        mousewheel = {true}
+        pagination = {{ 
+          el: ".pagination_progress",
+          type:"progressbar" }}
+        scrollbar = {{ draggable: true }}
+      >
+        
+        <SwiperSlide> <img src={숨} alt = "숨 브랜드 소개" /> </SwiperSlide>
+        <SwiperSlide> <img src={헤라} alt = "헤라 브랜드 소개" /> </SwiperSlide>
+        
+      </CustomSwiper>
     </St.BrandIntroContainer>
 
   );
@@ -21,16 +38,48 @@ const BrandIntroduction = () => {
 
 export default BrandIntroduction;
 
+const CustomSwiper = styled(Swiper)`
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    
+
+    & > .swiper-wrapper {
+        display: flex;
+        width: 100vw;
+        height: 20rem;
+        margin-left: 1.6rem;
+        
+    }
+
+    & .swiper-slide {
+        width: 20.8rem;
+        height: 13.5rem;
+        border-radius: 4px;
+        > img {
+            width : 20.8rem;
+            height: 13.5rem;
+        }
+    }
+
+
+`;
 const St = {
 
   BrandIntroContainer: styled.div`
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
         width: 100vw;
 
         margin-top: 3.8rem;
+
+        overflow: hidden;
+        padding-bottom: 20rem;
+
+
     `,
     
   AdImg4: styled.div`
