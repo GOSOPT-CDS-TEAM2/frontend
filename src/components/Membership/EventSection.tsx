@@ -29,7 +29,7 @@ const EventSection = () => {
         {EVENT_LIST.map((item, idx) => (
           <SwiperSlide key={idx}>
             <St.EventContainer>
-              <Link to={'#'}>
+              <Link to={item.link}>
                 <img src={item.imgUrl} alt={item.description} width={346} height={185}></img>
               </Link>
             </St.EventContainer>
