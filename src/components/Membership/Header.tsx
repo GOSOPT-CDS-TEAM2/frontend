@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { BackIcon, BagIcon } from '../../assets/icon';
@@ -10,10 +11,10 @@ const Header = () => {
         <img src={BackIcon} alt="뒤로가기 아이콘" />
       </button>
       <h2>멤버십/쿠폰</h2>
-      <a id="cart" href="/">
+      <Link id="cart" to="/cart">
         <span id="cartCnt">{cartCnt}</span>
         <img src={BagIcon} alt="장바구니 아이콘" />
-      </a>
+      </Link>
     </St.HeaderContainer>
   );
 };
