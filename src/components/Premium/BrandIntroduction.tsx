@@ -1,12 +1,13 @@
-import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import SwiperCore, { Mousewheel, Navigation, Pagination, Scrollbar } from 'swiper';
+import SwiperCore, { Mousewheel, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { 바비브라운, 숨, 헤라 } from '../../assets/image';
 
 const BrandIntroduction = () => {
-  SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
+  
+  SwiperCore.use([Mousewheel, Pagination]);
+
   return (
 
     <St.BrandIntroContainer>
@@ -20,7 +21,7 @@ const BrandIntroduction = () => {
       <St.SwiperHeader> Brand Introduction </St.SwiperHeader>
 
       <St.CustomSwiper
-        modules = {[Pagination, Navigation, Mousewheel, Scrollbar]}
+        modules = {[Pagination, Navigation, Mousewheel]}
         slidesPerView = "auto"
         
         spaceBetween = {14.3}
@@ -58,20 +59,20 @@ const St = {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        
         width: 100vw;
-
         margin-top: 3.8rem;
-
-        overflow: hidden;
         padding-bottom: 20rem;
 
-
+        overflow: hidden;
     `,
 
   CustomSwiper : styled(Swiper)`
+
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     width: 100vw;
     height: 100%;
     
@@ -80,9 +81,7 @@ const St = {
         display: flex;
         width: 100vw;
         height: 15.8rem;
-        margin-left: 1.6rem;
-        
-        
+        margin-left: 1.6rem;        
     }
 
     & .swiper-slide {
@@ -90,8 +89,10 @@ const St = {
         flex-direction: column;
         justify-items: center;
         align-items: center;
+
         width: 20.8rem;
         height: 13.5rem;
+        
         border-radius: 4px;
         > img {
             width : 20.8rem;
@@ -100,17 +101,17 @@ const St = {
     }
 
     .pagination_progress {
+      position: relative;
       width: 34.6rem;
       height: 0.2rem;
+      margin-top: 2.5rem;
       margin-left: 1.4rem;
       background-color: ${({ theme }) => theme.colors.gray_100};
-      position: relative;
-      margin-top: 2.5rem;
     }
     
     .pagination_progress::after {
-      content: "";
       position: absolute;
+      content: "";
       top: 0;
       left: 0;
       width: 50%;
@@ -123,6 +124,7 @@ const St = {
       width: 100%;
       color:  ${({ theme }) => theme.colors.gray_900};
     }
+    
     .swiper-pagination-progressbar-fill {
       background: ${({ theme }) => theme.colors.gray_900} !important;
     }
@@ -130,8 +132,6 @@ const St = {
 
   SwiperHeader: styled.h2`
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
     width: 34.5rem;
     margin-left: 1.4rem;
     margin-bottom: 1.6rem;
@@ -148,10 +148,11 @@ const St = {
     
   AdImg4: styled.div`
     display: flex;
-    width: 34.5rem;
-    height: 24rem;
     flex-direction: column;
     justify-content: center;
+    
+    width: 34.5rem;
+    height: 24rem;
     margin: 0rem 1.5rem 4.0rem 1.5rem;
 
     img {
