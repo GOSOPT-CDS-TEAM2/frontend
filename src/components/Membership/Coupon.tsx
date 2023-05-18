@@ -39,6 +39,7 @@ const CouponList = () => {
       {COUPON_LIST.map((item, key) => (
         <Coupon key={key} name={item.name} grade={item.grade} type={item.type} condition={item.condition} />
       ))}
+      <button type="button">등급별 혜택 보기</button>
     </St.CouponListContainer>
   );
 };
@@ -50,8 +51,10 @@ const St = {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-self: center;
+    position: relative;
 
-    width: 34.6rem;
+    width: 34.2rem;
     height: 12.6rem;
 
     margin-top: 1.5rem;
@@ -62,10 +65,11 @@ const St = {
       position: absolute;
       z-index: -1;
 
-      width: 35.6rem;
-      height: 13rem;
+      width: 34.8rem;
+      height: 13.4rem;
 
       background-image: url(${({ type }) => (type === '오늘드림' ? CouponPinkImg : CouponGrayImg)});
+      background-position-x: center;
     }
 
     .content {
@@ -97,7 +101,7 @@ const St = {
 
       height: 100%;
       width: 4.8rem;
-      padding: 1.9rem 0;
+      padding: 1.9rem 0.4rem 2.2rem 0;
 
       & > h2 {
         width: 2.2rem;
@@ -113,7 +117,6 @@ const St = {
 
     margin-top: 5.4rem;
     margin-bottom: 1.4rem;
-    padding: 0 1.4rem; // TODO: 소수점 수정 필요
 
     ${({ theme }) => theme.fonts.Head4}
     color:${({ theme }) => theme.colors.gray_900};
@@ -122,9 +125,28 @@ const St = {
       display: flex;
       align-items: center;
 
+      padding: 0 1.4rem;
+
       & > img {
         margin-left: 0.3rem;
       }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 4.1rem;
+      margin: 1.9rem 1.7rem 0 1.7rem;
+
+      ${({ theme }) => theme.fonts.Title2}
+      color:${({ theme }) => theme.colors.gray_700};
+      background: ${({ theme }) => theme.colors.gray_000};
+      border: 0.1rem solid ${({ theme }) => theme.colors.gray_200};
+      border-radius: 0.4rem;
+
+      cursor: pointer;
     }
   `,
 };

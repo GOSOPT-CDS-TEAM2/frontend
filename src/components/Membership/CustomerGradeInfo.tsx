@@ -77,6 +77,7 @@ const CustomerGradeInfo = () => {
           </figure>
         </div>
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation(); // TODO: 클릭했을 때 부모 컴포넌트까지 재랜더링됨
             setModalOpen(true);
