@@ -11,7 +11,8 @@ interface GradeBenefitModalProps {
   curGrade: string;
 }
 
-const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
+const GradeBenefitModal = (props: GradeBenefitModalProps) => {
+  const { onClose, curGrade } = props;
   const [grade, setGrade] = useState(curGrade);
 
   const GRADE_LIST_REVERSE = [...GRADE_LIST].reverse();
