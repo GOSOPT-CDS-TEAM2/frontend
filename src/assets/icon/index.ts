@@ -1,9 +1,11 @@
 // 명명규칙은 xxxxIcon으로 통일
-
 export { default as AddressIcon } from './btn_address.svg';
 export { default as BackIcon } from './btn_back.svg';
 export { default as BagIcon } from './btn_bag.svg';
+export { default as BagGrayIcon } from './btn_bag_gray.svg';
 export { default as BrandNameListIcon } from './btn_brand_name_list.svg';
+export { default as HeartIcon } from './btn_heart.svg';
+export { default as HeartFillIcon } from './btn_heart_fill.svg';
 export { default as LogoIcon } from './btn_logo.svg';
 export { default as PremiumCardLikeIcon } from './btn_primeum_card_like.svg';
 export { default as BlackSearchIcon } from './btn_search.svg';
