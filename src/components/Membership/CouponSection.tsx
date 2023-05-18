@@ -109,6 +109,10 @@ const St = {
         ${({ theme }) => theme.fonts.SubTitle3}
         color:${({ theme }) => theme.colors.pink_500};
       }
+
+      & > img {
+        cursor: pointer;
+      }
     }
   `,
   CouponSectionContainer: styled.div`
