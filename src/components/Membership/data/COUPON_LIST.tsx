@@ -1,11 +1,11 @@
-interface CouponList {
+interface Coupon {
   name: string;
   grade: string;
   type: string;
   condition: string;
 }
 
-export const COUPON_LIST: CouponList[] = [
+export const COUPON_LIST: Coupon[] = [
   {
     name: '무료배송',
     grade: 'PINK',

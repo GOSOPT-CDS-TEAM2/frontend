@@ -1,9 +1,10 @@
-import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, BenefitPinkImg } from '../../assets/image';
-import { CloseIcon, InfoIcon } from '../../assets/icon';
-
-import { GRADE_RANGE } from './data/GRADE_RANGE';
-import styled from 'styled-components';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+import { CloseIcon, InfoIcon } from '../../assets/icon';
+import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, BenefitPinkImg } from '../../assets/image';
+
+import { GRADE_LIST } from './data/GRADE_LIST';
 
 interface GradeBenefitModalProps {
   onClose: void;
@@ -13,8 +14,8 @@ interface GradeBenefitModalProps {
 const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
   const [grade, setGrade] = useState(curGrade);
 
-  const GRADE_RANGE_REVERSE = [...GRADE_RANGE].reverse();
-  const gradeList = GRADE_RANGE_REVERSE.map((item, idx) => {
+  const GRADE_LIST_REVERSE = [...GRADE_LIST].reverse();
+  const gradeList = GRADE_LIST_REVERSE.map((item, idx) => {
     return (
       <St.gradeListContainer key={idx} id={item.grade !== grade ? 'unactivated' : ''}>
         <St.gradeContainer
@@ -32,7 +33,7 @@ const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
   });
 
   // 현재 선택된 등급에 대한 정보를 가져오는 함수
-  const curGradeInfo = GRADE_RANGE.filter((item) => {
+  const curGradeInfo = GRADE_LIST.filter((item) => {
     return item.grade === grade;
   })[0];
 
