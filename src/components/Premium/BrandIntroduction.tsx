@@ -1,22 +1,43 @@
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Mousewheel, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { 바비브라운, 숨, 헤라 } from '../../assets/image';
+import { 바비브라운, 바비브라운영상, 숨, 헤라 } from '../../assets/image';
 
 const BrandIntroduction = () => {
-  
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoPlaying, setVideoPlaying] = useState(false);
+
   SwiperCore.use([Mousewheel, Pagination]);
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setVideoPlaying(!isVideoPlaying);
+    }
+  };
+  
   return (
 
     <St.BrandIntroContainer>
         
-      <St.AdImg4>
-        <img src={바비브라운} alt="베스트 향 광고"/>
+      <St.AdVideo>
+        <video 
+          ref = {videoRef} 
+          muted 
+          loop 
+          onClick = {handleVideoClick}>
+          <source src = {바비브라운영상} type = "video/mp4"/>
+        </video>
         <St.AdHeader> 에스티로더그룹</St.AdHeader>
         <St.AdContent> 최대 1+1 대전 </St.AdContent>
-      </St.AdImg4>
+      </St.AdVideo>
 
       <St.SwiperHeader> Brand Introduction </St.SwiperHeader>
 
@@ -146,23 +167,22 @@ const St = {
     color: ${({ theme }) => theme.colors.gray_900};
   `,
     
-  AdImg4: styled.div`
+  AdVideo: styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     
     width: 34.5rem;
-    height: 24rem;
     margin: 0rem 1.5rem 4.0rem 1.5rem;
 
-    img {
+    video {
       border-radius: 0.4rem;
     }
   `,
 
   AdHeader: styled.h1`
     display: flex;
-    margin-top: 0.1rem;
+    margin-top: 1rem;
     ${({ theme }) => theme.fonts.Head4};
     color: ${({ theme }) => theme.colors.gray_900};
 `,
