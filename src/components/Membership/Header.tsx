@@ -8,12 +8,12 @@ const Header = () => {
   return (
     <St.HeaderContainer>
       <button type="button">
-        <img src={BackIcon} alt="뒤로가기 아이콘" />
+        <img src={BackIcon} alt="뒤로가기 아이콘" width={48} height={48} />
       </button>
       <h2>멤버십/쿠폰</h2>
       <Link id="cart" to="/cart">
         <span id="cartCnt">{cartCnt}</span>
-        <img src={BagIcon} alt="장바구니 아이콘" />
+        <img src={BagIcon} alt="장바구니 아이콘" width={48} height={48} />
       </Link>
     </St.HeaderContainer>
   );
