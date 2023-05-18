@@ -23,7 +23,7 @@ const CustomerGradeInfo = () => {
     let remainAmount = 0;
     let nextGrade: string | undefined = '';
 
-    GRADE_LIST.map((range) => {
+    GRADE_LIST.forEach((range) => {
       if (range.min <= paymentAmount && paymentAmount < range.max) {
         grade = range.grade;
         remainAmount = range.max - paymentAmount;
