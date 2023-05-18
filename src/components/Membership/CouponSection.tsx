@@ -39,7 +39,7 @@ const CouponSection = () => {
       {COUPON_LIST.map((item, key) => (
         <Coupon key={key} name={item.name} grade={item.grade} type={item.type} condition={item.condition} />
       ))}
-      <button type="button">등급별 혜택 보기</button>
+      <button type="button">쿠폰 한번에 받기</button>
     </St.CouponSectionContainer>
   );
 };
