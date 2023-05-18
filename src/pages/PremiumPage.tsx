@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import Header from '../components/Premium/Header';
 import Menu from '../components/Premium/Menu';
+import NewPopularList from '../components/Premium/NewPopularList';
 import PremiumBrand from '../components/Premium/PremiumBrand';
 
 const PremiumPage = () => {
@@ -10,6 +11,7 @@ const PremiumPage = () => {
       <Header />
       <Menu />
       <PremiumBrand />
+      <NewPopularList/>
     </St.PremiumContainer>
   );
 };
