@@ -59,7 +59,7 @@ const CustomerGradeInfo = () => {
                 <br /> {grade} OLIVE
               </h1>
               <p>
-                현재 등급 유지까지 <span>{customerInfo.remainDate}</span> 일 남았어요!
+                현재 등급 유지까지 <strong>{customerInfo.remainDate}</strong> 일 남았어요!
               </p>
             </div>
             <span className="point">P</span>
@@ -78,8 +78,7 @@ const CustomerGradeInfo = () => {
         </div>
         <button
           type="button"
-          onClick={(e) => {
-            e.stopPropagation(); // TODO: 클릭했을 때 부모 컴포넌트까지 재랜더링됨
+          onClick={() => {
             setModalOpen(true);
           }}>
           <span className="point">P</span>등급별 혜택 보기
@@ -119,7 +118,7 @@ const St = {
 
         & > p {
           ${({ theme }) => theme.fonts.SubTitle4};
-          & > span {
+          & > strong {
             ${({ theme }) => theme.fonts.Head3};
           }
         }
