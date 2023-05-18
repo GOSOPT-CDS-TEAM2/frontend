@@ -1,3 +1,4 @@
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Mousewheel, Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -5,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { 바비브라운, 숨, 헤라 } from '../../assets/image';
 
 const BrandIntroduction = () => {
-  SwiperCore.use([Mousewheel]);
+  SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
   return (
 
     <St.BrandIntroContainer>
@@ -23,13 +24,13 @@ const BrandIntroduction = () => {
         mousewheel = {true}
         pagination = {{ 
           el: ".pagination_progress",
-          type:"progressbar" }}
-        scrollbar = {{ draggable: true }}
+          type: "progressbar",
+        }}
       >
         
         <SwiperSlide> <img src={숨} alt = "숨 브랜드 소개" /> </SwiperSlide>
         <SwiperSlide> <img src={헤라} alt = "헤라 브랜드 소개" /> </SwiperSlide>
-        
+        <div className="pagination_progress"></div>
       </CustomSwiper>
     </St.BrandIntroContainer>
 
@@ -41,6 +42,7 @@ export default BrandIntroduction;
 const CustomSwiper = styled(Swiper)`
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100vw;
     height: 100%;
     
@@ -63,8 +65,31 @@ const CustomSwiper = styled(Swiper)`
         }
     }
 
-
+    .pagination_progress {
+      width: 100%;
+      height: 10px;
+      background-color: #f1f1f1;
+      position: relative;
+      margin-top: 10px;
+    }
+    
+    .pagination_progress::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #007aff;
+      transition: width 0.3s ease;
+    }
+    
+    .swiper-slide-active .pagination_progress::after {
+      width: 100%;
+    }
+    
 `;
+
 const St = {
 
   BrandIntroContainer: styled.div`
