@@ -57,7 +57,7 @@ const St = {
     width: 34.2rem;
     height: 12.6rem;
 
-    margin-top: 1.5rem;
+    margin-top: 1.7rem;
 
     &::before {
       content: '';

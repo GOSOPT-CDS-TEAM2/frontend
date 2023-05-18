@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CategoryNav from '../components/Membership/CategoryNav';
 import CouponList from '../components/Membership/Coupon';
 import CustomerGradeInfo from '../components/Membership/CustomerGradeInfo';
+import Event from '../components/Membership/Event';
 import Header from '../components/Membership/Header';
 
 const Membership = () => {
@@ -12,6 +13,7 @@ const Membership = () => {
       <CategoryNav />
       <CustomerGradeInfo />
       <CouponList />
+      <Event />
     </St.MembershipContainer>
   );
 };
