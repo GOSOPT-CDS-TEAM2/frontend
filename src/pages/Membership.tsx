@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import CategoryNav from '../components/Membership/CategoryNav';
-import CouponList from '../components/Membership/Coupon';
+import CouponSection from '../components/Membership/CouponSection';
 import CustomerGradeInfo from '../components/Membership/CustomerGradeInfo';
-import Event from '../components/Membership/Event';
+import EventSection from '../components/Membership/EventSection';
 import Header from '../components/Membership/Header';
 
 const Membership = () => {
@@ -12,8 +12,8 @@ const Membership = () => {
       <Header />
       <CategoryNav />
       <CustomerGradeInfo />
-      <CouponList />
-      <Event />
+      <CouponSection />
+      <EventSection />
     </St.MembershipContainer>
   );
 };

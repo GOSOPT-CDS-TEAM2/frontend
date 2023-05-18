@@ -30,9 +30,9 @@ const Coupon = ({ name, grade, type, condition }: CouponProps) => {
   );
 };
 
-const CouponList = () => {
+const CouponSection = () => {
   return (
-    <St.CouponListContainer>
+    <St.CouponSectionContainer>
       <h1>
         지금 받을 수 있는 쿠폰<img src={InfoIcon} alt="인포메이션 아이콘"></img>
       </h1>
@@ -40,11 +40,11 @@ const CouponList = () => {
         <Coupon key={key} name={item.name} grade={item.grade} type={item.type} condition={item.condition} />
       ))}
       <button type="button">등급별 혜택 보기</button>
-    </St.CouponListContainer>
+    </St.CouponSectionContainer>
   );
 };
 
-export default CouponList;
+export default CouponSection;
 
 const St = {
   CouponContainer: styled.div<{ type: string }>`
@@ -111,7 +111,7 @@ const St = {
       }
     }
   `,
-  CouponListContainer: styled.div`
+  CouponSectionContainer: styled.div`
     display: flex;
     flex-direction: column;
 
