@@ -2,6 +2,10 @@
 export { default as AddressIcon } from './btn_address.svg';
 export { default as BackIcon } from './btn_back.svg';
 export { default as BagIcon } from './btn_bag.svg';
+export { default as CloseIcon } from './btn_close.svg';
+export { default as LogoIcon } from './btn_logo.svg';
+export { default as InfoIcon } from './ic_info.svg';
+export { default as SearchIcon } from './ic_search.svg';
 export { default as BagGrayIcon } from './btn_bag_gray.svg';
 export { default as BagRankIcon } from './btn_bag_rank.svg';
 export { default as BrandNameListIcon } from './btn_brand_name_list.svg';
