@@ -13,19 +13,19 @@ interface GradeBenefitModalProps {
 
 const GradeBenefitModal = (props: GradeBenefitModalProps) => {
   const { onClose, curGrade } = props;
-  const [grade, setGrade] = useState(curGrade);
 
-  const GRADE_LIST_REVERSE = [...GRADE_LIST].reverse();
-  const gradeList = GRADE_LIST_REVERSE.map((item, idx) => {
+  const [currentGrade, setCurrentGrade] = useState(curGrade);
+  const gradeRangeReverse = [...GRADE_LIST].reverse();
+  const gradeList = gradeRangeReverse.map(({ grade }, idx) => {
     return (
-      <St.gradeListContainer key={idx} id={item.grade !== grade ? 'unactivated' : ''}>
+      <St.gradeListContainer key={idx} id={grade !== currentGrade ? 'unactivated' : ''}>
         <St.gradeContainer
-          id={item.grade.toLowerCase()}
+          id={grade.toLowerCase()}
           onClick={(e) => {
             e.stopPropagation(); // TODO: 클릭했을 때 부모 컴포넌트까지 재랜더링됨
-            setGrade(item.grade);
+            setCurrentGrade(grade);
           }}>
-          {item.grade}
+          {grade}
           <br />
           OLIVE
         </St.gradeContainer>
@@ -35,12 +35,12 @@ const GradeBenefitModal = (props: GradeBenefitModalProps) => {
 
   // 현재 선택된 등급에 대한 정보를 가져오는 함수
   const curGradeInfo = GRADE_LIST.filter((item) => {
-    return item.grade === grade;
+    return item.grade === currentGrade;
   })[0];
 
   // 현재 선택된 등급에 대한 구매 금액 관련 설명을 결정하는 함수
   const gradeDescription = () => {
-    switch (grade) {
+    switch (currentGrade) {
       case 'BABY':
         return `${curGradeInfo.max / 10000}만원 미만 구매`;
 
@@ -54,7 +54,7 @@ const GradeBenefitModal = (props: GradeBenefitModalProps) => {
 
   // 현재 선택된 등급에 대한 혜택 이미지 주소를 가져오는 함수
   const gradeBenefitImg = () => {
-    switch (grade) {
+    switch (currentGrade) {
       case 'BABY':
         return BenefitBabyImg;
       case 'PINK':
@@ -83,7 +83,7 @@ const GradeBenefitModal = (props: GradeBenefitModalProps) => {
       </header>
       <figure>{gradeList}</figure>
       <small>6개월간 {gradeDescription()}</small>
-      <img src={gradeBenefitImg()} alt={`${grade} 등급에 대한 혜택`}></img>
+      <img src={gradeBenefitImg()} alt={`${currentGrade} 등급에 대한 혜택`}></img>
     </St.GradeBenefitModalContainer>
   );
 };
