@@ -51,7 +51,7 @@ const CustomerGradeInfo = () => {
         </ModalPortal>
       )}
       <St.CustomerGradeInfoContainer>
-        <div>
+        <St.InfoDescriptionContainer>
           <section className="customerGradeInfo">
             <div className="description">
               <h1>
@@ -64,18 +64,20 @@ const CustomerGradeInfo = () => {
             </div>
             <span className="point">P</span>
           </section>
-          <aside className="speechBubble">
-            <img src={SpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
-            <p>
-              <span className="remainAmount">{remainAmount.toLocaleString()}원 </span>추가 구매 시<br />
-              {customerInfo.upgradePeriod} <span className="nextGrade">{nextGrade} OLIVE</span>
-            </p>
-          </aside>
-          <figure className="gradeBar">
-            <img src={GradeBarImg} alt="등급 위치를 알려주는 바"></img>
-            <ol>{gradeList}</ol>
-          </figure>
-        </div>
+          <St.GradeFigureContainer>
+            <aside>
+              <img src={SpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
+              <p>
+                <span className="remainAmount">{remainAmount.toLocaleString()}원 </span>추가 구매 시<br />
+                {customerInfo.upgradePeriod} <span className="nextGrade">{nextGrade} OLIVE</span>
+              </p>
+            </aside>
+            <div>
+              <img src={GradeBarImg} alt="등급 위치를 알려주는 바"></img>
+              <ol>{gradeList}</ol>
+            </div>
+          </St.GradeFigureContainer>
+        </St.InfoDescriptionContainer>
         <button
           type="button"
           onClick={() => {
@@ -96,93 +98,6 @@ const St = {
     flex-direction: column;
 
     width: 100%;
-
-    & > div {
-      height: 26rem;
-      padding: 1.8rem 1.5rem 2.8rem 1.5rem;
-
-      background: ${({ theme }) => theme.colors.pink_500};
-
-      .customerGradeInfo {
-        display: flex;
-        justify-content: space-between;
-
-        width: 100%;
-      }
-
-      .description {
-        color: ${({ theme }) => theme.colors.gray_000};
-        & > h1 {
-          ${({ theme }) => theme.fonts.SubHead1};
-        }
-
-        & > p {
-          ${({ theme }) => theme.fonts.SubTitle4};
-          & > strong {
-            ${({ theme }) => theme.fonts.Head3};
-          }
-        }
-      }
-
-      .point {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        width: 7rem;
-        height: 7rem;
-
-        ${({ theme }) => theme.fonts.Head1}
-        color: ${({ theme }) => theme.colors.pink_100};
-        background: ${({ theme }) => theme.colors.gray_000};
-        border-radius: 50%;
-      }
-
-      .speechBubble {
-        text-align: center;
-        position: relative;
-
-        margin-top: 2.5rem;
-
-        color: ${({ theme }) => theme.colors.gray_000};
-
-        & > p {
-          position: absolute;
-          top: 1.3rem;
-
-          width: 100%;
-
-          ${({ theme }) => theme.fonts.SubTitle4}
-        }
-
-        & > p > .remainAmount,
-        .nextGrade {
-          ${({ theme }) => theme.fonts.SubTitle1}
-        }
-      }
-      .gradeBar {
-        text-align: center;
-
-        width: 100%;
-        margin-top: 1.2rem;
-
-        & > ol {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          margin-top: 0.6rem;
-
-          color: ${({ theme }) => theme.colors.gray_200};
-          ${({ theme }) => theme.fonts.SubTitle4}
-
-          & > .selected {
-            ${({ theme }) => theme.fonts.SubTitle1}
-            color: ${({ theme }) => theme.colors.gray_000};
-          }
-        }
-      }
-    }
 
     & > button {
       display: flex;
@@ -213,6 +128,94 @@ const St = {
         color: ${({ theme }) => theme.colors.gray_000};
         background: ${({ theme }) => theme.colors.pink_500};
         border-radius: 50%;
+      }
+    }
+  `,
+  InfoDescriptionContainer: styled.p`
+    height: 26rem;
+    padding: 1.8rem 1.5rem 2.8rem 1.5rem;
+
+    background: ${({ theme }) => theme.colors.pink_500};
+
+    .customerGradeInfo {
+      display: flex;
+      justify-content: space-between;
+
+      width: 100%;
+    }
+
+    .description {
+      color: ${({ theme }) => theme.colors.gray_000};
+      & > h1 {
+        ${({ theme }) => theme.fonts.SubHead1};
+      }
+
+      & > p {
+        ${({ theme }) => theme.fonts.SubTitle4};
+        & > strong {
+          ${({ theme }) => theme.fonts.Head3};
+        }
+      }
+    }
+
+    .point {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 7rem;
+      height: 7rem;
+
+      ${({ theme }) => theme.fonts.Head1}
+      color: ${({ theme }) => theme.colors.pink_100};
+      background: ${({ theme }) => theme.colors.gray_000};
+      border-radius: 50%;
+    }
+  `,
+  GradeFigureContainer: styled.figure`
+    aside {
+      text-align: center;
+      position: relative;
+
+      margin-top: 2.5rem;
+
+      color: ${({ theme }) => theme.colors.gray_000};
+
+      & > p {
+        position: absolute;
+        top: 1.3rem;
+
+        width: 100%;
+
+        ${({ theme }) => theme.fonts.SubTitle4}
+      }
+
+      & > p > .remainAmount,
+      .nextGrade {
+        ${({ theme }) => theme.fonts.SubTitle1}
+      }
+    }
+
+    div {
+      text-align: center;
+
+      width: 100%;
+      margin-top: 1.2rem;
+
+      & > ol {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-top: 0.6rem;
+
+        color: ${({ theme }) => theme.colors.gray_200};
+        ${({ theme }) => theme.fonts.SubTitle4}
+
+        & > .selected {
+          ${({ theme }) => theme.fonts.SubTitle1}
+          color: ${({ theme }) => theme.colors.gray_000};
+        }
       }
     }
   `,
