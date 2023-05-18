@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { BagRankIcon, HeartRankFillIcon, HeartRankIcon } from '../../assets/icon';
 import { ProductProps } from '../../types/common';
-import ProductTag from '../common/ProductTag';
+import ProductTag from '../Common/ProductTag';
 
 const RankProduct = (props: ProductProps) => {
   const {
