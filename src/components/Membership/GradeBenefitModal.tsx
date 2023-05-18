@@ -7,7 +7,7 @@ import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, Benef
 import { GRADE_LIST } from './data/GRADE_LIST';
 
 interface GradeBenefitModalProps {
-  onClose: void;
+  onClose: () => void;
   curGrade: string;
 }
 
