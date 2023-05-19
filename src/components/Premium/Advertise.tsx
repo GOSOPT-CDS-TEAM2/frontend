@@ -59,56 +59,61 @@ export default Advertise;
 const St = {
   AdvertiseContainer: styled.div`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 6.3rem 1.5rem 0rem 1.5rem;
+    flex-direction: column;
+    
     width: 100vw;
+    margin: 6.3rem 1.5rem 0rem 1.5rem;
   `,
 
   AdImg1: styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 2.7rem;
-  padding: 1rem;
-
-  width: 34.5rem;
-  height: 32.3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    width: 34.5rem;
+    height: 32.3rem;
+    margin-bottom: 2.7rem;
+    padding: 1rem;
 `,
 
   AdImg2: styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 2.3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
-  padding: 1rem;
-  width: 34.5rem;
-  height: 19rem;
+    width: 34.5rem;
+    height: 19rem;
+    padding: 1rem;
+    margin-bottom: 2.3rem;
   `,
 
   AdImg3: styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 3.8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
-  padding: 1rem;
-  width: 34.5rem;
-  height: 19rem;
+    width: 34.5rem;
+    height: 19rem;
+    padding: 1rem;
+    margin-bottom: 3.8rem;
   `,
 
   AdHeader: styled.h1`
     display: flex;
+
     margin-top: 0.9rem;
+
     ${({ theme }) => theme.fonts.Head4};
     color: ${({ theme }) => theme.colors.gray_900};
   `,
 
-  AdContent: styled.h3`
+  AdContent: styled.h2`
     display: flex;
+
     margin-top: 0.1rem;
+    
     ${({ theme }) => theme.fonts.Title2};
     color: ${({ theme }) => theme.colors.gray_700};
   `,
@@ -116,10 +121,10 @@ const St = {
   ProductContainer: styled.section`
       display: flex;
       flex-direction: column;
-
+      gap: 0.7rem;
+      
       width: 34.5rem;
       margin-left: 1.3rem;
-      gap: 0.7rem;
 
       h1 {
         margin-bottom: 1.5rem;
