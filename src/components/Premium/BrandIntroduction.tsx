@@ -44,9 +44,10 @@ const BrandIntroduction = () => {
       <St.CustomSwiper
         modules = {[Pagination, Navigation, Mousewheel]}
         slidesPerView = "auto"
-        
         spaceBetween = {14.3}
         mousewheel = {true}
+        
+        threshold = {0}
         pagination = {{ 
           el: ".pagination_progress",
           type: "progressbar",
