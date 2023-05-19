@@ -115,7 +115,7 @@ const St = {
         width: 20.8rem;
         height: 13.5rem;
         
-        border-radius: 4px;
+        border-radius: 0.4rem;
         > img {
             width : 20.8rem;
             height: 13.5rem;
@@ -124,10 +124,12 @@ const St = {
 
     .pagination_progress {
       position: relative;
+
       width: 34.6rem;
       height: 0.2rem;
       margin-top: 2.5rem;
       margin-left: 1.4rem;
+
       background-color: ${({ theme }) => theme.colors.gray_100};
     }
     
@@ -188,7 +190,7 @@ const St = {
     color: ${({ theme }) => theme.colors.gray_900};
 `,
 
-  AdContent: styled.h3`
+  AdContent: styled.h2`
     display: flex;
     margin-top: 0.1rem;
     ${({ theme }) => theme.fonts.Title2};
