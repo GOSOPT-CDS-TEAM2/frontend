@@ -2,9 +2,43 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
-import { AdHotEventImg } from '../../assets/image';
+import { AdHotEventImg, 더마토리하이포알러제닉페미닌워시, 더마토리하이포페미닌버블폼 } from '../../assets/image';
+import { ProductData } from '../../types/common';
 
 const HotEvent = () => {
+  const HOT_EVENT_DATA: ProductData[] = [
+    {
+      name: '[최모나PICK][NEW] 더마토리 하이포알러제닉 프레쉬 페미닌 버블폼 ...',
+      originalPrice: 18000,
+      discountRate: 25,
+      discountPrice: 13500,
+      image: 더마토리하이포페미닌버블폼,
+      likeTF: false,
+      tags: {
+        BEST: true,
+        단독: false,
+        오늘드림: true,
+        증정: false,
+        '1+1': false,
+      },
+    },
+    {
+      name: '[단독기획] 더마토리 하이포알러제닉 모이스처라이징 마일드 페미닌워시 ...',
+      originalPrice: 18000,
+      discountRate: 25,
+      discountPrice: 13500,
+      image: 더마토리하이포알러제닉페미닌워시,
+      likeTF: false,
+      tags: {
+        BEST: true,
+        단독: false,
+        오늘드림: true,
+        증정: false,
+        '1+1': false,
+      },
+    },
+  ];
+
   const [selectedCategory, setSelectedCategory] = useState('지미추&몽블랑');
   const handleOnClick = (e: React.MouseEvent<HTMLLIElement>) => {
     setSelectedCategory(e.currentTarget.id);

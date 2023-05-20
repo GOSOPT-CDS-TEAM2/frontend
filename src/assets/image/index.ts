@@ -13,4 +13,6 @@ export { default as SpeechBubbleImg } from './speech_bubble.svg';
 export { default as 꼬달리 } from './꼬달리.svg';
 export { default as 다비네스 } from './다비네스.svg';
 export { default as 달팜 } from './달팜.svg';
+export { default as 더마토리하이포알러제닉페미닌워시 } from './더마토리하이포알러제닉페미닌워시.svg';
+export { default as 더마토리하이포페미닌버블폼 } from './더마토리하이포페미닌버블폼.svg';
 export { default as 더바디샵 } from './더바디샵.svg';
