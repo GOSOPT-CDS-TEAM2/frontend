@@ -15,4 +15,6 @@ export { default as 꼬달리 } from './꼬달리.svg';
 export { default as 다비네스 } from './다비네스.svg';
 export { default as 달팜 } from './달팜.svg';
 export { default as 더바디샵 } from './더바디샵.svg';
+export { default as 라운드랩자작나무Img } from './라운드랩자작나무.png';
 export { default as 심드렁쿠키바Img } from './심드렁쿠키바.png';
+export { default as 안트래디언스앰플Img } from './안트래디언스앰플.png';
