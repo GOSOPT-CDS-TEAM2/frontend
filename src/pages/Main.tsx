@@ -5,6 +5,7 @@ import CategoryNav from '../components/Main/CategoryNav';
 import Header from '../components/Main/Header';
 import HealthyLife from '../components/Main/HealthyLife';
 import MenuSection from '../components/Main/MenuSection';
+import SpecialPrice from '../components/Main/SpecialPrice';
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
         <MenuSection />
         <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
         <HealthyLife />
+        <SpecialPrice />
       </main>
     </St.MainContainer>
   );

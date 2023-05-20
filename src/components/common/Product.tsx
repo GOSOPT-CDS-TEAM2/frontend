@@ -49,7 +49,6 @@ const St = {
     flex-direction: column;
 
     width: 13.5rem;
-    height: 29.7rem;
   `,
   ProductName: styled.header`
     width: 12.6rem;
