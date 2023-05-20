@@ -84,6 +84,9 @@ const St = {
 
     margin-top: 1.7rem;
 
+    width: 100vw;
+    padding: 0 1.7rem;
+
     & > .swiper {
       display: flex;
       justify-content: center;
@@ -108,17 +111,23 @@ const St = {
         height: 5.7rem;
 
         margin-top: 0.9rem;
+
+        & > .swiper-slide {
+          width: 100vw;
+
+          padding: 0 1.7rem;
+        }
       }
     }
   `,
 
   MenuContainer: styled.section`
     display: grid;
-    justify-content: center;
+    justify-content: space-between;
     grid-template-columns: repeat(4, 8rem);
-    column-gap: 0.8rem;
+    /* column-gap: 0.8rem; */
 
-    width: 100vw;
+    width: 100%;
 
     & > .main {
       filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.25));
