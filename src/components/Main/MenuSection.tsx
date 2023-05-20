@@ -125,7 +125,6 @@ const St = {
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(4, 8rem);
-    /* column-gap: 0.8rem; */
 
     width: 100%;
 
