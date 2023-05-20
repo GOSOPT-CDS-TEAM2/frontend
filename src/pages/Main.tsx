@@ -6,6 +6,7 @@ import Header from '../components/Main/Header';
 import HotEvent from '../components/Main/HotEvent';
 import MenuSection from '../components/Main/MenuSection';
 import WeeklySpecial from '../components/Main/WeeklySpecial';
+import WeightManagement from '../components/Main/WeightManagement';
 
 const Main = () => {
   return (
@@ -18,6 +19,7 @@ const Main = () => {
         <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
         <WeeklySpecial />
         <HotEvent />
+        <WeightManagement />
       </main>
     </St.MainContainer>
   );
