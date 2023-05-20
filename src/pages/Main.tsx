@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { AdSpringImg, MainThumbNailImg } from '../assets/image';
 import CategoryNav from '../components/Main/CategoryNav';
 import Header from '../components/Main/Header';
+import HotEvent from '../components/Main/HotEvent';
 import MenuSection from '../components/Main/MenuSection';
+import WeeklySpecial from '../components/Main/WeeklySpecial';
 
 const Main = () => {
   return (
@@ -14,6 +16,8 @@ const Main = () => {
         <img src={MainThumbNailImg} alt="첫번째 광고 썸네일 이미지" />
         <MenuSection />
         <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
+        <WeeklySpecial />
+        <HotEvent />
       </main>
     </St.MainContainer>
   );

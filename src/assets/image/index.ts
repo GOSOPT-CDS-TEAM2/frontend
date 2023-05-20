@@ -1,5 +1,6 @@
 // 명명규칙은 xxxxImg으로 통일
 // export { ReactComponent as AdobeLogo } from './AdobeCorporateLogo1.svg';
+export { default as AdHotEventImg } from './ad_hot_event.png';
 export { default as AdSpringImg } from './ad_spring.svg';
 export { default as BenefitBabyImg } from './benefit_baby.svg';
 export { default as BenefitBlackImg } from './benefit_black.svg';
