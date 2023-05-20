@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ProductData } from '../../types/common';
 
-import RankProduct from './RankProduct';
+import HorizontalProduct from './HorizontalProduct';
 
 const CATEGORY_LIST = ['바디케어', '헤어케어', '향수/디퓨저', '미용소품', '남성', '식품', '반려동물'];
 
@@ -70,7 +70,7 @@ const CategoryRank = () => {
     );
   });
   const renderProductList = RANKING_DATA.map((item) => {
-    return <RankProduct key={item.name} productData={item} />;
+    return <HorizontalProduct key={item.name} productData={item} />;
   });
   return (
     <St.CategoryRankContainer>

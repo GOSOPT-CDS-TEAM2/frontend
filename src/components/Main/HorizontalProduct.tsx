@@ -5,7 +5,7 @@ import { BagRankIcon, HeartRankFillIcon, HeartRankIcon } from '../../assets/icon
 import { ProductProps } from '../../types/common';
 import ProductTag from '../Common/ProductTag';
 
-const RankProduct = (props: ProductProps) => {
+const HorizontalProduct = (props: ProductProps) => {
   const {
     productData: { name, originalPrice, discountRate, discountPrice, image, likeTF, tags },
   } = props;
@@ -47,7 +47,7 @@ const RankProduct = (props: ProductProps) => {
   );
 };
 
-export default RankProduct;
+export default HorizontalProduct;
 
 const St = {
   RankProductContainer: styled.article`
