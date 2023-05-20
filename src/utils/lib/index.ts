@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const client: AxiosInstance = axios.create({ baseURL: process.env.REACT_APP_API });
-
-export default client;
+export const client: AxiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_APP_IP,
+  headers: { 'Content-Type': 'application/json', userId: 1 },
+});

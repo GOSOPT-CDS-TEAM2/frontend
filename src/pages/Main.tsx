@@ -1,11 +1,18 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { AdSpringImg, MainThumbNailImg } from '../assets/image';
 import CategoryNav from '../components/Main/CategoryNav';
 import Header from '../components/Main/Header';
 import MenuSection from '../components/Main/MenuSection';
+import { getRecommendData } from '../utils/lib/main';
 
 const Main = () => {
+  useEffect(() => {
+    const data = getRecommendData();
+    console.log(data);
+  }, []);
+
   return (
     <St.MainContainer>
       <Header />
