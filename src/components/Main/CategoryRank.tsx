@@ -145,11 +145,12 @@ const St = {
   ProductContainer: styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 3rem;
 
-    width: 35rem;
+    width: 100vw;
 
     margin-top: 2.1rem;
-    margin-left: 1.5rem;
+    /* margin-left: 1.5rem; */
   `,
 };
