@@ -65,7 +65,7 @@ const Advertise = () => {
 export default Advertise;
 
 const St = {
-  AdvertiseContainer: styled.div`
+  AdvertiseContainer: styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +75,7 @@ const St = {
     margin: 6.3rem 1.5rem 0rem 1.5rem;
   `,
 
-  AdImg: styled.div`
+  AdImg: styled.article`
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -84,30 +84,27 @@ const St = {
     padding: 1rem;
 
     &:first-child {
-      margin-bottom: 2.8rem;
+      margin-bottom: 3rem;
     }
 
     &:nth-child(2) {
-      margin-bottom: 2.3rem;
+      margin-bottom: 2rem;
     }
-
+    
     &:nth-child(3) {
-      margin-bottom: 3.8rem;
+      margin-bottom: 3.8em;
     }
 `,
 
   AdHeader: styled.h1`
     display: flex;
-
     margin-top: 0.9rem;
-
     ${({ theme }) => theme.fonts.Head4};
     color: ${({ theme }) => theme.colors.gray_900};
   `,
 
   AdContent: styled.h2`
     display: flex;
-
     margin-top: 0.1rem;
     
     ${({ theme }) => theme.fonts.Title2};
@@ -121,7 +118,6 @@ const St = {
       
       width: 34.5rem;
       margin-left: 1.3rem;
-
       h1 {
         margin-bottom: 1.5rem;
         ${({ theme }) => theme.fonts.SubHead1};
