@@ -46,6 +46,7 @@ const St = {
 
   width: 16.8rem;
   height: 32rem;  
+  margin-left: 1.1rem;
   `,
 
   Image: styled.img`
@@ -64,7 +65,6 @@ const St = {
   `,
 
   OriginalPrice: styled.h2`
-  width: 4.5rem;
   height: 1.4rem;
   margin-top: 0.5rem;
 
@@ -92,6 +92,7 @@ const St = {
   display: flex;
   height: 1.6rem;
   margin-top: 0.3rem;
+  gap: 0.3rem;
   `,
   
   IconContainer: styled.div`

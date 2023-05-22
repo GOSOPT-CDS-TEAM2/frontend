@@ -105,16 +105,67 @@ const NewPopularList = () => {
   });
 
   return (
-    <St.ProductContainer>
-      {ProductList}
-    </St.ProductContainer>
+    <St.NewPopularContainer>
+      <St.Header>
+        <div className = "new"> 신상품 </div>
+        <div className = "popular"> 인기상품 </div>
+      </St.Header>
+      <St.ProductList>
+        {ProductList}
+      </St.ProductList>
+    </St.NewPopularContainer>
   );
 };
 
 export default NewPopularList;
 
 const St = {
-  ProductContainer : styled.section`
+  NewPopularContainer : styled.section`
   display: flex;
+  flex-direction: column;
+
+  width: 37.5rem;
+  `,
+
+  Header: styled.header`
+  display: flex;
+
+  width: 37.5rem;
+  height: 3.2rem;
+  margin-top: 3.4rem;
+  margin-bottom: 1.4rem;
+
+  ${({ theme }) => theme.fonts.SubHead1};
+  color: ${({ theme }) => theme.colors.gray_900};
+
+  & .new {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+
+    border-bottom: 2px solid;
+    border-bottom-color: ${({ theme }) => theme.colors.gray_900};
+  }
+
+  & .popular {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+
+    width: 18.7rem;
+    color: ${({ theme }) => theme.colors.gray_500};
+    border-bottom: 2px solid;
+    border-bottom-color: ${({ theme }) => theme.colors.gray_200};
+  }
+
+  `,
+
+  ProductList: styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  
+  width: 37.5rem;
+  margin-left: 0.3rem;
+  margin-right: 1.4rem;
   `,
 };
