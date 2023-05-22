@@ -151,6 +151,5 @@ const St = {
     width: 100vw;
 
     margin-top: 2.1rem;
-    /* margin-left: 1.5rem; */
   `,
 };

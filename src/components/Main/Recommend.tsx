@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
 import { ProductData } from '../../types/common';
-import Product from '../Common/Product';
+import Product from '../common/Product';
 
 const USER = '황현진';
 // 더미 데이터
