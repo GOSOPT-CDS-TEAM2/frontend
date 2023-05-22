@@ -35,13 +35,12 @@ const Advertise = () => {
     image: string;
     header: string;
     comment: string;
-    className: string;
   }
 
   const Ad = (props: AdProps) => {
-    const { name, image, header, comment, className } = props;
+    const { name, image, header, comment } = props;
     return (
-      <St.AdImg className = {className}>
+      <St.AdImg>
         <img src={image} alt= {name} />
         <St.AdHeader> {header} </St.AdHeader>
         <St.AdContent> {comment} </St.AdContent>
@@ -52,7 +51,7 @@ const Advertise = () => {
   return (
     <St.AdvertiseContainer>
       {AD_LIST.map((item, key) => (
-        <Ad key = {key} name = {item.name} image = {item.image} header = {item.header} comment = {item.comment} className = {item.className}/>
+        <Ad key = {key} name = {item.name} image = {item.image} header = {item.header} comment = {item.comment}/>
       ))}
       <St.ProductContainer>
         <h1> MD 추천상품</h1>
@@ -84,15 +83,15 @@ const St = {
     width: 34.5rem;
     padding: 1rem;
 
-    &.first {
+    &:first-child {
       margin-bottom: 2.8rem;
     }
 
-    &.second{
+    &:nth-child(2) {
       margin-bottom: 2.3rem;
     }
-    
-    &.third{
+
+    &:nth-child(3) {
       margin-bottom: 3.8rem;
     }
 `,
