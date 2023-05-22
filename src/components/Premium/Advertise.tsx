@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-import { 로이비퍼퓸, 베스트향광고, 에스티로더작은광고, 에스티로더큰광고 } from '../../assets/image';
+import { 로이비퍼퓸 } from '../../assets/image';
 import { ProductData } from '../../types/common';
 import Product from '../common/Product';
+
+import { AD_LIST } from './data/AD_LIST';
 
 const Advertise = () => {
 
@@ -27,24 +29,31 @@ const Advertise = () => {
   const productList = productData.map((item) => {
     return <Product key={item.name} productData={item} />;
   });
-  
+
+  interface AdProps {
+    name: string;
+    image: string;
+    header: string;
+    comment: string;
+    className: string;
+  }
+
+  const Ad = (props: AdProps) => {
+    const { name, image, header, comment, className } = props;
+    return (
+      <St.AdImg className = {className}>
+        <img src={image} alt= {name} />
+        <St.AdHeader> {header} </St.AdHeader>
+        <St.AdContent> {comment} </St.AdContent>
+      </St.AdImg>
+    );
+  };
+
   return (
     <St.AdvertiseContainer>
-      <St.AdImg1>
-        <img src={에스티로더큰광고} alt="에스티로더 큰 광고" />
-        <St.AdHeader> 단 7일, 에스티 로더 그룹 </St.AdHeader>
-        <St.AdContent> 최대 1+1 & 정품 증정💛 </St.AdContent>
-      </St.AdImg1>
-      <St.AdImg2>
-        <img src={에스티로더작은광고} alt="에스티로더 작은 광고" />
-        <St.AdHeader> 단 7일 최대 1+1 </St.AdHeader>
-        <St.AdContent> &정품 증정까지! </St.AdContent>
-      </St.AdImg2>
-      <St.AdImg3>
-        <img src={베스트향광고} alt="베스트 향 광고" />
-        <St.AdHeader> 💛BEST 향💛 </St.AdHeader>
-        <St.AdContent> 최대 20% 할인! </St.AdContent>
-      </St.AdImg3>
+      {AD_LIST.map((item, key) => (
+        <Ad key = {key} name = {item.name} image = {item.image} header = {item.header} comment = {item.comment} className = {item.className}/>
+      ))}
       <St.ProductContainer>
         <h1> MD 추천상품</h1>
         {productList}
@@ -67,38 +76,26 @@ const St = {
     margin: 6.3rem 1.5rem 0rem 1.5rem;
   `,
 
-  AdImg1: styled.div`
+  AdImg: styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     
     width: 34.5rem;
-    height: 32.3rem;
-    margin-bottom: 2.7rem;
     padding: 1rem;
+
+    &.first {
+      margin-bottom: 2.8rem;
+    }
+
+    &.second{
+      margin-bottom: 2.3rem;
+    }
+    
+    &.third{
+      margin-bottom: 3.8rem;
+    }
 `,
-
-  AdImg2: styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    width: 34.5rem;
-    height: 19rem;
-    padding: 1rem;
-    margin-bottom: 2.3rem;
-  `,
-
-  AdImg3: styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    width: 34.5rem;
-    height: 19rem;
-    padding: 1rem;
-    margin-bottom: 3.8rem;
-  `,
 
   AdHeader: styled.h1`
     display: flex;
