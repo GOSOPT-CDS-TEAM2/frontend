@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import SwiperCore, { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { ArrowIcon } from '../../assets/icon';
 
@@ -6,6 +8,8 @@ import { WEIGHT_PRODUCT } from './constant/WeightProductData';
 import WeightProduct from './WeightProduct';
 
 const WeightManagement = () => {
+  SwiperCore.use([Pagination]);
+
   const productList = WEIGHT_PRODUCT.map((item) => {
     return <WeightProduct key={item.name} productData={item} />;
   });
@@ -22,7 +26,17 @@ const WeightManagement = () => {
           <img src={ArrowIcon} alt="더보기 아이콘" width={24} height={24} />
         </St.MoreButton>
       </header>
-      <St.ProductContainer>{productList}</St.ProductContainer>
+      <Swiper
+        pagination={{ clickable: true }} // 페이지네이션 옵션
+        speed={700} // 슬라이드가 넘어가는 속도를 조정. 700ms
+        threshold={0}>
+        <SwiperSlide>
+          <St.ProductContainer>{productList}</St.ProductContainer>
+        </SwiperSlide>
+        <SwiperSlide>
+          <St.ProductContainer>{productList}</St.ProductContainer>
+        </SwiperSlide>
+      </Swiper>
     </St.WeightManagementContainer>
   );
 };
@@ -36,6 +50,45 @@ const St = {
     & > header {
       display: flex;
       justify-content: space-between;
+    }
+
+    & > .swiper {
+      display: flex;
+      flex-direction: column;
+
+      margin-bottom: 3.7rem;
+
+      & > .swiper-pagination-bullets {
+        display: flex;
+        justify-content: center;
+        gap: 0.7rem;
+      }
+
+      & .swiper-pagination-bullet {
+        position: static;
+
+        width: 0.6rem;
+        height: 0.6rem;
+
+        margin-top: 2.4rem;
+
+        background-color: ${({ theme }) => theme.colors.gray_300};
+      }
+      & .swiper-pagination-bullet-active {
+        background-color: ${({ theme }) => theme.colors.gray_700};
+      }
+
+      & > .swiper-wrapper {
+        display: flex;
+
+        width: 100vw;
+
+        margin-top: 1.5rem;
+
+        & > .swiper-slide {
+          width: 100vw;
+        }
+      }
     }
   `,
   Title: styled.h1`
@@ -69,17 +122,5 @@ const St = {
     row-gap: 3rem;
 
     width: 100vw;
-
-    margin-top: 1.5rem;
-
-    /* display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(3, 11.3rem);
-    row-gap: 3rem;
-
-    width: 100vw;
-
-    margin-top: 1.5rem;
-    padding: 0 1.3rem; */
   `,
 };
