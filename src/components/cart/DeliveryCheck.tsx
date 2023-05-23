@@ -9,7 +9,7 @@ const DeliveryCheck = () => {
   return (
     <St.DeliveryCheckContainer>
       <St.OliveyoungDelivery>
-        <St.CheckLabel deliveryCheck={deliveryCheck}>
+        <St.CheckLabel $deliveryCheck={deliveryCheck}>
           <label>
             <input
               type="checkbox"
@@ -35,7 +35,7 @@ const DeliveryCheck = () => {
         </St.Buttons>
       </St.OliveyoungDelivery>
 
-      <St.ProgressBar progressAmount={progressAmount}>
+      <St.ProgressBar $progressAmount={progressAmount}>
         <div className="progressBarContainer"></div>
         <img src={ShoppingCartIcon} alt="쇼핑 카트 아이콘"></img>
       </St.ProgressBar>
@@ -61,7 +61,7 @@ const St = {
 
     ${({ theme }) => theme.fonts.Title2};
   `,
-  CheckLabel: styled.div<{ deliveryCheck: boolean }>`
+  CheckLabel: styled.div<{ $deliveryCheck: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -90,7 +90,7 @@ const St = {
       margin: 0;
 
       border-right: 0;
-      background-image: url(${({ deliveryCheck }) => (deliveryCheck ? CheckBigCheckedIcon : CheckBigNotCheckedIcon)});
+      background-image: url(${({ $deliveryCheck }) => ($deliveryCheck ? CheckBigCheckedIcon : CheckBigNotCheckedIcon)});
 
       appearance: none;
     }
@@ -112,7 +112,7 @@ const St = {
       ${({ theme }) => theme.fonts.SubTitle4};
     }
   `,
-  ProgressBar: styled.aside<{ progressAmount: string }>`
+  ProgressBar: styled.aside<{ $progressAmount: string }>`
     display: flex;
     gap: 0.8rem;
     align-items: center;
@@ -135,7 +135,7 @@ const St = {
       left: 0;
 
       height: 0.6rem;
-      width: ${({ progressAmount }) => progressAmount};
+      width: ${({ $progressAmount }) => $progressAmount};
 
       border-radius: 2rem;
       background: ${({ theme }) => theme.colors.red_300};
