@@ -19,14 +19,14 @@ const DeliveryCheck = () => {
                 setProgressAmount(progressAmount === '0%' ? '100%' : '0%');
               }}
             />
-            <h3>올리브영 배송</h3>
+            <h2>올리브영 배송</h2>
           </label>
           {deliveryCheck ? (
-            <span>무료 배송</span>
+            <h3>무료 배송</h3>
           ) : (
-            <span>
+            <h3>
               <strong>20,000</strong>원 이상 무료 배송
-            </span>
+            </h3>
           )}
         </St.CheckLabel>
         <St.Buttons>
@@ -72,8 +72,9 @@ const St = {
       gap: 0.5rem;
     }
 
-    span {
+    h3 {
       height: 1.8rem;
+      margin-left: 0.3rem;
 
       ${({ theme }) => theme.fonts.SubTitle2};
       color: ${({ theme }) => theme.colors.gray_700};
@@ -88,9 +89,10 @@ const St = {
       height: 2.4rem;
       margin: 0;
 
-      appearance: none;
       border-right: 0;
       background-image: url(${({ deliveryCheck }) => (deliveryCheck ? CheckBigCheckedIcon : CheckBigNotCheckedIcon)});
+
+      appearance: none;
     }
   `,
   Buttons: styled.div`
@@ -131,9 +133,10 @@ const St = {
       position: absolute;
       top: 0;
       left: 0;
+
       height: 0.6rem;
-      width: 100%;
       width: ${({ progressAmount }) => progressAmount};
+
       border-radius: 2rem;
       background: ${({ theme }) => theme.colors.red_300};
 
