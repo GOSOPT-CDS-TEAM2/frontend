@@ -28,7 +28,7 @@ const WeightManagement = () => {
       </header>
       <Swiper
         pagination={{ clickable: true }} // 페이지네이션 옵션
-        speed={650} // 슬라이드가 넘어가는 속도를 조정. 700ms
+        speed={650} // 슬라이드가 넘어가는 속도를 조정. 650ms
         threshold={0}>
         <SwiperSlide>
           <St.ProductContainer>{productList}</St.ProductContainer>

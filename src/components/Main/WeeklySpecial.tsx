@@ -1,6 +1,4 @@
-import { useRef, useState } from 'react';
 import styled from 'styled-components';
-import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import {
@@ -14,8 +12,8 @@ import {
 
 const WeeklySpecial = () => {
   const AD_DATA = [
-    { imgUrl: 봄맞이특가Img, description: '봄맞이 특가 광고' },
     { imgUrl: 믿고보는구매후기Img, description: '믿고 보는 구매 후기 광고' },
+    { imgUrl: 봄맞이특가Img, description: '봄맞이 특가 광고' },
     { imgUrl: 트러블케어Img, description: '트러블케어 광고' },
     { imgUrl: 비원츠베스트셀러2종Img, description: '비원츠 베스트 셀러 2종 광고' },
     { imgUrl: 올리브영데이Img, description: '올리브영데이 광고' },
