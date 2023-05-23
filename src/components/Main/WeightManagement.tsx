@@ -28,7 +28,7 @@ const WeightManagement = () => {
       </header>
       <Swiper
         pagination={{ clickable: true }} // 페이지네이션 옵션
-        speed={700} // 슬라이드가 넘어가는 속도를 조정. 700ms
+        speed={650} // 슬라이드가 넘어가는 속도를 조정. 700ms
         threshold={0}>
         <SwiperSlide>
           <St.ProductContainer>{productList}</St.ProductContainer>
@@ -53,24 +53,21 @@ const St = {
     }
 
     & > .swiper {
-      display: flex;
-      flex-direction: column;
-
       margin-bottom: 3.7rem;
 
-      & > .swiper-pagination-bullets {
+      & > .swiper-pagination {
+        position: static;
+
         display: flex;
         justify-content: center;
         gap: 0.7rem;
       }
 
       & .swiper-pagination-bullet {
-        position: static;
-
         width: 0.6rem;
         height: 0.6rem;
 
-        margin-top: 2.4rem;
+        margin-top: 2.3rem;
 
         background-color: ${({ theme }) => theme.colors.gray_300};
       }
@@ -79,15 +76,9 @@ const St = {
       }
 
       & > .swiper-wrapper {
-        display: flex;
-
         width: 100vw;
 
         margin-top: 1.5rem;
-
-        & > .swiper-slide {
-          width: 100vw;
-        }
       }
     }
   `,
