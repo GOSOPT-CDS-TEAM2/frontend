@@ -55,6 +55,7 @@ const St = {
 
     ${({ theme }) => theme.fonts.SubHead3};
     color: ${({ theme }) => theme.colors.gray_500};
+    border-bottom: 0.2rem solid ${({ theme }) => theme.colors.gray_200};
 
     &.selected {
       ${({ theme }) => theme.fonts.SubHead2};
