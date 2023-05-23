@@ -6,8 +6,8 @@ export const getRecommendData = () => {
   return client.get<ProductResponse>(`/api/main/recommend`);
 };
 
-export const getRangkingData = () => {
-  return client.get<ProductResponse>(`/api/main/ranking`);
+export const getRangkingData = (category: string) => {
+  return client.get<ProductResponse>(`/api/main/ranking`, { headers: { category: category } });
 };
 
 // export const getRecommendData = async () => {
