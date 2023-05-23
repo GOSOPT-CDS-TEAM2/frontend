@@ -67,10 +67,6 @@ const St = {
 
       margin-top: 1.6rem;
 
-      & .swiper-pagination {
-        z-index: 0;
-      }
-
       & .swiper-pagination-bullet {
         width: 0.6rem;
         height: 0.6rem;
@@ -84,7 +80,6 @@ const St = {
       }
       & > .swiper-wrapper {
         display: flex;
-        z-index: 0;
 
         width: 100%;
         height: 21.6rem;
