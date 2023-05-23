@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { AlarmIcon } from '../../assets/icon';
 import { DigitalTimeImg } from '../../assets/image';
-import Product from '../Common/Product';
+import Product from '../common/Product';
 
 import { SPECIAL_DATA } from './constant/SpecialProductData';
 

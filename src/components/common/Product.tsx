@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -55,7 +54,6 @@ const St = {
     flex-direction: column;
 
     width: 13.5rem;
-    height: 29.7rem;
 
     & > img {
       border-radius: 0.4rem;
@@ -109,7 +107,6 @@ const St = {
     margin-top: 0.8rem;
     & > button {
       width: 3.5rem;
-      height: 3.6rem;
 
       padding: 0;
 

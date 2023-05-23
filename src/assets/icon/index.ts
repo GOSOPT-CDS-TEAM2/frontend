@@ -13,6 +13,7 @@ export { default as HeartRankFillIcon } from './btn_heart_rank_fill.svg';
 export { default as LogoIcon } from './btn_logo.svg';
 export { default as PremiumCardLikeIcon } from './btn_primeum_card_like.svg';
 export { default as BlackSearchIcon } from './btn_search.svg';
+export { default as AlarmIcon } from './ic_alarm.svg';
 export { default as ArrowIcon } from './ic_arrow.svg';
 export { default as ArrowDownIcon } from './ic_arrow_down.svg';
 export { default as DownIcon } from './ic_down.svg';
