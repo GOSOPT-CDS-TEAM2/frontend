@@ -13,6 +13,7 @@ const EventSection = () => {
       <Swiper
         pagination={{ clickable: true }} // 페이지네이션 옵션
         speed={700} // 슬라이드가 넘어가는 속도를 조정. 700ms
+        threshold={0} // 민감도 조정.
       >
         {EVENT_LIST.map((item, idx) => (
           <SwiperSlide key={idx}>
