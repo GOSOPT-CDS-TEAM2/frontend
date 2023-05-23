@@ -8,8 +8,8 @@ const DeliveryCheck = () => {
   const [progressAmount, setProgressAmount] = useState('100%');
   return (
     <St.DeliveryCheckContainer>
-      <St.OliveyoungDelivery deliveryCheck={deliveryCheck}>
-        <div className="delivery">
+      <St.OliveyoungDelivery>
+        <St.CheckLabel deliveryCheck={deliveryCheck}>
           <label>
             <input
               type="checkbox"
@@ -19,7 +19,6 @@ const DeliveryCheck = () => {
                 setProgressAmount(progressAmount === '0%' ? '100%' : '0%');
               }}
             />
-
             <h3>올리브영 배송</h3>
           </label>
           {deliveryCheck ? (
@@ -29,7 +28,7 @@ const DeliveryCheck = () => {
               <strong>20,000</strong>원 이상 무료 배송
             </span>
           )}
-        </div>
+        </St.CheckLabel>
         <St.Buttons>
           <button type="button">오늘드림 이동</button>
           <button type="button">선택삭제</button>
@@ -37,9 +36,7 @@ const DeliveryCheck = () => {
       </St.OliveyoungDelivery>
 
       <St.ProgressBar progressAmount={progressAmount}>
-        <div className="progressBarContainer">
-          <progress max="100"></progress>
-        </div>
+        <div className="progressBarContainer"></div>
         <img src={ShoppingCartIcon} alt="쇼핑 카트 아이콘"></img>
       </St.ProgressBar>
     </St.DeliveryCheckContainer>
@@ -56,34 +53,33 @@ const St = {
     color: ${({ theme }) => theme.colors.gray_900};
     box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.05);
   `,
-  OliveyoungDelivery: styled.div<{ deliveryCheck: boolean }>`
+  OliveyoungDelivery: styled.div`
     display: flex;
     justify-content: space-between;
 
     margin: 1.2rem 1.2rem 0 1.8rem;
 
     ${({ theme }) => theme.fonts.Title2};
+  `,
+  CheckLabel: styled.div<{ deliveryCheck: boolean }>`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 
-    .delivery {
+    label {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 0.5rem;
+    }
 
-      label {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+    span {
+      height: 1.8rem;
 
-      span {
-        height: 1.8rem;
+      ${({ theme }) => theme.fonts.SubTitle2};
+      color: ${({ theme }) => theme.colors.gray_700};
 
-        ${({ theme }) => theme.fonts.SubTitle2};
-        color: ${({ theme }) => theme.colors.gray_700};
-
-        strong {
-          ${({ theme }) => theme.fonts.SubTitle1};
-        }
+      strong {
+        ${({ theme }) => theme.fonts.SubTitle1};
       }
     }
 
@@ -114,18 +110,13 @@ const St = {
       ${({ theme }) => theme.fonts.SubTitle4};
     }
   `,
-  ProgressBar: styled.aside<{
-    progressAmount: string;
-  }>`
+  ProgressBar: styled.aside<{ progressAmount: string }>`
     display: flex;
     gap: 0.8rem;
     align-items: center;
 
     margin: 0 1.9rem 1.3rem 1.8rem;
 
-    progress {
-      opacity: 0;
-    }
     .progressBarContainer {
       position: relative;
       background: #eee;
