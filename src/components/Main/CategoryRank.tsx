@@ -1,42 +1,16 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { TagData } from '../../types/common';
 import { ProductServerData } from '../../types/main';
 import { getRangkingData } from '../../utils/lib/main';
 
+import { BODYCARE_TAG_LIST } from './constants/BODYCARE_TAG_LIST';
+import { FOOD_TAG_LIST } from './constants/FOOD_TAG_LIST';
+import { PERFUME_TAG_LIST } from './constants/PERFUME_TAG_LIST';
 import HorizontalProduct from './HorizontalProduct';
 
 const CATEGORY_LIST = ['바디케어', '헤어케어', '향수/디퓨저', '미용소품', '남성', '식품', '반려동물'];
-
-const TAG_DATA = [
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-];
 
 const CategoryRank = () => {
   const [rankData, setRankData] = useState<ProductServerData[]>([]);
@@ -53,22 +27,27 @@ const CategoryRank = () => {
     setRankData(data);
   };
 
+  let tagData: TagData[] = PERFUME_TAG_LIST;
   useEffect(() => {
     let category;
     switch (selectedCategory) {
       case '향수/디퓨저':
         category = 'perfumeanddefuser';
+        tagData = PERFUME_TAG_LIST;
         break;
       case '바디케어':
         category = 'bodycare';
+        tagData = BODYCARE_TAG_LIST;
         break;
       case '식품':
         category = 'food';
+        tagData = FOOD_TAG_LIST;
         break;
       default:
         category = '';
         break;
     }
+    if (!category) return;
     getRankingDataList(category);
   }, [selectedCategory]);
 
@@ -79,10 +58,12 @@ const CategoryRank = () => {
       </St.Category>
     );
   });
+
   const renderProductList = rankData.map((item, idx) => {
-    const productData = { ...item, ...TAG_DATA[idx] };
+    const productData = { ...item, ...tagData[idx] };
     return <HorizontalProduct key={item.name} productData={productData} />;
   });
+
   return (
     <St.CategoryRankContainer>
       <header>

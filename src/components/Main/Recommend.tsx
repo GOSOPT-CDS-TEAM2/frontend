@@ -2,150 +2,13 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
-import { ProductData } from '../../types/common';
-import { ProductResponse, ProductServerData } from '../../types/main';
+import { ProductServerData } from '../../types/main';
 import { getRecommendData } from '../../utils/lib/main';
 import Product from '../common/Product';
 
-const USER = '황현진';
+import { TAG_LIST } from './constants/TAG_LIST';
 
-const TAG_DATA = [
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-];
+const USER = '황현진';
 
 const Recommend = () => {
   const [recommendData, setRecommendData] = useState<ProductServerData[]>([]);
@@ -167,7 +30,7 @@ const Recommend = () => {
   }, []);
 
   const productList = recommendData.map((item, idx) => {
-    const productData = { ...item, ...TAG_DATA[idx] };
+    const productData = { ...item, ...TAG_LIST[idx] };
     return <Product key={item.name} productData={productData} />;
   });
 

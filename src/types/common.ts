@@ -1,6 +1,6 @@
 import { ProductServerData } from './main';
 
-export interface ProductData extends ProductServerData {
+export interface TagData {
   tags: {
     BEST: boolean;
     단독: boolean;
@@ -9,6 +9,7 @@ export interface ProductData extends ProductServerData {
     '1+1': boolean; // 1+1 여부
   };
 }
+export interface ProductData extends ProductServerData, TagData {}
 
 export interface ProductProps {
   productData: ProductData;
