@@ -7,6 +7,7 @@ import Menu from '../components/Premium/Menu';
 import PremiumBrand from '../components/Premium/PremiumBrand';
 
 const PremiumPage = () => {
+  
   return (
     <St.PremiumContainer>
       <Header />

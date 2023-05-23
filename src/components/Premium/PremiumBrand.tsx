@@ -1,9 +1,17 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { BrandNameListIcon } from '../../assets/icon';
 import { 꼬달리, 다비네스, 달팜, 더바디샵 } from '../../assets/image';
+import { getPremiumBrand } from '../../utils/lib/brand';
 
 const PremiumBrand = () => {
+
+  useEffect(() => {
+    const data = getPremiumBrand();
+    console.log(data);
+  }, []);
+
   return (
     <St.PremiumBrandContainer>
       <St.Header> 프리미엄 브랜드 </St.Header>
