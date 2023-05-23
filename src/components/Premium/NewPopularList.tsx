@@ -107,8 +107,8 @@ const NewPopularList = () => {
   return (
     <St.NewPopularContainer>
       <St.Header>
-        <div className = "new"> 신상품 </div>
-        <div className = "popular"> 인기상품 </div>
+        <St.Product className = "new"> 신상품 </St.Product>
+        <St.Product className = "popular"> 인기상품 </St.Product>
       </St.Header>
       <St.ProductList>
         {ProductList}
@@ -124,13 +124,13 @@ const St = {
   display: flex;
   flex-direction: column;
 
-  width: 37.5rem;
+  width: 100%;
   `,
 
   Header: styled.header`
   display: flex;
 
-  width: 37.5rem;
+  width: 100%;
   height: 3.2rem;
   margin-top: 3.4rem;
   margin-bottom: 1.4rem;
@@ -138,34 +138,29 @@ const St = {
   ${({ theme }) => theme.fonts.SubHead1};
   color: ${({ theme }) => theme.colors.gray_900};
 
-  & .new {
-    flex: 1; 
-    display: flex;
-    justify-content: center;
-
-    border-bottom: 2px solid;
+  .new { 
     border-bottom-color: ${({ theme }) => theme.colors.gray_900};
   }
-
-  & .popular {
-    flex: 1; 
-    display: flex;
-    justify-content: center;
-
-    width: 18.7rem;
+  .popular { 
     color: ${({ theme }) => theme.colors.gray_500};
-    border-bottom: 2px solid;
     border-bottom-color: ${({ theme }) => theme.colors.gray_200};
   }
+  `,
 
+  Product: styled.div`
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+
+  border-bottom: 0.2rem solid;
   `,
 
   ProductList: styled.div`
   display: flex;
   flex-wrap: wrap;
   
-  width: 37.5rem;
-  margin-left: 0.3rem;
-  margin-right: 1.4rem;
+  width: 100%;
+  justify-content: center;
+  gap: 1.1rem; 
   `,
 };

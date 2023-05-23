@@ -46,7 +46,6 @@ const St = {
 
   width: 16.8rem;
   height: 32rem;  
-  margin-left: 1.1rem;
   margin-bottom: 2.1rem;
   `,
 
@@ -65,11 +64,10 @@ const St = {
   margin-top: 1.1rem;
   `,
 
-  OriginalPrice: styled.h2`
+  OriginalPrice: styled.s`
   height: 1.4rem;
   margin-top: 0.5rem;
 
-  text-decoration: line-through;
   ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray_300};
   `,
