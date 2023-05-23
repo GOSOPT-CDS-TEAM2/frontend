@@ -8,20 +8,19 @@ import { getCartData } from '../utils/lib/cart';
 
 const Cart = () => {
   const [cartProductsNum, setCartProductsNum] = useState(0);
-  useEffect(() => {
+  const getCartList = async () => {
     try {
-      getCartData()
-        .then((res) => res.data)
-        .then((res) => {
-          if (res.code === 200) {
-            const data = res.data;
-            console.log(data);
-            setCartProductsNum(data.cartProducts.length);
-          }
-        });
-    } catch (err) {
-      console.log(err);
+      const {
+        data: { data },
+      } = await getCartData();
+      setCartProductsNum(data.cartProducts.length);
+    } catch (e) {
+      console.log(e);
     }
+  };
+
+  useEffect(() => {
+    getCartList();
   }, []);
 
   return (
