@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ArrowIcon } from '../../assets/icon';
+import { ArrowDownIcon } from '../../assets/icon';
 
 import { CLAUSE_LIST } from './data/CLAUSE_LIST';
 
@@ -11,7 +11,7 @@ const ClauseSection = () => {
         <article key={idx}>
           <span>{item.title}</span>
           <button type="button">
-            <img src={ArrowIcon} alt="펼쳐보기 아이콘"></img>
+            <img src={ArrowDownIcon} alt="펼쳐보기 아이콘"></img>
           </button>
         </article>
       ))}
