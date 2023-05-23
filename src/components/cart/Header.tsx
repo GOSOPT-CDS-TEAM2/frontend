@@ -35,7 +35,7 @@ const St = {
     width: 100vw;
     height: 4.8rem;
 
-    box-shadow: 0 1rem 0 rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.03);
 
     & > button,
     img {

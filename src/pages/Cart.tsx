@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import CategoryNav from '../components/cart/CategoryNav';
 import Header from '../components/Cart/Header';
 import { getCartData } from '../utils/lib/cart';
 
@@ -25,6 +26,7 @@ const Cart = () => {
   return (
     <St.CartContainer>
       <Header cartProductsNum={cartProductsNum} />
+      <CategoryNav cartProductsNum={cartProductsNum} />
     </St.CartContainer>
   );
 };
