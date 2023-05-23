@@ -5,6 +5,8 @@ import { ArrowIcon } from '../../assets/icon';
 import { AdHotEventImg, 더마토리하이포알러제닉페미닌워시, 더마토리하이포페미닌버블폼 } from '../../assets/image';
 import { ProductData } from '../../types/common';
 
+import HorizontalProduct from './HorizontalProduct';
+
 const HotEvent = () => {
   const HOT_EVENT_DATA: ProductData[] = [
     {
@@ -51,6 +53,10 @@ const HotEvent = () => {
       </St.Category>
     );
   });
+
+  const productList = HOT_EVENT_DATA.map((item) => {
+    return <HorizontalProduct key={item.name} productData={item} />;
+  });
   return (
     <St.HotEventContainer>
       <header>
@@ -69,6 +75,7 @@ const HotEvent = () => {
       <St.ContentContainer>
         <img src={AdHotEventImg} alt="인기 행사 광고 이미지" />
       </St.ContentContainer>
+      <St.ProductContainer>{productList}</St.ProductContainer>
     </St.HotEventContainer>
   );
 };
@@ -143,5 +150,13 @@ const St = {
     & > img {
       width: 100%;
     }
+  `,
+  ProductContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.6rem;
+
+    margin-top: 1.8rem;
   `,
 };
