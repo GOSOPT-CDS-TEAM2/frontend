@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
 
-import { CheckBigCheckedIcon, CheckBigIcon, CheckBigNotCheckedIcon, ShoppingCartIcon } from '../../assets/icon';
+import { CheckBigCheckedIcon, CheckBigNotCheckedIcon, ShoppingCartIcon } from '../../assets/icon';
 
 const DeliveryCheck = () => {
   const [deliveryCheck, setDeliveryCheck] = useState(true);
@@ -19,9 +19,16 @@ const DeliveryCheck = () => {
                 setProgressAmount(progressAmount === '0%' ? '100%' : '0%');
               }}
             />
+
             <h3>올리브영 배송</h3>
           </label>
-          <span>무료 배송</span>
+          {deliveryCheck ? (
+            <span>무료 배송</span>
+          ) : (
+            <span>
+              <strong>20,000</strong>원 이상 무료 배송
+            </span>
+          )}
         </div>
         <St.Buttons>
           <button type="button">오늘드림 이동</button>
@@ -60,7 +67,7 @@ const St = {
     .delivery {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.5rem;
 
       label {
         display: flex;
@@ -69,8 +76,14 @@ const St = {
       }
 
       span {
+        height: 1.8rem;
+
         ${({ theme }) => theme.fonts.SubTitle2};
         color: ${({ theme }) => theme.colors.gray_700};
+
+        strong {
+          ${({ theme }) => theme.fonts.SubTitle1};
+        }
       }
     }
 
