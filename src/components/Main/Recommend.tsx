@@ -52,6 +52,21 @@ const PRODUCT_DATA: ProductData[] = [
       '1+1': false,
     },
   },
+  {
+    name: '웨이크메이크 네일케어 8종 모아보기',
+    originalPrice: 5000,
+    discountRate: 0,
+    discountPrice: 5000,
+    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
+    likeTF: true,
+    tags: {
+      BEST: true,
+      단독: true,
+      오늘드림: true,
+      증정: false,
+      '1+1': false,
+    },
+  },
 ];
 
 const Recommend = () => {
@@ -98,6 +113,7 @@ const St = {
 
     margin-top: 3.1rem;
     margin-right: 0.7rem;
+
     padding: 0;
 
     background: none;
@@ -111,9 +127,8 @@ const St = {
     display: flex;
     gap: 0.7rem;
 
-    margin-top: 0.4rem;
-
     padding-left: 1.4rem;
+    margin-top: 0.4rem;
 
     overflow-x: scroll;
 
