@@ -20,13 +20,19 @@ const CategoryRank = () => {
     setSelectedCategory(e.currentTarget.id);
   };
 
+  // 데이터 조회 함수
   const getRankingDataList = async (category: string) => {
-    const {
-      data: { data },
-    } = await getRangkingData(category);
-    setRankData(data);
+    try {
+      const {
+        data: { data },
+      } = await getRangkingData(category);
+      setRankData(data);
+    } catch (e) {
+      console.log(e); // 에러 처리는 나중에 에러 페이지나 섹션으로 대체할 예정
+    }
   };
 
+  // 카테고리 버튼이 바뀌면 refetch
   let tagData: TagData[] = PERFUME_TAG_LIST;
   useEffect(() => {
     let category;
@@ -47,7 +53,7 @@ const CategoryRank = () => {
         category = '';
         break;
     }
-    if (!category) return;
+    if (!category) return; // 지정된 세가지 카테고리 이외의 경우 refetch하지 않고 early return
     getRankingDataList(category);
   }, [selectedCategory]);
 
@@ -60,7 +66,7 @@ const CategoryRank = () => {
   });
 
   const renderProductList = rankData.map((item, idx) => {
-    const productData = { ...item, ...tagData[idx] };
+    const productData = { ...item, ...tagData[idx] }; // 불러온 서버데이터에 tag데이터 합치기
     return <HorizontalProduct key={item.name} productData={productData} />;
   });
 

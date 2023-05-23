@@ -13,6 +13,7 @@ const USER = '황현진';
 const Recommend = () => {
   const [recommendData, setRecommendData] = useState<ProductServerData[]>([]);
 
+  // 데이터 조회 함수
   const getRecommendList = async () => {
     try {
       const {
@@ -20,17 +21,17 @@ const Recommend = () => {
       } = await getRecommendData();
       setRecommendData(data);
     } catch (e) {
-      //에러 처리
-      console.log(e);
+      console.log(e); // 에러 처리는 나중에 에러 페이지나 섹션으로 대체할 예정
     }
   };
 
+  // 최초 렌더링 시 fetch
   useEffect(() => {
-    getRecommendList(); // 실행
+    getRecommendList();
   }, []);
 
   const productList = recommendData.map((item, idx) => {
-    const productData = { ...item, ...TAG_LIST[idx] };
+    const productData = { ...item, ...TAG_LIST[idx] }; // 불러온 서버데이터에 tag데이터 합치기
     return <Product key={item.name} productData={productData} />;
   });
 
