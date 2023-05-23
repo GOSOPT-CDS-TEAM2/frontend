@@ -16,6 +16,7 @@ export { default as PremiumCardLikeIcon } from './btn_primeum_card_like.svg';
 export { default as BlackSearchIcon } from './btn_search.svg';
 export { default as ArrowIcon } from './ic_arrow.svg';
 export { default as ArrowDownIcon } from './ic_arrow_down.svg';
+export { default as CheckBigIcon } from './ic_check_big.svg';
 export { default as DownIcon } from './ic_down.svg';
 export { default as InfoIcon } from './ic_info.svg';
 export { default as SearchIcon } from './ic_search.svg';

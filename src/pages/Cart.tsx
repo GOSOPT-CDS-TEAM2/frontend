@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import CategoryNav from '../components/cart/CategoryNav';
+import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/Cart/Header';
 import { getCartData } from '../utils/lib/cart';
 
@@ -27,6 +28,7 @@ const Cart = () => {
     <St.CartContainer>
       <Header cartProductsNum={cartProductsNum} />
       <CategoryNav cartProductsNum={cartProductsNum} />
+      <DeliveryCheck />
     </St.CartContainer>
   );
 };
