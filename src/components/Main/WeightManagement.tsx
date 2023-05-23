@@ -10,8 +10,8 @@ import WeightProduct from './WeightProduct';
 const WeightManagement = () => {
   SwiperCore.use([Pagination]);
 
-  const productList = WEIGHT_PRODUCT.map((item) => {
-    return <WeightProduct key={item.name} productData={item} />;
+  const productList = WEIGHT_PRODUCT.map((item, idx) => {
+    return <WeightProduct key={item.name} productData={item} idx={idx} />;
   });
 
   return (

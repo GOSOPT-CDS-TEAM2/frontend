@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-import { WeightProductProps } from '../../types/main';
-import ProductTag from '../Common/ProductTag';
+import { WeightProductData } from '../../types/main';
+import ProductTag from '../common/ProductTag';
+
+interface WeightProductProps extends WeightProductData {
+  idx: number;
+}
 
 const WeightProduct = (props: WeightProductProps) => {
   const {
     productData: { name, discountRate, price, image, tags },
+    idx,
   } = props;
 
   // tags 검사해서 tagList에 넣기
@@ -20,6 +25,7 @@ const WeightProduct = (props: WeightProductProps) => {
 
   return (
     <St.ProductContainer>
+      {!idx && <St.RemainTime>D-01:20</St.RemainTime>}
       <img src={image} alt="상품 이미지" width={113} height={109} />
       <St.ProductName>{name}</St.ProductName>
 
@@ -37,6 +43,8 @@ export default WeightProduct;
 
 const St = {
   ProductContainer: styled.article`
+    position: relative;
+
     display: flex;
     flex-direction: column;
 
@@ -74,5 +82,25 @@ const St = {
     gap: 0.4rem;
 
     margin-top: 0.7rem;
+  `,
+  RemainTime: styled.div`
+    position: absolute;
+    z-index: 1;
+
+    top: 0.5rem;
+    left: 0.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 5.6rem;
+    height: 1.4rem;
+
+    border-radius: 0.7rem;
+
+    ${({ theme }) => theme.fonts.Body1};
+    color: ${({ theme }) => theme.colors.gray_900};
+    background-color: ${({ theme }) => theme.colors.gray_000};
   `,
 };
