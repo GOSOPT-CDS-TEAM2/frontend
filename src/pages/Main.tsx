@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import { AdSpringImg, MainThumbNailImg } from '../assets/image';
+import { AdHandCareImg, AdSpringImg, MainThumbNailImg } from '../assets/image';
 import CategoryNav from '../components/Main/CategoryNav';
+import CategoryRank from '../components/Main/CategoryRank';
 import Header from '../components/Main/Header';
 import HealthyLife from '../components/Main/HealthyLife';
 import MenuSection from '../components/Main/MenuSection';
+import Recommend from '../components/Main/Recommend';
 import SpecialPrice from '../components/Main/SpecialPrice';
+import { getRecommendData } from '../utils/lib/main';
 
 const Main = () => {
+  useEffect(() => {
+    const data = getRecommendData();
+    console.log(data);
+  }, []);
+
   return (
     <St.MainContainer>
       <Header />
@@ -16,6 +25,9 @@ const Main = () => {
         <img src={MainThumbNailImg} alt="첫번째 광고 썸네일 이미지" />
         <MenuSection />
         <img src={AdSpringImg} alt="봄맞이 할인 광고 배너" />
+        <Recommend />
+        <CategoryRank />
+        <img src={AdHandCareImg} alt="핸드케어 광고 배너" />
         <HealthyLife />
         <SpecialPrice />
       </main>
@@ -30,12 +42,14 @@ const St = {
     flex-direction: column;
     align-items: center;
 
-    width: 100vw;
+    overflow: hidden;
 
-    overflow-x: hidden;
-
-    & > main > img {
-      width: 100%;
+    & > main {
+      display: flex;
+      flex-direction: column;
+      & > img {
+        width: 100vw;
+      }
     }
   `,
 };

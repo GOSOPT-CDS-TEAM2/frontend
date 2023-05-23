@@ -22,14 +22,14 @@ interface Menu {
   type: string;
 }
 
-const MainMenu: Menu[] = [
+const MAIN_MENU: Menu[] = [
   { imgUrl: MainIcon, description: '라이브 버튼 아이콘', link: '/', type: 'main' },
   { imgUrl: DiscountIcon, description: '세일 버튼 아이콘', link: '/', type: 'main' },
   { imgUrl: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium', type: 'main' },
   { imgUrl: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/', type: 'main' },
 ];
 
-const SubMenu: Menu[] = [
+const SUB_MENU: Menu[] = [
   { imgUrl: GiftIcon, description: '선물하기 버튼 아이콘', link: '/', type: 'sub' },
   { imgUrl: AwardsIcon, description: '어워드 버튼 아이콘', link: '/', type: 'sub' },
   { imgUrl: WomanCareIcon, description: '여성 케어 버튼 아이콘', link: '/', type: 'sub' },
@@ -47,8 +47,8 @@ const MenuSection = () => {
     );
   };
 
-  const MainMenuList = MainMenu.map(renderMenu);
-  const SubMenuList = SubMenu.map(renderMenu);
+  const MainMenuList = MAIN_MENU.map(renderMenu);
+  const SubMenuList = SUB_MENU.map(renderMenu);
 
   return (
     <St.MenuSectionContainer>
@@ -57,7 +57,7 @@ const MenuSection = () => {
       <Swiper
         pagination={{ clickable: true }} // 페이지네이션 옵션
         speed={700} // 슬라이드가 넘어가는 속도를 조정. 700ms
-      >
+        threshold={0}>
         <SwiperSlide>
           <St.MenuContainer className={'sub'}>{SubMenuList}</St.MenuContainer>
         </SwiperSlide>
@@ -84,6 +84,9 @@ const St = {
 
     margin-top: 1.7rem;
 
+    width: 100vw;
+    padding: 0 1.7rem;
+
     & > .swiper {
       display: flex;
       justify-content: center;
@@ -108,17 +111,22 @@ const St = {
         height: 5.7rem;
 
         margin-top: 0.9rem;
+
+        & > .swiper-slide {
+          width: 100vw;
+
+          padding: 0 1.7rem;
+        }
       }
     }
   `,
 
   MenuContainer: styled.section`
     display: grid;
-    justify-content: center;
+    justify-content: space-between;
     grid-template-columns: repeat(4, 8rem);
-    column-gap: 0.8rem;
 
-    width: 100vw;
+    width: 100%;
 
     & > .main {
       filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.25));

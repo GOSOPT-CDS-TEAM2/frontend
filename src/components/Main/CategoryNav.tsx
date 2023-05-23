@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const CategoryNav = () => {
-  const MenuList = ['홈', '오특', '신상', '랭킹', '기획전', '이벤트'].map((item, idx) => {
+  const menuList = ['홈', '오특', '신상', '랭킹', '기획전', '이벤트'].map((item, idx) => {
     return (
       <St.CategoryContainer key={idx}>
         <St.Category className={item === '홈' ? 'selected' : ''}>{item}</St.Category>
       </St.CategoryContainer>
     );
   });
-  return <St.CategoryNavContainer>{MenuList}</St.CategoryNavContainer>;
+  return <St.CategoryNavContainer>{menuList}</St.CategoryNavContainer>;
 };
 
 export default CategoryNav;

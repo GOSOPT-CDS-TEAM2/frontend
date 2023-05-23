@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { BagGrayIcon, HeartFillIcon, HeartIcon } from '../../assets/icon';
@@ -9,6 +10,7 @@ const Product = (props: ProductProps) => {
   const {
     productData: { name, originalPrice, discountRate, discountPrice, image, likeTF, tags },
   } = props;
+  const [heart, setHeart] = useState(likeTF);
 
   // tags 검사해서 tagList에 넣기
   const tagList = [];
@@ -34,7 +36,9 @@ const Product = (props: ProductProps) => {
       <St.ProductTagContainer>{renderList}</St.ProductTagContainer>
 
       <St.IconContainer>
-        <img src={likeTF ? HeartFillIcon : HeartIcon} alt="하트 아이콘" width={35} height={36} />
+        <button type="button" onClick={() => setHeart(!heart)}>
+          <img src={heart ? HeartFillIcon : HeartIcon} alt="하트 아이콘" width={35} height={36} />
+        </button>
         <img src={BagGrayIcon} alt="장바구니 아이콘" width={35} height={36} />
       </St.IconContainer>
     </St.ProductContainer>
@@ -49,6 +53,10 @@ const St = {
     flex-direction: column;
 
     width: 13.5rem;
+
+    & > img {
+      border-radius: 0.4rem;
+    }
   `,
   ProductName: styled.header`
     width: 12.6rem;
@@ -96,5 +104,15 @@ const St = {
     gap: 0.6rem;
 
     margin-top: 0.8rem;
+
+    & > button {
+      width: 3.5rem;
+      height: 3.6rem;
+
+      padding: 0;
+
+      border: none;
+      background: none;
+    }
   `,
 };
