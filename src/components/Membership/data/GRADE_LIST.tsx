@@ -1,11 +1,11 @@
-interface gradeRange {
+interface GRADE {
   grade: string;
   min: number;
   max: number;
   nextGrade: string | undefined;
 }
 
-export const gradeRange: gradeRange[] = [
+export const GRADE_LIST: GRADE[] = [
   {
     grade: 'BABY',
     min: 0,

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -10,6 +11,7 @@ const Product = (props: ProductProps) => {
   const {
     productData: { name, originalPrice, discountRate, discountPrice, image, likeTF, tags },
   } = props;
+
   const [heart, setHeart] = useState(likeTF);
 
   // tags 검사해서 tagList에 넣기
@@ -53,6 +55,7 @@ const St = {
     flex-direction: column;
 
     width: 13.5rem;
+    height: 29.7rem;
 
     & > img {
       border-radius: 0.4rem;
@@ -104,7 +107,6 @@ const St = {
     gap: 0.6rem;
 
     margin-top: 0.8rem;
-
     & > button {
       width: 3.5rem;
       height: 3.6rem;

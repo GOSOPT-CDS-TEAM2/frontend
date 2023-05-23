@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 import CategoryNav from '../components/Membership/CategoryNav';
+import ClauseSection from '../components/Membership/ClauseSection';
+import CouponSection from '../components/Membership/CouponSection';
 import CustomerGradeInfo from '../components/Membership/CustomerGradeInfo';
+import EventSection from '../components/Membership/EventSection';
 import Header from '../components/Membership/Header';
 
 const Membership = () => {
@@ -10,6 +13,9 @@ const Membership = () => {
       <Header />
       <CategoryNav />
       <CustomerGradeInfo />
+      <CouponSection />
+      <EventSection />
+      <ClauseSection />
     </St.MembershipContainer>
   );
 };
@@ -20,7 +26,6 @@ const St = {
   MembershipContainer: styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     width: 100vw;
 

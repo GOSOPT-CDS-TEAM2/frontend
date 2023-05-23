@@ -4,27 +4,28 @@ import styled from 'styled-components';
 import { CloseIcon, InfoIcon } from '../../assets/icon';
 import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, BenefitPinkImg } from '../../assets/image';
 
-import { gradeRange } from './gradeRange';
+import { GRADE_LIST } from './data/GRADE_LIST';
 
 interface GradeBenefitModalProps {
-  onClose: void;
+  onClose: () => void;
   curGrade: string;
 }
 
-const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
-  const [grade, setGrade] = useState(curGrade);
+const GradeBenefitModal = (props: GradeBenefitModalProps) => {
+  const { onClose, curGrade } = props;
 
-  const gradeRangeReverse = [...gradeRange].reverse();
-  const gradeList = gradeRangeReverse.map((item, idx) => {
+  const [currentGrade, setCurrentGrade] = useState(curGrade);
+  const gradeRangeReverse = [...GRADE_LIST].reverse();
+  const gradeList = gradeRangeReverse.map(({ grade }, idx) => {
     return (
-      <St.gradeListContainer key={idx} id={item.grade !== grade ? 'unactivated' : ''}>
+      <St.gradeListContainer key={idx} id={grade !== currentGrade ? 'unactivated' : ''}>
         <St.gradeContainer
-          id={item.grade.toLowerCase()}
+          id={grade.toLowerCase()}
           onClick={(e) => {
             e.stopPropagation(); // TODO: 클릭했을 때 부모 컴포넌트까지 재랜더링됨
-            setGrade(item.grade);
+            setCurrentGrade(grade);
           }}>
-          {item.grade}
+          {grade}
           <br />
           OLIVE
         </St.gradeContainer>
@@ -33,13 +34,13 @@ const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
   });
 
   // 현재 선택된 등급에 대한 정보를 가져오는 함수
-  const curGradeInfo = gradeRange.filter((item) => {
-    return item.grade === grade;
+  const curGradeInfo = GRADE_LIST.filter((item) => {
+    return item.grade === currentGrade;
   })[0];
 
   // 현재 선택된 등급에 대한 구매 금액 관련 설명을 결정하는 함수
   const gradeDescription = () => {
-    switch (grade) {
+    switch (currentGrade) {
       case 'BABY':
         return `${curGradeInfo.max / 10000}만원 미만 구매`;
 
@@ -53,7 +54,7 @@ const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
 
   // 현재 선택된 등급에 대한 혜택 이미지 주소를 가져오는 함수
   const gradeBenefitImg = () => {
-    switch (grade) {
+    switch (currentGrade) {
       case 'BABY':
         return BenefitBabyImg;
       case 'PINK':
@@ -82,7 +83,7 @@ const GradeBenefitModal = ({ onClose, curGrade }: GradeBenefitModalProps) => {
       </header>
       <figure>{gradeList}</figure>
       <small>6개월간 {gradeDescription()}</small>
-      <img src={gradeBenefitImg()} alt={`${grade} 등급에 대한 혜택`}></img>
+      <img src={gradeBenefitImg()} alt={`${currentGrade} 등급에 대한 혜택`}></img>
     </St.GradeBenefitModalContainer>
   );
 };
@@ -95,9 +96,9 @@ const St = {
     align-items: center;
     position: fixed;
     z-index: 1;
-    top: 50%;
+    top: 17%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 
     padding: 1.2rem 1.4rem 3.5rem 1.3rem;
     width: 34.6rem;
