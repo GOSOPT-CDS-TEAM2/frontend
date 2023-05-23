@@ -1,16 +1,21 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { BackIcon, BagIcon, HomeIcon } from '../../assets/icon';
+import { BackIcon, HomeIcon } from '../../assets/icon';
 
-const Header = () => {
+interface HeaderProps {
+  cartProductsNum: number;
+}
+
+const Header = (props: HeaderProps) => {
+  const { cartProductsNum } = props;
   return (
     <St.HeaderContainer>
       <button type="button">
         <img src={BackIcon} alt="뒤로가기 아이콘" width={48} height={48} />
       </button>
       <h2>
-        장바구니 <span>(2)</span>
+        장바구니 <span>({cartProductsNum})</span>
       </h2>
       <Link id="cart" to="/">
         <img src={HomeIcon} alt="장바구니 아이콘" width={48} height={48} />
