@@ -20,10 +20,10 @@ const NewPopularProduct = (props: ProductProps) => {
       <St.Image src = {image} alt = {name} />
       <St.Name> {name} </St.Name>
       
-      <St.OriginalPrice> {originalPrice}원 </St.OriginalPrice>
+      <St.OriginalPrice> {originalPrice.toLocaleString()}원 </St.OriginalPrice>
       <St.DiscountContainer>      
         <St.DiscountRate> {discountRate}% </St.DiscountRate>
-        <St.DiscountPrice> {discountPrice}원 </St.DiscountPrice>
+        <St.DiscountPrice> {discountPrice.toLocaleString()}원 </St.DiscountPrice>
       </St.DiscountContainer>
  
       <St.Tags> {tagList} </St.Tags>
@@ -47,6 +47,7 @@ const St = {
   width: 16.8rem;
   height: 32rem;  
   margin-left: 1.1rem;
+  margin-bottom: 2.1rem;
   `,
 
   Image: styled.img`
