@@ -12,6 +12,6 @@ export interface WeightProduct {
   };
 }
 
-export interface WeightProductProps {
+export interface WeightProductData {
   productData: WeightProduct;
 }
