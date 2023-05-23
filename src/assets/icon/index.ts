@@ -10,6 +10,7 @@ export { default as HeartIcon } from './btn_heart.svg';
 export { default as HeartFillIcon } from './btn_heart_fill.svg';
 export { default as HeartRankIcon } from './btn_heart_rank.svg';
 export { default as HeartRankFillIcon } from './btn_heart_rank_fill.svg';
+export { default as HomeIcon } from './btn_home.svg';
 export { default as LogoIcon } from './btn_logo.svg';
 export { default as PremiumCardLikeIcon } from './btn_primeum_card_like.svg';
 export { default as BlackSearchIcon } from './btn_search.svg';
