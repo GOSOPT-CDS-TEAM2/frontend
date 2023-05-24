@@ -1,19 +1,22 @@
-import { useEffect, useEffect, useState, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
-import Header from '../components/Cart/Header';
-import { getCartData, getCartData } from '../utils/lib/cart';
+import Header from '../components/cart/Header';
+import { cartDataState } from '../states/cart';
+import { getCartData } from '../utils/lib/cart';
 
 const Cart = () => {
-  const [cartProductsNum, setCartProductsNum] = useState(0);
+  const [cartData, setCartData] = useRecoilState(cartDataState);
+
   const getCartList = async () => {
     try {
       const {
         data: { data },
       } = await getCartData();
-      setCartProductsNum(data.cartProducts.length);
+      setCartData(data);
     } catch (e) {
       console.log(e);
     }
@@ -25,57 +28,11 @@ const Cart = () => {
 
   return (
     <St.CartContainer>
-      <Header cartProductsNum={cartProductsNum} />
-      <CategoryNav cartProductsNum={cartProductsNum} />
+      <Header cartProductsNum={cartData.cartProducts.length} />
+      <CategoryNav cartProductsNum={cartData.cartProducts.length} />
       <DeliveryCheck />
     </St.CartContainer>
   );
-};
-
-export default Cart;
-
-const St = {
-  CartContainer: styled.div`
-    display: flex;
-    flex-direction: column;
-
-    width: 100vw;
-
-    overflow-x: hidden;
-  `,
-};
-
-import CartProduct from '../components/cart/CartProduct';
-import { CartData } from '../types/cart';
-
-const Cart = () => {
-  const [cartData, setCartData] = useState<CartData>({
-    deliveryFee: 0,
-    cartProducts: [],
-  });
-  const [cartProductsNum, setCartProductsNum] = useState(0);
-
-  const getCartProductList = cartData.cartProducts.map((product) => {
-    return <CartProduct key={product.cartProductId} product={product} />;
-  });
-
-  const getCartList = async () => {
-    try {
-      const {
-        data: { data },
-      } = await getCartData();
-      setCartProductsNum(data.cartProducts.length);
-      setCartData(data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getCartList();
-  }, []);
-
-  return <St.CartContainer>{getCartProductList}</St.CartContainer>;
 };
 
 export default Cart;
