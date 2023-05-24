@@ -13,11 +13,20 @@ const CartProduct = (props: CartProductProp) => {
   const cartProductId = cartProduct.cartProductId;
 
   const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
-  console.log(overallCheck);
+
   return (
     <St.CartProductContainer>
       <label>
-        <input type="checkbox" checked={true} onChange={() => {}} />
+        <input
+          type="checkbox"
+          checked={overallCheck[cartProductId]}
+          onChange={() => {
+            setOverallCheck((prevObject) => ({
+              ...prevObject,
+              [cartProductId]: !overallCheck[cartProductId],
+            }));
+          }}
+        />
       </label>
       <img src={cartProduct.productImgSrc} alt={cartProduct.productName}></img>
     </St.CartProductContainer>

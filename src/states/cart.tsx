@@ -23,7 +23,7 @@ export const overallQuantityState = atom<Quantity[]>({
   default: [],
 });
 
-export const overallCheckState = atom<Check[]>({
+export const overallCheckState = atom<Check>({
   key: 'overallCheckState',
-  default: [],
+  default: {},
 });
