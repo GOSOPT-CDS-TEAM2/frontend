@@ -1,4 +1,4 @@
-import { 라운드랩자작나무Img, 안트래디언스앰플Img } from '../../../assets/image';
+import { 라운드랩자작나무Img, 마이멜로디파우치Img, 안트래디언스앰플Img } from '../../../assets/image';
 import { ProductData } from '../../../types/common';
 
 export const SPECIAL_DATA: ProductData[] = [
@@ -22,7 +22,7 @@ export const SPECIAL_DATA: ProductData[] = [
     originalPrice: 36000,
     discountRate: 30,
     discountPrice: 25200,
-    image: '',
+    image: 마이멜로디파우치Img,
     likeTF: false,
     tags: {
       BEST: true,

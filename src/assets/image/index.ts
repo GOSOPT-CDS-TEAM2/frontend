@@ -29,7 +29,7 @@ export { default as 딥트3일올케어 } from './딥트3일올케어.png';
 export { default as 라운드랩자작나무Img } from './라운드랩자작나무.png';
 export { default as 로이비퍼퓸 } from './로이비퍼퓸.svg';
 export { default as 록시땅로즈오드뚜왈렛 } from './록시땅로즈오드뚜왈렛.svg';
-export { default as 마이멜로디파우치 } from './마이멜로디파우치.png';
+export { default as 마이멜로디파우치Img } from './마이멜로디파우치.png';
 export { default as 믿고보는구매후기Img } from './믿고보는구매후기.png';
 export { default as 바비브라운 } from './바비브라운.svg';
 export { default as 바비브라운영상 } from './바비브라운영상.mp4';
