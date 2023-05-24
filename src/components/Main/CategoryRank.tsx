@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { TagData } from '../../types/common';
-import { ProductServerData } from '../../types/main';
+import { ProductServerData, TagData } from '../../types/common';
 import { getRangkingData } from '../../utils/lib/main';
 
 import { BODYCARE_TAG_LIST } from './constants/BODYCARE_TAG_LIST';
