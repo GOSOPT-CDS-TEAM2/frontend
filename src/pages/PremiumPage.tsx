@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Footer from '../components/common/Footer';
+import MenuBar from '../components/common/MenuBar';
 import Advertise from '../components/Premium/Advertise';
 import BrandIntroduction from '../components/Premium/BrandIntroduction';
 import Header from '../components/Premium/Header';
@@ -16,6 +18,8 @@ const PremiumPage = () => {
       <Advertise />
       <BrandIntroduction />
       <NewPopularList/>
+      <Footer/>
+      <MenuBar />
     </St.PremiumContainer>
   );
 };
@@ -31,6 +35,7 @@ const St = {
     
     width : 100vw;
     overflow-x: hidden;
+    z-index: 1;
   `,
 
 };
