@@ -32,7 +32,7 @@ export default SpecialPrice;
 
 const St = {
   SpecialPriceContainer: styled.section`
-    margin-top: 2.6rem;
+    margin: 2.6rem 0 2.1rem;
 
     & > header {
       display: flex;
