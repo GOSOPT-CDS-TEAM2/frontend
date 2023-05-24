@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { ArrowIcon } from '../../assets/icon';
 
-import { WEIGHT_PRODUCT } from './constant/WeightProductData';
+import { WEIGHT_PRODUCT } from './constants/WeightProductData';
 import WeightProduct from './WeightProduct';
 
 const WeightManagement = () => {

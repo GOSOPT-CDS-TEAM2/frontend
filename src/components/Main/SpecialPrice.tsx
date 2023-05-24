@@ -4,7 +4,7 @@ import { AlarmIcon } from '../../assets/icon';
 import { DigitalTimeImg } from '../../assets/image';
 import Product from '../common/Product';
 
-import { SPECIAL_DATA } from './constant/SpecialProductData';
+import { SPECIAL_DATA } from './constants/SpecialProductData';
 
 const SpecialPrice = () => {
   const productList = SPECIAL_DATA.map((item) => {
