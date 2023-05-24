@@ -1,3 +1,25 @@
+export interface CartResponse {
+  code: number;
+  message: string;
+  data: CartData;
+}
+
+export interface CartQuantityRequest {
+  cartProductId: number;
+  chagneStatus: boolean;
+}
+
+export interface CartQuantityResponse {
+  status: number;
+  message: string;
+  data: CartQuantityData;
+}
+
+export interface CartQuantityData {
+  cartProductId: number;
+  count: number;
+}
+
 export interface CartProductsData {
   cartProductId: number;
   productName: string;
