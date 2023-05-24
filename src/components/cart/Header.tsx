@@ -30,7 +30,6 @@ const St = {
   HeaderContainer: styled.header`
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     width: 100vw;
     height: 4.8rem;
