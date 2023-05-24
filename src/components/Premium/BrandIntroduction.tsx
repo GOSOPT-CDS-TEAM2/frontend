@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SwiperCore, { Mousewheel, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { 바비브라운, 바비브라운영상, 숨, 헤라 } from '../../assets/image';
+import { 바비브라운Img, 바비브라운영상, 숨Img, 헤라Img } from '../../assets/image';
 
 const BrandIntroduction = () => {
 
@@ -54,13 +54,13 @@ const BrandIntroduction = () => {
         }}
       >
         <SwiperSlide> 
-          <img src={숨} alt = "숨 브랜드 소개" /> 
+          <img src={숨Img} alt = "숨 브랜드 소개" /> 
           <St.SwiperComment>
             오랜 연구와 진보된 발효과학, 숨37
           </St.SwiperComment>
         </SwiperSlide>
         <SwiperSlide> 
-          <img src={헤라} alt = "헤라 브랜드 소개" /> 
+          <img src={헤라Img} alt = "헤라 브랜드 소개" /> 
           <St.SwiperComment>
             CONTEMPORARY 시그니처 
           </St.SwiperComment>
@@ -84,7 +84,6 @@ const St = {
         
         width: 100vw;
         margin-top: 3.8rem;
-        padding-bottom: 20rem;
 
         overflow: hidden;
     `,
