@@ -53,8 +53,6 @@ const St = {
     }
 
     & > .swiper {
-      margin-bottom: 3.7rem;
-
       & > .swiper-pagination {
         position: static;
 

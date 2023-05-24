@@ -31,11 +31,11 @@ const Main = () => {
         <Recommend />
         <CategoryRank />
         <img src={AdHandCareImg} alt="핸드케어 광고 배너" />
-        <HealthyLife />
-        <SpecialPrice />
         <WeeklySpecial />
         <HotEvent />
         <WeightManagement />
+        <HealthyLife />
+        <SpecialPrice />
       </main>
     </St.MainContainer>
   );
