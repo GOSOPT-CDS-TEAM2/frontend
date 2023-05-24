@@ -93,13 +93,13 @@ const CartProduct = (props: CartProductProp) => {
             <h2>{cartProduct.productName}</h2>
           </St.ProductDetail>
           <St.QuantityButtons>
-            <button id="minus" type="button" onClick={onQuantityDecrease}>
+            <St.Button id="minus" type="button" onClick={onQuantityDecrease}>
               <img src={MinusIcon} alt="수량 감소 아이콘"></img>
-            </button>
+            </St.Button>
             <span>{overallQuantity[cartProductId]}</span>
-            <button id="plus" type="button" onClick={onQuantityIncrease}>
+            <St.Button id="plus" type="button" onClick={onQuantityIncrease}>
               <img src={PlusIcon} alt="수량 증가 아이콘"></img>
-            </button>
+            </St.Button>
           </St.QuantityButtons>
         </St.Product>
         <St.PriceContainer>
@@ -186,19 +186,6 @@ const St = {
       border-left: none;
     }
 
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      height: 2.3rem;
-      width: 2.3rem;
-
-      border: 0.1rem solid ${({ theme }) => theme.colors.gray_200};
-      border-radius: 0.2rem;
-      background: none;
-    }
-
     span {
       display: flex;
       justify-content: center;
@@ -209,6 +196,18 @@ const St = {
 
       border: 0.1rem solid ${({ theme }) => theme.colors.gray_200};
     }
+  `,
+  Button: styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 2.3rem;
+    width: 2.3rem;
+
+    border: 0.1rem solid ${({ theme }) => theme.colors.gray_200};
+    border-radius: 0.2rem;
+    background: none;
 
     img {
       width: 0.6rem;
