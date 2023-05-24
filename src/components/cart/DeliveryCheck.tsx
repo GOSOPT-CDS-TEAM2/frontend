@@ -9,8 +9,8 @@ const DeliveryCheck = () => {
   return (
     <St.DeliveryCheckContainer>
       <St.OliveyoungDelivery>
-        <St.CheckLabel $deliveryCheck={deliveryCheck}>
-          <label>
+        <St.CheckLabelContainer>
+          <St.CheckLabel $deliveryCheck={deliveryCheck}>
             <input
               type="checkbox"
               checked={deliveryCheck}
@@ -20,15 +20,15 @@ const DeliveryCheck = () => {
               }}
             />
             <h2>올리브영 배송</h2>
-          </label>
+          </St.CheckLabel>
           {deliveryCheck ? (
-            <h3>무료 배송</h3>
+            <St.CheckLabelSubText>무료 배송</St.CheckLabelSubText>
           ) : (
-            <h3>
+            <St.CheckLabelSubText>
               <strong>20,000</strong>원 이상 무료 배송
-            </h3>
+            </St.CheckLabelSubText>
           )}
-        </St.CheckLabel>
+        </St.CheckLabelContainer>
         <St.Buttons>
           <button type="button">오늘드림 이동</button>
           <button type="button">선택삭제</button>
@@ -61,16 +61,15 @@ const St = {
 
     ${({ theme }) => theme.fonts.Title2};
   `,
-  CheckLabel: styled.div<{ $deliveryCheck: boolean }>`
+  CheckLabelContainer: styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+  `,
+  CheckLabel: styled.label<{ $deliveryCheck: boolean }>`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
     h3 {
       height: 1.8rem;
@@ -78,10 +77,6 @@ const St = {
 
       ${({ theme }) => theme.fonts.SubTitle2};
       color: ${({ theme }) => theme.colors.gray_700};
-
-      strong {
-        ${({ theme }) => theme.fonts.SubTitle1};
-      }
     }
 
     input {
@@ -93,6 +88,11 @@ const St = {
       background-image: url(${({ $deliveryCheck }) => ($deliveryCheck ? CheckBigCheckedIcon : CheckBigNotCheckedIcon)});
 
       appearance: none;
+    }
+  `,
+  CheckLabelSubText: styled.h3`
+    strong {
+      ${({ theme }) => theme.fonts.SubTitle1};
     }
   `,
   Buttons: styled.div`
