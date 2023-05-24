@@ -1,4 +1,5 @@
 import { useRecoilValue } from 'recoil';
+import styled from 'styled-components';
 
 import { cartDataState } from '../../states/cart';
 
@@ -11,7 +12,14 @@ const CartProductList = () => {
     <CartProduct key={cartProduct.cartProductId} cartProduct={cartProduct} />
   ));
 
-  return <>{cartProductList}</>;
+  return <St.CartProductListContainer>{cartProductList}</St.CartProductListContainer>;
 };
 
 export default CartProductList;
+
+const St = {
+  CartProductListContainer: styled.main`
+    display: flex;
+    flex-direction: column;
+  `,
+};
