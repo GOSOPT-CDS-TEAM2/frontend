@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { BrandNameListIcon } from '../../assets/icon';
-import { 꼬달리, 다비네스, 달팜, 더바디샵 } from '../../assets/image';
+import { 꼬달리Img, 다비네스Img, 달팜Img, 더바디샵Img } from '../../assets/image';
 
 const PremiumBrand = () => {
   return (
@@ -22,10 +22,10 @@ const PremiumBrand = () => {
         </St.SortButton>
       </St.SortContainer>
       <St.ImgContainer>
-        <img src = {꼬달리} alt = "꼬달리" />
-        <img src = {다비네스} alt = "다비네스" />
-        <img src = {달팜} alt = "달팡" />
-        <img src = {더바디샵} alt = "더바디샵" />
+        <img src = {꼬달리Img} alt = "꼬달리" />
+        <img src = {다비네스Img} alt = "다비네스" />
+        <img src = {달팜Img} alt = "달팡" />
+        <img src = {더바디샵Img} alt = "더바디샵" />
       </St.ImgContainer>
     </St.PremiumBrandContainer>
   );
