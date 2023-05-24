@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { BrandNameListIcon } from '../../assets/icon';
-import { 꼬달리Img, 다비네스Img, 달팜Img, 더바디샵Img } from '../../assets/image';
+import { BrandNameListIcon, PremiumCardLikeIcon } from '../../assets/icon';
 import { BrandData } from '../../types/brand'; // BrandData import 추가
-import { getBrandData } from '../../utils/lib/brand';
+import { getBrandData, postBrandData } from '../../utils/lib/brand';
 
 const PremiumBrand = () => {
+  
+  // 1. API 연결하여 브랜드 리스트 받아오기
   
   const [PremiumBrandList, setBrandList] = useState<BrandData[]>([]); 
 
@@ -14,7 +15,6 @@ const PremiumBrand = () => {
     try {
       const { data: { data } } = await getBrandData();
       setBrandList(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -23,6 +23,55 @@ const PremiumBrand = () => {
   useEffect(() => {
     getBrandList();
   }, []);
+  
+  // 2. 정렬 버튼 누르면 정렬
+
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+  
+  const SortBrandList = () => {
+    const sortedList = [...PremiumBrandList].sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+
+      if (isAscending) {
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+      } else {
+        if (nameA > nameB) return -1;
+        if (nameA < nameB) return 1;
+      }
+
+      return 0;
+    });
+
+    setBrandList(sortedList);
+    setIsAscending(!isAscending);
+  };
+
+  // 3. API 연결하여 좋아요 / 좋아요 취소 버튼
+
+  const SendLikeRequest = async (brandId: number) => {
+    try {
+      const response = await postBrandData(brandId);
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const PremiumbBrands = PremiumBrandList.map((brand) => {
+    return (
+      <St.Img key = {brand.id}>
+        <img className = "back" src = {brand.image} alt = "이미지"/>
+        <img className = "front" src = {brand.logoImage} alt = "이미지"/>
+        <div />
+        <button onClick = {() => SendLikeRequest(brand.id)}>
+          <img className = "heart" src = {PremiumCardLikeIcon} alt = "좋아요 아이콘" />
+        </button>
+        <h1> {brand.name} </h1>
+      </St.Img>
+    );
+  });
 
   return (
     <St.PremiumBrandContainer>
@@ -37,14 +86,12 @@ const PremiumBrand = () => {
         <St.LikeButton>
           좋아요
         </St.LikeButton>
-        <St.SortButton type = "button">
+        <St.SortButton type = "button" onClick = {SortBrandList}>
           <img src={BrandNameListIcon} alt = "브랜드 이름 정렬"/>
         </St.SortButton>
       </St.SortContainer>
       <St.ImgContainer>
-        {PremiumBrandList.map((brand, i) => (
-          <img key = {i} src = {brand.logoImage} alt = "이미지"/>
-        ))}
+        {PremiumbBrands}
       </St.ImgContainer>
     </St.PremiumBrandContainer>
   );
@@ -65,7 +112,7 @@ const St = {
   Header: styled.h1`
     display: flex;
 
-    width: 9.9rem;
+    width: 100vw;
     height: 2.0rem;
     margin: 0.7rem 25.9rem 1.6rem 0rem;
     
@@ -138,5 +185,73 @@ const St = {
     justify-content: flex-start;
     
     width: 100vw;
+
+    gap: 0.7rem;
+
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  `,
+
+  Img : styled.div`
+    position: relative;
+    width : 9.5rem;
+    height: 13.5rem;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+
+    .back {
+      object-fit: cover;
+      width : 9.5rem;
+      height: 13.5rem;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+    }
+
+    .front {
+      max-width: 5.5rem;
+      height: 1.1rem;
+      position: absolute;
+      top: 5.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: brightness(0) invert(1);
+      z-index: 2;
+      object-fit: contain;
+    }
+
+    button {
+      background : none;
+      border: none;
+      padding: none;
+    }
+    .heart {
+      position: absolute;
+      top: 0.7rem;
+      left: 7.5rem;
+    }
+
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width : 9.5rem;
+      height: 13.5rem;
+      background-color:  ${({ theme }) => theme.colors.gray_900};
+      opacity: 0.6;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+    }
+
+    h1 {
+      position: absolute;
+      top: 10.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      ${({ theme }) => theme.fonts.SubTitle3};
+    color: ${({ theme }) => theme.colors.gray_000};
+    }
   `,
 };
