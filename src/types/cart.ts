@@ -12,6 +12,12 @@ export interface CartData {
   cartProducts: CartProductsData[];
 }
 
-export interface CartResponse {
-  data: CartData;
+export interface Quantity {
+  cartProductId: number;
+  count: number;
+}
+
+export interface Check {
+  cartProductId: number;
+  isChecked: boolean;
 }

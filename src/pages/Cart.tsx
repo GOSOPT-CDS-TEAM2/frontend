@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import CartProductList from '../components/cart/CartProductList';
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
@@ -31,6 +32,7 @@ const Cart = () => {
       <Header cartProductsNum={cartData.cartProducts.length} />
       <CategoryNav cartProductsNum={cartData.cartProducts.length} />
       <DeliveryCheck />
+      <CartProductList />
     </St.CartContainer>
   );
 };

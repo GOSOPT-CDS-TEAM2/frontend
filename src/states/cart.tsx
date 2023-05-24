@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-import { CartData } from '../types/cart';
+import { CartData, Check, Quantity } from '../types/cart';
 
 export const cartDataState = atom<CartData>({
   key: 'cartDataState',
@@ -17,4 +17,24 @@ export const cartDataState = atom<CartData>({
       },
     ],
   },
+});
+
+export const overallQuantityState = atom<Quantity[]>({
+  key: 'overallQuantityState',
+  default: [
+    {
+      cartProductId: 0,
+      count: 0,
+    },
+  ],
+});
+
+export const overallCheckState = atom<Check[]>({
+  key: 'overallCheckState',
+  default: [
+    {
+      cartProductId: 0,
+      isChecked: true,
+    },
+  ],
 });

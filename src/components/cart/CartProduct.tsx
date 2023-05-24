@@ -4,27 +4,24 @@ import styled from 'styled-components';
 import { CartProductsData } from '../../types/cart';
 
 interface CartProductProp {
-  product: CartProductsData;
+  cartProduct: CartProductsData;
 }
 
 const CartProduct = (props: CartProductProp) => {
-  const { product } = props;
-  const [check, setCheck] = useState(true);
-  const [count, setCount] = useState(product.count);
-  const [totalCost, setTotalCost] = useState();
+  const { cartProduct } = props;
 
   return (
     <St.CartProductContainer>
       <label>
         <input
           type="checkbox"
-          checked={check}
+          checked={true}
           onChange={() => {
-            setCheck(!check);
+            // setCheck(!check);
           }}
         />
       </label>
-      <img src={product.productImgSrc} alt={product.productName}></img>
+      <img src={cartProduct.productImgSrc} alt={cartProduct.productName}></img>
     </St.CartProductContainer>
   );
 };
