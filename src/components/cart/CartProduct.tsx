@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
@@ -15,6 +16,9 @@ const CartProduct = (props: CartProductProp) => {
   const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
   const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
 
+  const [calcOriginalPrice, setCalcOriginalPrice] = useState(cartProduct.originalPrice);
+  const [calcDiscountPrice, setCalcDiscountPrice] = useState(cartProduct.discountPrice);
+
   const onQuantityDecrease = () => {
     const newQuantity = overallQuantity[cartProductId] <= 1 ? 1 : overallQuantity[cartProductId] - 1;
 
@@ -22,6 +26,9 @@ const CartProduct = (props: CartProductProp) => {
       ...prevObject,
       [cartProductId]: newQuantity,
     }));
+
+    setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
+    setCalcOriginalPrice(cartProduct.originalPrice * newQuantity);
   };
 
   const onQuantityIncrease = () => {
@@ -31,6 +38,9 @@ const CartProduct = (props: CartProductProp) => {
       ...prevObject,
       [cartProductId]: newQuantity,
     }));
+
+    setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
+    setCalcOriginalPrice(cartProduct.originalPrice * newQuantity);
   };
 
   return (
@@ -56,6 +66,8 @@ const CartProduct = (props: CartProductProp) => {
       <button type="button" onClick={onQuantityIncrease}>
         +
       </button>
+      <span>원래가격{calcOriginalPrice}</span>
+      <span>할인가격 {calcDiscountPrice}</span>
     </St.CartProductContainer>
   );
 };
