@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { AdHandCareImg, AdSpringImg, MainThumbNailImg } from '../assets/image';
+import Footer from '../components/common/Footer';
+import MenuBar from '../components/common/MenuBar';
 import CategoryNav from '../components/Main/CategoryNav';
 import CategoryRank from '../components/Main/CategoryRank';
 import Header from '../components/Main/Header';
@@ -37,6 +39,8 @@ const Main = () => {
         <HealthyLife />
         <SpecialPrice />
       </main>
+      <Footer />
+      <MenuBar />
     </St.MainContainer>
   );
 };
