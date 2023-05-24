@@ -7,6 +7,7 @@ import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
 import { cartDataState, overallCheckState, totalQuantitySelector } from '../states/cart';
+import { CartProductsData } from '../types/cart';
 import { getCartData } from '../utils/lib/cart';
 
 const Cart = () => {
@@ -22,6 +23,11 @@ const Cart = () => {
       } = await getCartData();
 
       setCartData(data);
+
+      //장바구니 데이터 수에 맞게 overallCheck 초기화
+      data.cartProducts.map((item: CartProductsData) => {
+        setOverallCheck([...overallCheck, { cartProductId: item.cartProductId, isChecked: true }]);
+      });
     } catch (e) {
       console.log(e);
     }

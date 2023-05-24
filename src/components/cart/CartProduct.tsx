@@ -32,5 +32,9 @@ const CartProduct = (props: CartProductProp) => {
 export default CartProduct;
 
 const St = {
-  CartProductContainer: styled.div``,
+  CartProductContainer: styled.div`
+    img {
+      width: 10rem;
+    }
+  `,
 };
