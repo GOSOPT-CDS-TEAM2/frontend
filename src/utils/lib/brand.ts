@@ -1,5 +1,7 @@
+import { BrandResponse } from '../../types/brand';
+
 import { client } from '.';
 
-export const getPremiumBrand = async () => {
-  return await client.get(`/api/brand`);
+export const getBrandData = async () => {
+  return client.get<BrandResponse>(`/api/brand`);
 };

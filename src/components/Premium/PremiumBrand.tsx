@@ -1,15 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { BrandNameListIcon } from '../../assets/icon';
 import { 꼬달리Img, 다비네스Img, 달팜Img, 더바디샵Img } from '../../assets/image';
-import { getPremiumBrand } from '../../utils/lib/brand';
+import { BrandData } from '../../types/brand'; // BrandData import 추가
+import { getBrandData } from '../../utils/lib/brand';
+
+import BrandCard from './BrandCard';
 
 const PremiumBrand = () => {
+  
+  const [PremiumBrandList, setBrandList] = useState<BrandData[]>([]); 
+
+  const getBrandList = async () => {
+    try {
+      const { data: { data } } = await getBrandData();
+      setBrandList(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    const data = getPremiumBrand();
-    console.log(data);
+    getBrandList();
   }, []);
 
   return (
@@ -30,10 +44,9 @@ const PremiumBrand = () => {
         </St.SortButton>
       </St.SortContainer>
       <St.ImgContainer>
-        <img src = {꼬달리Img} alt = "꼬달리" />
-        <img src = {다비네스Img} alt = "다비네스" />
-        <img src = {달팜Img} alt = "달팡" />
-        <img src = {더바디샵Img} alt = "더바디샵" />
+        {PremiumBrandList.map((brand, i) => (
+          <BrandCard key = {i} brandData = {brand} />
+        ))}
       </St.ImgContainer>
     </St.PremiumBrandContainer>
   );
