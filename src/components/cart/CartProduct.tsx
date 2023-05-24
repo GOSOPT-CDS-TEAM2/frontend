@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import { overallCheckState } from '../../states/cart';
+import { overallCheckState, overallQuantityState } from '../../states/cart';
 import { CartProductsData } from '../../types/cart';
 
 interface CartProductProp {
@@ -13,6 +13,7 @@ const CartProduct = (props: CartProductProp) => {
   const cartProductId = cartProduct.cartProductId;
 
   const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
+  const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
 
   return (
     <St.CartProductContainer>
@@ -27,8 +28,12 @@ const CartProduct = (props: CartProductProp) => {
             }));
           }}
         />
+        <img src={cartProduct.productImgSrc} alt={cartProduct.productName}></img>
       </label>
-      <img src={cartProduct.productImgSrc} alt={cartProduct.productName}></img>
+      <h2>{cartProduct.productName}</h2>
+      <button type="button">-</button>
+      <span>{cartProduct.count}</span>
+      <button type="button">+</button>
     </St.CartProductContainer>
   );
 };

@@ -18,7 +18,7 @@ export const totalQuantitySelector = selector({
   },
 });
 
-export const overallQuantityState = atom<Quantity[]>({
+export const overallQuantityState = atom<Quantity>({
   key: 'overallQuantityState',
   default: [],
 });
