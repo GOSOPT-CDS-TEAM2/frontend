@@ -13,11 +13,9 @@ export interface CartData {
 }
 
 export interface Quantity {
-  cartProductId: number;
-  count: number;
+  [key: number]: number;
 }
 
 export interface Check {
-  cartProductId: number;
-  isChecked: boolean;
+  [key: number]: boolean;
 }

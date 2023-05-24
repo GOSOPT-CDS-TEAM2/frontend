@@ -27,7 +27,7 @@ const Cart = () => {
       //장바구니 데이터 수에 맞게 overallCheck 초기화
       let tempOverallCheck: Check[] = [];
       data.cartProducts.forEach((item: CartProductsData) => {
-        tempOverallCheck = [...tempOverallCheck, { cartProductId: item.cartProductId, isChecked: true }];
+        tempOverallCheck = [...tempOverallCheck, { [item.cartProductId]: true }];
       });
       setOverallCheck(tempOverallCheck);
     } catch (e) {
