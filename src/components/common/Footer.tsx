@@ -7,9 +7,9 @@ const Footer = () => {
   const ServiceList = ['온라인몰 콜센터', '매장 콜센터', '1:1문의', '고객센터'].map((item, idx) => {
     return (
       <St.ServiceBtn type = "button" key = {idx}> 
-        {(idx === 0 || idx == 1) && <img className= "call" src={CallIcon} alt="전화아이콘" />}
+        {(idx === 0 || idx === 1) && <img className= "call" src={CallIcon} alt="전화아이콘" />}
         {item} 
-        {(idx != 3) && <img className = "bar" src = {BarIcon} alt = "바 아이콘" />}
+        {(idx !== 3) && <img className = "bar" src = {BarIcon} alt = "바 아이콘" />}
       </St.ServiceBtn>
     );
   });
@@ -20,6 +20,29 @@ const Footer = () => {
         {item}
         {(idx != 3) && <img className = "bar" src = {BarIcon} alt = "바 아이콘" />}  
       </small>
+    );
+  });
+
+  const IconList = [
+    { imgSrc: InstaIcon, imgAlt: '인스타 아이콘' },
+    { imgSrc: FacebookIcon, imgAlt: '페북 아이콘' },
+    { imgSrc: ChannelIcon, imgAlt: '샤넬 아이콘' },
+    { imgSrc: YoutubeIcon, imgAlt: '유튜브 아이콘' },
+  ].map(({ imgSrc, imgAlt }) => {
+    return (
+      <img key = {imgSrc} src = {imgSrc} alt = {imgAlt} />
+    );
+  });
+
+  const MenuIconList = [
+    { imgSrc: CategoryIcon, imgAlt: '카테고리아이콘' },
+    { imgSrc: NewMagazineIcon, imgAlt: '매거진아이콘' },
+    { imgSrc: HomeIcon, imgAlt: '홈아이콘' },
+    { imgSrc: HistoryIcon, imgAlt: '히스토리아이콘' },
+    { imgSrc: MyIcon, imgAlt: '마이페이지아이콘' },
+  ].map(({ imgSrc, imgAlt }) => {
+    return (
+      <img key = {imgSrc} src = {imgSrc} alt = {imgAlt} />
     );
   });
 
@@ -38,10 +61,7 @@ const Footer = () => {
         </St.CompanyName>
 
         <St.IconContainer>
-          <img src = {InstaIcon} alt = "인스타 아이콘" />
-          <img src = {FacebookIcon} alt = "페북 아이콘" />
-          <img src = {ChannelIcon} alt = "샤넬 아이콘" />
-          <img src = {YoutubeIcon} alt = "유튜브 아이콘" />
+          {IconList}
         </St.IconContainer>
 
         <St.LawContainer> 
@@ -56,11 +76,7 @@ const Footer = () => {
       </St.Footer>
 
       <St.MenuBar>
-        <img src = {CategoryIcon} alt = "카테고리아이콘" />
-        <img src = {NewMagazineIcon} alt = "매거진아이콘" />
-        <img src = {HomeIcon} alt = "홈아이콘" />
-        <img src = {HistoryIcon} alt = "히스토리아이콘" />
-        <img src = {MyIcon} alt = "마이페이지아이콘" />
+        {MenuIconList}
       </St.MenuBar>
     </St.FooterContainer>
   );
