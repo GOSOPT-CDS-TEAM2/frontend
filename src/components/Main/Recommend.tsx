@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
-import { ProductServerData } from '../../types/main';
+import { ProductServerData } from '../../types/common';
 import { getRecommendData } from '../../utils/lib/main';
 import Product from '../common/Product';
 
@@ -75,6 +75,7 @@ const St = {
 
     margin-top: 3.1rem;
     margin-right: 0.7rem;
+
     padding: 0;
 
     background: none;
@@ -88,9 +89,8 @@ const St = {
     display: flex;
     gap: 0.7rem;
 
+    padding: 0 1.4rem;
     margin-top: 0.4rem;
-
-    padding-left: 1.4rem;
 
     overflow-x: scroll;
 

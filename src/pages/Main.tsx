@@ -4,8 +4,11 @@ import { AdHandCareImg, AdSpringImg, MainThumbNailImg } from '../assets/image';
 import CategoryNav from '../components/Main/CategoryNav';
 import CategoryRank from '../components/Main/CategoryRank';
 import Header from '../components/Main/Header';
+import HotEvent from '../components/Main/HotEvent';
 import MenuSection from '../components/Main/MenuSection';
 import Recommend from '../components/Main/Recommend';
+import WeeklySpecial from '../components/Main/WeeklySpecial';
+import WeightManagement from '../components/Main/WeightManagement';
 
 const Main = () => {
   return (
@@ -19,6 +22,9 @@ const Main = () => {
         <Recommend />
         <CategoryRank />
         <img src={AdHandCareImg} alt="핸드케어 광고 배너" />
+        <WeeklySpecial />
+        <HotEvent />
+        <WeightManagement />
       </main>
     </St.MainContainer>
   );
