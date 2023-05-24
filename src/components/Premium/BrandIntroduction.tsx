@@ -84,7 +84,6 @@ const St = {
         
         width: 100vw;
         margin-top: 3.8rem;
-        padding-bottom: 20rem;
 
         overflow: hidden;
     `,
