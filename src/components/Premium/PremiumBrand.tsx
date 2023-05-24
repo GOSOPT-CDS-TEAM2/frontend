@@ -6,8 +6,6 @@ import { 꼬달리Img, 다비네스Img, 달팜Img, 더바디샵Img } from '../..
 import { BrandData } from '../../types/brand'; // BrandData import 추가
 import { getBrandData } from '../../utils/lib/brand';
 
-import BrandCard from './BrandCard';
-
 const PremiumBrand = () => {
   
   const [PremiumBrandList, setBrandList] = useState<BrandData[]>([]); 
@@ -45,7 +43,7 @@ const PremiumBrand = () => {
       </St.SortContainer>
       <St.ImgContainer>
         {PremiumBrandList.map((brand, i) => (
-          <BrandCard key = {i} brandData = {brand} />
+          <img key = {i} src = {brand.logoImage} alt = "이미지"/>
         ))}
       </St.ImgContainer>
     </St.PremiumBrandContainer>
