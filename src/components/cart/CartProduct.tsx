@@ -15,6 +15,24 @@ const CartProduct = (props: CartProductProp) => {
   const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
   const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
 
+  const onQuantityDecrease = () => {
+    const newQuantity = overallQuantity[cartProductId] <= 1 ? 1 : overallQuantity[cartProductId] - 1;
+
+    setOverallQuantity((prevObject) => ({
+      ...prevObject,
+      [cartProductId]: newQuantity,
+    }));
+  };
+
+  const onQuantityIncrease = () => {
+    const newQuantity = overallQuantity[cartProductId] + 1;
+
+    setOverallQuantity((prevObject) => ({
+      ...prevObject,
+      [cartProductId]: newQuantity,
+    }));
+  };
+
   return (
     <St.CartProductContainer>
       <label>
@@ -31,9 +49,13 @@ const CartProduct = (props: CartProductProp) => {
         <img src={cartProduct.productImgSrc} alt={cartProduct.productName}></img>
       </label>
       <h2>{cartProduct.productName}</h2>
-      <button type="button">-</button>
-      <span>{cartProduct.count}</span>
-      <button type="button">+</button>
+      <button type="button" onClick={onQuantityDecrease}>
+        -
+      </button>
+      <span>{overallQuantity[cartProductId]}</span>
+      <button type="button" onClick={onQuantityIncrease}>
+        +
+      </button>
     </St.CartProductContainer>
   );
 };
