@@ -72,7 +72,7 @@ const St = {
     flex-direction: column;
     
     width: 100vw;
-    margin: 6.3rem 1.5rem 0rem 1.5rem;
+    margin: 5.3rem 1.5rem 0rem 1.5rem;
   `,
 
   AdImg: styled.article`
