@@ -18,7 +18,7 @@ const Header = (props: HeaderProps) => {
         장바구니 <span>({cartProductsNum})</span>
       </h2>
       <Link id="cart" to="/">
-        <img src={HomeIcon} alt="장바구니 아이콘" width={48} height={48} />
+        <img src={HomeIcon} alt="홈 아이콘" width={48} height={48} />
       </Link>
     </St.HeaderContainer>
   );
