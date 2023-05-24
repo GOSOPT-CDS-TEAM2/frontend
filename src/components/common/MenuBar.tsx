@@ -29,7 +29,7 @@ const St = {
     z-index: 2;
 
     width: 100%;
-    height: 8.2rem;
+    height: 4.8rem;
 
     background-color: ${({ theme }) => theme.colors.gray_000};
 
