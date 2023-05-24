@@ -1,22 +1,26 @@
-import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
+import { useEffect } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import CartProductList from '../components/cart/CartProductList';
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
-import { cartDataState } from '../states/cart';
+import { cartDataState, overallCheckState, totalQuantitySelector } from '../states/cart';
 import { getCartData } from '../utils/lib/cart';
 
 const Cart = () => {
   const [cartData, setCartData] = useRecoilState(cartDataState);
+  const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
+
+  const totalQuantity = useRecoilValue(totalQuantitySelector);
 
   const getCartList = async () => {
     try {
       const {
         data: { data },
       } = await getCartData();
+
       setCartData(data);
     } catch (e) {
       console.log(e);
@@ -29,8 +33,8 @@ const Cart = () => {
 
   return (
     <St.CartContainer>
-      <Header cartProductsNum={cartData.cartProducts.length} />
-      <CategoryNav cartProductsNum={cartData.cartProducts.length} />
+      <Header cartProductsNum={totalQuantity} />
+      <CategoryNav cartProductsNum={totalQuantity} />
       <DeliveryCheck />
       <CartProductList />
     </St.CartContainer>

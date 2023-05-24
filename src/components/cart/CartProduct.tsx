@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { overallCheckState } from '../../states/cart';
 import { CartProductsData } from '../../types/cart';
 
 interface CartProductProp {
@@ -9,6 +10,8 @@ interface CartProductProp {
 
 const CartProduct = (props: CartProductProp) => {
   const { cartProduct } = props;
+
+  const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
 
   return (
     <St.CartProductContainer>
