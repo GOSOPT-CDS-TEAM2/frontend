@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BarIcon, BlackArrowIcon, CallIcon, CategoryIcon, ChannelIcon, CircleArrowIcon, FacebookIcon, HistoryIcon, HomeIcon, InstaIcon, MyIcon, NewMagazineIcon, YoutubeIcon } from '../../assets/icon';
+import { BarIcon, BlackArrowIcon, CallIcon, ChannelIcon, CircleArrowIcon, FacebookIcon, InstaIcon, YoutubeIcon } from '../../assets/icon';
 
 const Footer = () => {
   
@@ -33,18 +33,10 @@ const Footer = () => {
       <img key = {imgSrc} src = {imgSrc} alt = {imgAlt} />
     );
   });
-
-  const MenuIconList = [
-    { imgSrc: CategoryIcon, imgAlt: '카테고리아이콘' },
-    { imgSrc: NewMagazineIcon, imgAlt: '매거진아이콘' },
-    { imgSrc: HomeIcon, imgAlt: '홈아이콘' },
-    { imgSrc: HistoryIcon, imgAlt: '히스토리아이콘' },
-    { imgSrc: MyIcon, imgAlt: '마이페이지아이콘' },
-  ].map(({ imgSrc, imgAlt }) => {
-    return (
-      <img key = {imgSrc} src = {imgSrc} alt = {imgAlt} />
-    );
-  });
+  
+  const handleOnClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });  
+  };
 
   return (
     <St.FooterContainer>
@@ -67,17 +59,14 @@ const Footer = () => {
         <St.LawContainer> 
           {LawList}
         </St.LawContainer>
-        <St.DownloadContainer>
-          <St.Download>
+        <St.Download>
             APP 다운로드
-          </St.Download>
+        </St.Download>
+        <St.UpIcon className = "moveTopBtn" onClick={handleOnClick}>
           <img src = {CircleArrowIcon} alt = "올라가기 아이콘" />
-        </St.DownloadContainer>
+        </St.UpIcon>
       </St.Footer>
 
-      <St.MenuBar>
-        {MenuIconList}
-      </St.MenuBar>
     </St.FooterContainer>
   );
 };
@@ -94,6 +83,7 @@ const St = {
   Footer: styled.footer`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   
   height: 22rem;
@@ -120,8 +110,7 @@ const St = {
   }
 
   .bar {
-    margin-left: 0.7rem;
-    margin-right: 0.7rem;
+    margin : 0 0.7rem;
   }
 
   border: none;
@@ -171,25 +160,12 @@ const St = {
     
     .bar {
         height: 0.9rem;
-        margin-left: 0.7rem;
-        margin-right: 0.7rem;
+        margin : 0 0.7rem;
     }
 }
   `,
 
-  DownloadContainer: styled.div`
-  display: flex;
-  justify-content: center;
-
-  img {
-    width: 3.8rem;
-    height: 3.8rem;
-    margin-right: 2.0rem;
-    margin-top: 0.6rem;
-  }
-  `,
-
-  Download : styled.div`
+  Download : styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,7 +173,8 @@ const St = {
   width: 14.9rem;
   height: 3.2rem;
   
-  margin: 1.4rem 4.6rem 0.8rem 11.7rem;
+  margin: 1.7rem 0rem 0.8rem 0rem;
+  
   border-radius: 0.3rem;
   border: 0.1rem solid;
   border-color: ${({ theme }) => theme.colors.gray_200};
@@ -206,15 +183,17 @@ const St = {
   color: ${({ theme }) => theme.colors.gray_700};
   `,
   
-  MenuBar: styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  gap: 2.9rem;
-  height: 8.2rem;
+  UpIcon : styled.button`
+  position: fixed;
+  
+  padding: 0;
+  border : none;
+  width: 3.8rem;
+  height: 3.8rem;
+  bottom: 9.5rem;
+  right: 1.3rem;
+  background : none;
 
-  img {
-    width: 4.8rem;
-    height: 4.8rem;
-  }
+  z-index: 2;
   `,
 };
