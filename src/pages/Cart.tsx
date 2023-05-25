@@ -32,7 +32,7 @@ const Cart = () => {
       });
       setOverallCheck(tempOverallCheck);
 
-      //장바구니 데이터 수에 맞게 tempOverallQuantity 초기화
+      //장바구니 데이터 수에 맞게 overallQuantity 초기화
       const tempOverallQuantity: Quantity = {};
       data.cartProducts.forEach((item: CartProductsData) => {
         tempOverallQuantity[item.cartProductId] = item.count;
