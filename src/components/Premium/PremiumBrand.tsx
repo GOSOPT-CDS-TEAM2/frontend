@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { BrandSortIcon, BrandSortReverseIcon, PremiumCardLikeFillIcon, PremiumCardLikeIcon } from '../../assets/icon';
-import { BrandData } from '../../types/brand'; // BrandData import 추가
-import { getBrandData, postBrandData } from '../../utils/lib/brand';
+import { BrandSortIcon, BrandSortReverseIcon } from '../../assets/icon';
+import { BrandData } from '../../types/brand';
+import { getBrandData } from '../../utils/lib/brand';
 
 import PremiumBrandCard from './PremiumBrandCard';
 
@@ -50,7 +50,8 @@ const PremiumBrand = () => {
     setIsAscending(!isAscending);
   };
 
-  // 4. 전체/좋아요 랜더링
+  // 3. 전체/좋아요 버튼 선택에 따른 랜더링
+  
   const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
   
   const ShowAll = () => {
@@ -67,14 +68,17 @@ const PremiumBrand = () => {
     ? PremiumBrandList.filter((brand) => brand.likeTF)
     : PremiumBrandList;
 
-  // 3. API 연결하여 좋아요 / 좋아요 취소 버튼
-
+  // 4. 좋아요 / 좋아요 취소 버튼 반영 -> PremiumBrandCard
+ 
   const PremiumBrands = filteredBrandList.map((brand) => {
     return <PremiumBrandCard key ={brand.id} brand = {brand} />;
   });
+  
   return (
     <St.PremiumBrandContainer>
+
       <St.Header> 프리미엄 브랜드 </St.Header>
+      
       <St.SortContainer>
         <St.AllButton type = "button"  onClick = {ShowAll} className={showLikedOnly ? '' : 'active'} >
           전체 
@@ -90,9 +94,11 @@ const PremiumBrand = () => {
             : <img src={BrandSortReverseIcon} alt = "브랜드 ㅎ-ㄱ 정렬"/>}
         </St.SortButton>
       </St.SortContainer>
+
       <St.ImgContainer>
         {PremiumBrands}
       </St.ImgContainer>
+      
     </St.PremiumBrandContainer>
   );
 };
@@ -122,7 +128,6 @@ const St = {
 
   SortContainer: styled.div`
     display: flex;
-    
   `,
 
   AllButton: styled.button`
@@ -136,13 +141,12 @@ const St = {
     
     ${({ theme }) => theme.fonts.SubTitle1};
     color: ${({ theme }) => theme.colors.gray_300};
+    background-color: ${({ theme }) => theme.colors.gray_000};
+    border: none;
     
     &.active {
       color: ${({ theme }) => theme.colors.red_300};
     }
-    
-    background-color: ${({ theme }) => theme.colors.gray_000};
-    border: none;
   `,
 
   OrIcon: styled.p`
@@ -162,19 +166,18 @@ const St = {
     justify-content: center;
     align-items: center;
 
-
     height: 1.7rem;
     margin: 0.3rem 1.0rem 1.9rem 0.7rem;
     padding: 0rem;
 
-    ${({ theme }) => theme.fonts.SubTitle1};
-    
+    ${({ theme }) => theme.fonts.SubTitle1};    
     color: ${({ theme }) => theme.colors.gray_300};
+    background-color: ${({ theme }) => theme.colors.gray_000};
+    border: none;
+
     &.active {
       color: ${({ theme }) => theme.colors.red_300};
     }
-    background-color: ${({ theme }) => theme.colors.gray_000};
-    border: none;
   `,
 
   SortButton: styled.button`
@@ -193,10 +196,9 @@ const St = {
   ImgContainer: styled.div`
     display: flex;
     justify-content: flex-start;
+    gap: 0.7rem;
     
     width: 100vw;
-
-    gap: 0.7rem;
 
     overflow-x: auto;
     &::-webkit-scrollbar {
