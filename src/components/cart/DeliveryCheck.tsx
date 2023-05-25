@@ -1,24 +1,33 @@
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 
 import { CheckBigCheckedIcon, CheckBigNotCheckedIcon, ShoppingCartIcon } from '../../assets/icon';
+import { overallCheckState } from '../../states/cart';
 
 const DeliveryCheck = () => {
   const [deliveryCheck, setDeliveryCheck] = useState(true);
   const [progressAmount, setProgressAmount] = useState('100%');
+
+  const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
+
+  const onInputChange = () => {
+    Object.keys(overallCheck).forEach((key) => {
+      setOverallCheck((prevOverallCheck) => ({
+        ...prevOverallCheck,
+        [key]: !deliveryCheck,
+      }));
+    });
+    setDeliveryCheck(!deliveryCheck);
+    setProgressAmount(progressAmount === '0%' ? '100%' : '0%');
+  };
+
   return (
     <St.DeliveryCheckContainer>
       <St.OliveyoungDelivery>
         <St.CheckLabelContainer>
           <St.CheckLabel $deliveryCheck={deliveryCheck}>
-            <input
-              type="checkbox"
-              checked={deliveryCheck}
-              onChange={() => {
-                setDeliveryCheck(!deliveryCheck);
-                setProgressAmount(progressAmount === '0%' ? '100%' : '0%');
-              }}
-            />
+            <input type="checkbox" checked={deliveryCheck} onChange={onInputChange} />
             <h2>올리브영 배송</h2>
           </St.CheckLabel>
           {deliveryCheck ? (
@@ -140,7 +149,7 @@ const St = {
       border-radius: 2rem;
       background: ${({ theme }) => theme.colors.red_300};
 
-      transition: all ease-in-out 2s 0s;
+      transition: all ease-in-out 1s 0s;
     }
   `,
 };
