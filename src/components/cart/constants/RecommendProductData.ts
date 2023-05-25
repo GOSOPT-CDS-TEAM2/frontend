@@ -1,7 +1,7 @@
 import { 딥트3일올케어Img, 세노비스Img, 히말라야숙취해소Img } from '../../../assets/image';
-import { RecommendProduct } from '../../../types/cart';
+import { ProductData } from '../../../types/common';
 
-export const RECOMMEND_DATA: RecommendProduct[] = [
+export const RECOMMEND_DATA: ProductData[] = [
   {
     name: '[주현영, 이나연 찐템]딥트 3일 수퍼패스트8포 (4일분)',
     originalPrice: 21000,
