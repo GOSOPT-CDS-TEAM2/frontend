@@ -38,7 +38,7 @@ export const RECOMMEND_DATA: ProductData[] = [
     discountRate: 37,
     discountPrice: 17910,
     image: 세노비스Img,
-    likeTF: true,
+    likeTF: false,
     tags: {
       BEST: false,
       단독: false,
