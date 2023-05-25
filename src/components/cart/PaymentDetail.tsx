@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { NoticeFillIcon } from '../../assets/icon';
+import { CartGiftIcon, NoticeFillIcon } from '../../assets/icon';
 import { cartDataState, overallCheckState, overallQuantityState } from '../../states/cart';
 
 const PaymentDetail = () => {
@@ -56,6 +56,14 @@ const PaymentDetail = () => {
         <h2>결제 예상금액</h2>
         <span>{finalPrice.toLocaleString()}원</span>
       </St.FinalPaymentInfo>
+      <St.FinalButtons>
+        <button type="button">
+          <img src={CartGiftIcon} alt="선물하기 아이콘"></img>선물하기
+        </button>
+        <button className="pay" type="button">
+          구매하기
+        </button>
+      </St.FinalButtons>
     </St.PaymentDetailContainer>
   );
 };
@@ -121,6 +129,31 @@ const St = {
     span {
       ${({ theme }) => theme.fonts.Head2};
       color: ${({ theme }) => theme.colors.red_500};
+    }
+  `,
+  FinalButtons: styled.div`
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+
+      width: 100%;
+      height: 4.4rem;
+
+      background: ${({ theme }) => theme.colors.gray_000};
+      color: ${({ theme }) => theme.colors.red_300};
+      ${({ theme }) => theme.fonts.Head4}
+      border:0.1rem solid ${({ theme }) => theme.colors.red_300};
+      border-radius: 0.5rem;
+    }
+
+    .pay {
+      background: ${({ theme }) => theme.colors.red_300};
+      color: ${({ theme }) => theme.colors.gray_000};
     }
   `,
 };
