@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
-import Header from '../components/Cart/Header';
+import Header from '../components/cart/Header';
 import { getCartData } from '../utils/lib/cart';
 
 const Cart = () => {

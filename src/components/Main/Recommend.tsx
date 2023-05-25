@@ -1,78 +1,40 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ArrowIcon } from '../../assets/icon';
-import { ProductData } from '../../types/common';
+import { ProductServerData } from '../../types/common';
+import { getRecommendData } from '../../utils/lib/main';
 import Product from '../common/Product';
 
+import { TAG_LIST } from './constants/TAG_LIST';
+
 const USER = '황현진';
-// 더미 데이터
-const PRODUCT_DATA: ProductData[] = [
-  {
-    name: '[필리밀리X네고왕] 필리밀리 아이브러시 프로 컬렉션 (5종)',
-    originalPrice: 28000,
-    discountRate: 53,
-    discountPrice: 12900,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: true,
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    name: '콜레올로지 600mg * 30+10정 추가증정',
-    originalPrice: 22000,
-    discountRate: 21,
-    discountPrice: 17900,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: false,
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    name: '웨이크메이크 네일케어 8종 모아보기',
-    originalPrice: 5000,
-    discountRate: 0,
-    discountPrice: 5000,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: true,
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    name: '웨이크메이크 네일케어 8종 모아보기',
-    originalPrice: 5000,
-    discountRate: 0,
-    discountPrice: 5000,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: true,
-    tags: {
-      BEST: true,
-      단독: true,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-];
 
 const Recommend = () => {
-  const productList = PRODUCT_DATA.map((item) => {
-    return <Product key={item.name} productData={item} />;
+  const [recommendData, setRecommendData] = useState<ProductServerData[]>([]);
+
+  // 데이터 조회 함수
+  const getRecommendList = async () => {
+    try {
+      const {
+        data: { data },
+      } = await getRecommendData();
+      setRecommendData(data);
+    } catch (e) {
+      console.log(e); // 에러 처리는 나중에 에러 페이지나 섹션으로 대체할 예정
+    }
+  };
+
+  // 최초 렌더링 시 fetch
+  useEffect(() => {
+    getRecommendList();
+  }, []);
+
+  const productList = recommendData.map((item, idx) => {
+    const productData = { ...item, ...TAG_LIST[idx] }; // 불러온 서버데이터에 tag데이터 합치기
+    return <Product key={item.name} productData={productData} />;
   });
+
   return (
     <St.RecommendContainer>
       <St.Header>
@@ -127,7 +89,7 @@ const St = {
     display: flex;
     gap: 0.7rem;
 
-    padding-left: 1.4rem;
+    padding: 0 1.4rem;
     margin-top: 0.4rem;
 
     overflow-x: scroll;
