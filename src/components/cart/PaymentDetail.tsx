@@ -108,6 +108,9 @@ const St = {
   FinalPaymentInfo: styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    margin: 1.7rem 0;
 
     color: ${({ theme }) => theme.colors.gray_900};
 
@@ -116,7 +119,8 @@ const St = {
     }
 
     span {
-      ${({ theme }) => theme.fonts.SubHead2};
+      ${({ theme }) => theme.fonts.Head2};
+      color: ${({ theme }) => theme.colors.red_500};
     }
   `,
 };
