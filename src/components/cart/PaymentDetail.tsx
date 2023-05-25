@@ -20,8 +20,8 @@ const PaymentDetail = () => {
   for (const id in overallCheck) {
     if (overallCheck[id]) {
       const checkedProduct = cartData.cartProducts.filter((product) => product.cartProductId === Number(id))[0];
-      sumOriginalPrice += checkedProduct.originalPrice;
-      sumDiscountPrice += checkedProduct.discountPrice;
+      sumOriginalPrice += checkedProduct.originalPrice * overallQuantity[id];
+      sumDiscountPrice += checkedProduct.discountPrice * overallQuantity[id];
     }
   }
 
