@@ -8,6 +8,8 @@ import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
 import PaymentDetail from '../components/cart/PaymentDetail';
 import Recommend from '../components/cart/Recommend';
+import Footer from '../components/common/Footer';
+import MenuBar from '../components/common/MenuBar';
 import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
 import { CartProductsData, Check, Quantity } from '../types/cart';
 import { getCartData } from '../utils/lib/cart';
@@ -57,6 +59,8 @@ const Cart = () => {
       <CartProductList />
       <PaymentDetail totalQuantity={totalQuantity} />
       <Recommend />
+      <Footer />
+      <MenuBar />
     </St.CartContainer>
   );
 };
