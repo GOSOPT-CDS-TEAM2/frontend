@@ -1,21 +1,24 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { BackIcon, BagIcon, BlackSearchIcon } from '../../assets/icon';
 
 const Header = () => {
 
+  const navigate = useNavigate();
+
   return (
 
     <St.HeaderContainer>
-      <St.Button type = "button">
+      <St.Button type = "button"  onClick={() => navigate('/')}>
         <img src={BackIcon} alt="되돌아가기 아이콘" />
       </St.Button>
       <St.Header> 프리미엄관 </St.Header>
       <St.Button type = "button">
         <img src={BlackSearchIcon} alt="검색 아이콘" />
       </St.Button>
-      <St.Button type = "button">
-        <img src={BagIcon} alt="장바구니 아이콘" />
+      <St.Button type = "button"   onClick={() => navigate('/cart')}>
+        <img src={BagIcon} alt="장바구니 아이콘"/>
       </St.Button>
     </St.HeaderContainer>
 

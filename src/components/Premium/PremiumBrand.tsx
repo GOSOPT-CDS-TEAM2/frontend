@@ -58,7 +58,6 @@ const PremiumBrand = () => {
     setShowLikedOnly(false);
   };
 
-  const ShowLike = () => {
     getBrandList();
     setShowLikedOnly(true);
   };
