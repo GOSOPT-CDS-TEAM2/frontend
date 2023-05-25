@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { BrandSortIcon, BrandSortReverseIcon, PremiumCardLikeIcon } from '../../assets/icon';
+import { BrandSortIcon, BrandSortReverseIcon, PremiumCardLikeFillIcon, PremiumCardLikeIcon } from '../../assets/icon';
 import { BrandData } from '../../types/brand'; // BrandData import 추가
 import { getBrandData, postBrandData } from '../../utils/lib/brand';
+
+import PremiumBrandCard from './PremiumBrandCard';
 
 const PremiumBrand = () => {
   
@@ -50,27 +52,8 @@ const PremiumBrand = () => {
 
   // 3. API 연결하여 좋아요 / 좋아요 취소 버튼
 
-  const SendLikeRequest = async (brandId: number) => {
-    try {
-      const response = await postBrandData(brandId);
-      console.log(response.data); 
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const PremiumbBrands = PremiumBrandList.map((brand) => {
-    return (
-      <St.Img key = {brand.id}>
-        <img className = "back" src = {brand.image} alt = "이미지"/>
-        <img className = "front" src = {brand.logoImage} alt = "이미지"/>
-        <div />
-        <button onClick = {() => SendLikeRequest(brand.id)}>
-          <img className = "heart" src = {PremiumCardLikeIcon} alt = "좋아요 아이콘" />
-        </button>
-        <h1> {brand.name} </h1>
-      </St.Img>
-    );
+    return <PremiumBrandCard key ={brand.id} brand = {brand} />;
   });
 
   return (
@@ -87,8 +70,8 @@ const PremiumBrand = () => {
           좋아요
         </St.LikeButton>
         <St.SortButton type = "button" onClick = {SortBrandList}>
-          {isAscending ? <img src={BrandSortIcon} alt = "브랜드 이름 정렬"/>
-            : <img src={BrandSortReverseIcon} alt = "브랜드 이름 정렬"/>}
+          {isAscending ? <img src={BrandSortIcon} alt = "브랜드 ㄱ-ㅎ 정렬"/>
+            : <img src={BrandSortReverseIcon} alt = "브랜드 ㅎ-ㄱ 정렬"/>}
         </St.SortButton>
       </St.SortContainer>
       <St.ImgContainer>

@@ -19,6 +19,7 @@ export { default as LogoIcon } from './btn_logo.svg';
 export { default as MyIcon } from './btn_my.svg';
 export { default as NewMagazineIcon } from './btn_new_magazine.svg';
 export { default as PremiumCardLikeIcon } from './btn_primeum_card_like.svg';
+export { default as PremiumCardLikeFillIcon } from './btn_primeum_card_like_fill.svg';
 export { default as BlackSearchIcon } from './btn_search.svg';
 export { default as ArrowIcon } from './ic_arrow.svg';
 export { default as ArrowDownIcon } from './ic_arrow_down.svg';
