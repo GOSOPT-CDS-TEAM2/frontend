@@ -50,23 +50,39 @@ const PremiumBrand = () => {
     setIsAscending(!isAscending);
   };
 
+  // 4. 전체/좋아요 랜더링
+  const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
+
+  const ShowAll = () => {
+    getBrandList();
+    setShowLikedOnly(false);
+  };
+
+  const ShowLike = () => {
+    getBrandList();
+    setShowLikedOnly(true);
+  };
+
+  const filteredBrandList = showLikedOnly
+    ? PremiumBrandList.filter((brand) => brand.likeTF)
+    : PremiumBrandList;
+
   // 3. API 연결하여 좋아요 / 좋아요 취소 버튼
 
-  const PremiumbBrands = PremiumBrandList.map((brand) => {
+  const PremiumBrands = filteredBrandList.map((brand) => {
     return <PremiumBrandCard key ={brand.id} brand = {brand} />;
   });
-
   return (
     <St.PremiumBrandContainer>
       <St.Header> 프리미엄 브랜드 </St.Header>
       <St.SortContainer>
-        <St.AllButton>
+        <St.AllButton type = "button" onClick = {ShowAll}>
           전체 
         </St.AllButton>
         <St.OrIcon>
           |
         </St.OrIcon>
-        <St.LikeButton>
+        <St.LikeButton type = "button" onClick = {ShowLike}>
           좋아요
         </St.LikeButton>
         <St.SortButton type = "button" onClick = {SortBrandList}>
@@ -75,7 +91,7 @@ const PremiumBrand = () => {
         </St.SortButton>
       </St.SortContainer>
       <St.ImgContainer>
-        {PremiumbBrands}
+        {PremiumBrands}
       </St.ImgContainer>
     </St.PremiumBrandContainer>
   );
@@ -175,67 +191,6 @@ const St = {
     overflow-x: auto;
     &::-webkit-scrollbar {
       display: none;
-    }
-  `,
-
-  Img : styled.div`
-    position: relative;
-    width : 9.5rem;
-    height: 13.5rem;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-
-
-    .back {
-      object-fit: cover;
-      width : 9.5rem;
-      height: 13.5rem;
-      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-    }
-
-    .front {
-      max-width: 5.5rem;
-      height: 1.1rem;
-      position: absolute;
-      top: 5.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      filter: brightness(0) invert(1);
-      z-index: 2;
-      object-fit: contain;
-    }
-
-    button {
-      background : none;
-      border: none;
-      padding: none;
-    }
-    .heart {
-      position: absolute;
-      top: 0.7rem;
-      left: 7.5rem;
-    }
-
-    div {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width : 9.5rem;
-      height: 13.5rem;
-      background-color:  ${({ theme }) => theme.colors.gray_900};
-      opacity: 0.6;
-      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-    }
-
-    h1 {
-      position: absolute;
-      top: 10.4rem;
-      left: 50%;
-      transform: translateX(-50%);
-      ${({ theme }) => theme.fonts.SubTitle3};
-    color: ${({ theme }) => theme.colors.gray_000};
     }
   `,
 };
