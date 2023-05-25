@@ -5,18 +5,8 @@ import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
 import { getCartData } from '../utils/lib/cart';
-import { patchCartQuantityData } from '../utils/lib/main';
 
 const Cart = () => {
-  const patchCartQuantity = async () => {
-    const { data } = await patchCartQuantityData({ cartProductId: 1, changeStatus: true });
-    console.log(data);
-  };
-
-  useEffect(() => {
-    patchCartQuantity();
-  }, []);
-
   const [cartProductsNum, setCartProductsNum] = useState(0);
   const getCartList = async () => {
     try {
