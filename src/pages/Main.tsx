@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { AdHandCareImg, AdSpringImg, MainThumbNailImg } from '../assets/image';

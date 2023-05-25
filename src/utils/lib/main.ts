@@ -9,3 +9,7 @@ export const getRecommendData = () => {
 export const getRangkingData = (category: string) => {
   return client.get<ProductResponse>(`/api/main/ranking`, { headers: { category: category } });
 };
+
+export const patchCartQuantityData = (requestBody) => {
+  return client.patch(`/api/cart/change`, requestBody);
+};
