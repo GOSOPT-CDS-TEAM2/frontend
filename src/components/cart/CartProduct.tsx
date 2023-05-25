@@ -35,7 +35,6 @@ const CartProduct = (props: CartProductProp) => {
       const {
         data: { data },
       } = await patchCartQuantityData({ cartProductId: cartProductId, changeStatus: change });
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
