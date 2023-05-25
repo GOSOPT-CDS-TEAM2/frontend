@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Footer from '../components/common/Footer';
+import MenuBar from '../components/common/MenuBar';
 import CategoryNav from '../components/Membership/CategoryNav';
 import ClauseSection from '../components/Membership/ClauseSection';
 import CouponSection from '../components/Membership/CouponSection';
@@ -16,6 +18,8 @@ const Membership = () => {
       <CouponSection />
       <EventSection />
       <ClauseSection />
+      <Footer />
+      <MenuBar />
     </St.MembershipContainer>
   );
 };
