@@ -36,6 +36,7 @@ export { default as FacebookIcon } from './ic_facebook.svg';
 export { default as InfoIcon } from './ic_info.svg';
 export { default as InstaIcon } from './ic_insta.svg';
 export { default as MinusIcon } from './ic_minus.svg';
+export { default as NoticeFillIcon } from './ic_notice_fill.svg';
 export { default as PlusIcon } from './ic_plus.svg';
 export { default as SearchIcon } from './ic_search.svg';
 export { default as GraySearchIcon } from './ic_search.svg';

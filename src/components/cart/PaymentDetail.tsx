@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { NoticeFillIcon } from '../../assets/icon';
 import { cartDataState, overallCheckState, overallQuantityState } from '../../states/cart';
 
 const PaymentDetail = () => {
@@ -46,6 +47,10 @@ const PaymentDetail = () => {
           <span>{cartData.deliveryFee.toLocaleString()}원</span>
         </St.PaymentInfo>
       </St.PaymentInfoList>
+      <St.SubText>
+        <img src={NoticeFillIcon} alt="안내 아이콘"></img>
+        쿠폰 적용 및 결제 수단에 따라 최종 금액이 변결될 수 있습니다.
+      </St.SubText>
     </St.PaymentDetailContainer>
   );
 };
@@ -78,6 +83,21 @@ const St = {
 
     span {
       ${({ theme }) => theme.fonts.SubHead2};
+    }
+  `,
+  SubText: styled.small`
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding-bottom: 1.5rem;
+
+    border-bottom: 0.1rem solid ${({ theme }) => theme.colors.gray_200};
+    color: ${({ theme }) => theme.colors.gray_300};
+    ${({ theme }) => theme.fonts.Body3}
+
+    img {
+      margin-right: 0.5rem;
     }
   `,
 };
