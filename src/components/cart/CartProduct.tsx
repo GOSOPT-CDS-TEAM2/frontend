@@ -132,6 +132,7 @@ const St = {
   `,
   Product: styled.div`
     display: flex;
+    justify-content: space-between;
     gap: 1.4rem;
   `,
   ProductDetail: styled.div`

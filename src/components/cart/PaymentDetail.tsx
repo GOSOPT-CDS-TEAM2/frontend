@@ -172,10 +172,10 @@ const St = {
     align-items: center;
 
     margin-top: 0.7rem;
-    width: 33.4rem;
     height: 5.4rem;
 
     background-image: url(${CartSpeechBubbleImg});
+    background-size: 100%;
 
     small {
       margin-top: 0.7rem;
