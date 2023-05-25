@@ -29,7 +29,8 @@ const PaymentDetail = () => {
   useEffect(() => {
     setTotalOriginalPrice(sumOriginalPrice);
     setTotalDiscountedPrice(sumOriginalPrice - sumDiscountPrice);
-  }, [sumOriginalPrice, sumDiscountPrice]);
+    setFinalPrice(sumDiscountPrice);
+  }, [overallCheck, overallQuantity]);
 
   return (
     <St.PaymentDetailContainer>
@@ -51,6 +52,10 @@ const PaymentDetail = () => {
         <img src={NoticeFillIcon} alt="안내 아이콘"></img>
         쿠폰 적용 및 결제 수단에 따라 최종 금액이 변결될 수 있습니다.
       </St.SubText>
+      <St.FinalPaymentInfo>
+        <h2>결제 예상금액</h2>
+        <span>{finalPrice.toLocaleString()}원</span>
+      </St.FinalPaymentInfo>
     </St.PaymentDetailContainer>
   );
 };
@@ -98,6 +103,20 @@ const St = {
 
     img {
       margin-right: 0.5rem;
+    }
+  `,
+  FinalPaymentInfo: styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    color: ${({ theme }) => theme.colors.gray_900};
+
+    h2 {
+      ${({ theme }) => theme.fonts.Title1};
+    }
+
+    span {
+      ${({ theme }) => theme.fonts.SubHead2};
     }
   `,
 };
