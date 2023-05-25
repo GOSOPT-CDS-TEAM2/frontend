@@ -54,12 +54,12 @@ const PremiumBrand = () => {
   
   const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
   
-  const ShowAll = () => {
+  const showAll = () => {
     getBrandList();
     setShowLikedOnly(false);
   };
 
-  const ShowLike = () => {
+  const showLike = () => {
     getBrandList();
     setShowLikedOnly(true);
   };
@@ -80,18 +80,18 @@ const PremiumBrand = () => {
       <St.Header> 프리미엄 브랜드 </St.Header>
       
       <St.SortContainer>
-        <St.AllButton type = "button"  onClick = {ShowAll} className={showLikedOnly ? '' : 'active'} >
+        <St.AllButton type = "button"  onClick = {showAll} className={showLikedOnly ? '' : 'active'} >
           전체 
         </St.AllButton>
         <St.OrIcon>
           |
         </St.OrIcon>
-        <St.LikeButton type = "button" onClick = {ShowLike} className={showLikedOnly ? 'active' : ''}>
+        <St.LikeButton type = "button" onClick = {showLike} className={showLikedOnly ? 'active' : ''}>
           좋아요
         </St.LikeButton>
         <St.SortButton type = "button" onClick = {SortBrandList}>
-          {isAscending ? <img src={BrandSortIcon} alt = "브랜드 ㄱ-ㅎ 정렬"/>
-            : <img src={BrandSortReverseIcon} alt = "브랜드 ㅎ-ㄱ 정렬"/>}
+          {isAscending ? <img src={BrandSortReverseIcon} alt = "브랜드 ㅎ-ㄱ 정렬"/>
+            :  <img src={BrandSortIcon} alt = "브랜드 ㄱ-ㅎ 정렬"/>}
         </St.SortButton>
       </St.SortContainer>
 
@@ -112,8 +112,8 @@ const St = {
     flex-direction: column;
 
     width: 100vw;
-    padding: 1.7rem;
-    `,
+    padding: 1.7rem 0rem 1.7rem 1.7rem;
+  `,
 
   Header: styled.h1`
     display: flex;
@@ -198,7 +198,7 @@ const St = {
     justify-content: flex-start;
     gap: 0.7rem;
     
-    width: 100vw;
+    width: 100%;
 
     overflow-x: auto;
     &::-webkit-scrollbar {
