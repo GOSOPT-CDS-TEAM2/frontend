@@ -25,7 +25,7 @@ interface Menu {
 const MAIN_MENU: Menu[] = [
   { imgUrl: MainIcon, description: '라이브 버튼 아이콘', link: '/', type: 'main' },
   { imgUrl: DiscountIcon, description: '세일 버튼 아이콘', link: '/', type: 'main' },
-  { imgUrl: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/Premium', type: 'main' },
+  { imgUrl: PremiumIcon, description: '프리미엄관 버튼 아이콘', link: '/premium', type: 'main' },
   { imgUrl: MembershipIcon, description: '멤버십/쿠폰 버튼 아이콘', link: '/membership', type: 'main' },
 ];
 
