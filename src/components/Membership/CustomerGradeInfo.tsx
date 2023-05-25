@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { GradeBarImg, SpeechBubbleImg } from '../../assets/image';
+import { GradeBarImg, MemberShipSpeechBubbleImg } from '../../assets/image';
 
 import { GRADE_LIST } from './data/GRADE_LIST';
 import GradeBenefitModal from './GradeBenefitModal';
@@ -66,7 +66,7 @@ const CustomerGradeInfo = () => {
           </section>
           <St.GradeFigureContainer>
             <aside>
-              <img src={SpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
+              <img src={MemberShipSpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
               <p>
                 <span className="remainAmount">{remainAmount.toLocaleString()}원 </span>추가 구매 시<br />
                 {customerInfo.upgradePeriod} <span className="nextGrade">{nextGrade} OLIVE</span>

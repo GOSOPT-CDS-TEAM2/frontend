@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { CartGiftIcon, NoticeFillIcon } from '../../assets/icon';
+import { CartSpeechBubbleImg } from '../../assets/image';
 import { cartDataState, overallCheckState, overallQuantityState } from '../../states/cart';
 
 interface PaymentDetailProps {
@@ -70,6 +71,9 @@ const PaymentDetail = (props: PaymentDetailProps) => {
           구매하기 ({totalQuantity})
         </button>
       </St.FinalButtons>
+      <St.SpeechBubble>
+        <small>장바구니 상품은 90일동안, 판매종료 된 상품은 10일동안 보관됩니다.</small>
+      </St.SpeechBubble>
     </St.PaymentDetailContainer>
   );
 };
@@ -82,6 +86,8 @@ const St = {
     flex-direction: column;
 
     margin: 2rem 2.1rem;
+
+    box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.05);
   `,
   PaymentInfoList: styled.ol`
     display: flex;
@@ -160,6 +166,24 @@ const St = {
     .pay {
       background: ${({ theme }) => theme.colors.red_300};
       color: ${({ theme }) => theme.colors.gray_000};
+    }
+  `,
+  SpeechBubble: styled.aside`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0.7rem;
+    width: 33.4rem;
+    height: 5.4rem;
+
+    background-image: url(${CartSpeechBubbleImg});
+
+    small {
+      margin-top: 0.7rem;
+
+      color: ${({ theme }) => theme.colors.gray_500};
+      ${({ theme }) => theme.fonts.Body1}
     }
   `,
 };
