@@ -15,8 +15,8 @@ const PaymentDetail = (props: PaymentDetailProps) => {
 
   // 전역상태: 원본 데이터, 모든 상품의 체크 여부 정보, 모든 상품의 수량 정보
   const cartData = useRecoilValue(cartDataState);
-  const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
-  const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
+  const overallCheck = useRecoilValue(overallCheckState);
+  const overallQuantity = useRecoilValue(overallQuantityState);
 
   // 지역상태: 총 상품금액, 총 할인금액, 결제 예상금액
   const [totalOriginalPrice, setTotalOriginalPrice] = useState(0);
