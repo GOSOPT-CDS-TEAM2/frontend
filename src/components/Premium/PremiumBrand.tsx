@@ -52,12 +52,13 @@ const PremiumBrand = () => {
 
   // 4. 전체/좋아요 랜더링
   const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
-
+  
   const ShowAll = () => {
     getBrandList();
     setShowLikedOnly(false);
   };
 
+  const ShowLike = () => {
     getBrandList();
     setShowLikedOnly(true);
   };
@@ -75,13 +76,13 @@ const PremiumBrand = () => {
     <St.PremiumBrandContainer>
       <St.Header> 프리미엄 브랜드 </St.Header>
       <St.SortContainer>
-        <St.AllButton type = "button" onClick = {ShowAll}>
+        <St.AllButton type = "button"  onClick = {ShowAll} className={showLikedOnly ? '' : 'active'} >
           전체 
         </St.AllButton>
         <St.OrIcon>
           |
         </St.OrIcon>
-        <St.LikeButton type = "button" onClick = {ShowLike}>
+        <St.LikeButton type = "button" onClick = {ShowLike} className={showLikedOnly ? 'active' : ''}>
           좋아요
         </St.LikeButton>
         <St.SortButton type = "button" onClick = {SortBrandList}>
@@ -121,6 +122,7 @@ const St = {
 
   SortContainer: styled.div`
     display: flex;
+    
   `,
 
   AllButton: styled.button`
@@ -133,7 +135,12 @@ const St = {
     padding: 0rem;
     
     ${({ theme }) => theme.fonts.SubTitle1};
-    color: ${({ theme }) => theme.colors.red_300};
+    color: ${({ theme }) => theme.colors.gray_300};
+    
+    &.active {
+      color: ${({ theme }) => theme.colors.red_300};
+    }
+    
     background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
   `,
@@ -161,7 +168,11 @@ const St = {
     padding: 0rem;
 
     ${({ theme }) => theme.fonts.SubTitle1};
+    
     color: ${({ theme }) => theme.colors.gray_300};
+    &.active {
+      color: ${({ theme }) => theme.colors.red_300};
+    }
     background-color: ${({ theme }) => theme.colors.gray_000};
     border: none;
   `,
