@@ -19,6 +19,10 @@ https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/97084864/1d71b7c2-5538-43e4-
 
 
 ### ✨ **프리미엄관**
+주요 기능 : **스와이프/ 가로 스크롤 및 상품 조회 API 연결**
+
+https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/97084864/1d71b7c2-5538-43e4-8074-26f735d69985
+
 
 ### 🛒 **장바구니**
 
