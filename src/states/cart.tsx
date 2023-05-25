@@ -20,7 +20,7 @@ export const totalQuantitySelector = selector({
 
 export const overallQuantityState = atom<Quantity>({
   key: 'overallQuantityState',
-  default: [],
+  default: {},
 });
 
 export const overallCheckState = atom<Check>({
