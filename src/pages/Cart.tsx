@@ -7,6 +7,7 @@ import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
 import PaymentDetail from '../components/cart/PaymentDetail';
+import Recommend from '../components/cart/Recommend';
 import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
 import { CartProductsData, Check, Quantity } from '../types/cart';
 import { getCartData } from '../utils/lib/cart';
@@ -55,6 +56,7 @@ const Cart = () => {
       <DeliveryCheck />
       <CartProductList />
       <PaymentDetail totalQuantity={totalQuantity} />
+      <Recommend />
     </St.CartContainer>
   );
 };
