@@ -43,6 +43,8 @@ const Cart = () => {
     }
   };
 
+  console.log(overallQuantity);
+
   useEffect(() => {
     getCartList();
   }, []);

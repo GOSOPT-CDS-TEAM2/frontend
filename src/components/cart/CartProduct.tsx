@@ -29,8 +29,6 @@ const CartProduct = (props: CartProductProp) => {
   );
 
   const patchCartQuantity = async (change: boolean) => {
-    // { cartProductId: cartProductId, changeStatus: change }
-
     try {
       const {
         data: { data },
