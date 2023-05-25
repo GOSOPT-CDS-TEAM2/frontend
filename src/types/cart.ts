@@ -6,7 +6,7 @@ export interface CartResponse {
 
 export interface CartQuantityRequest {
   cartProductId: number;
-  chagneStatus: boolean;
+  changeStatus: boolean;
 }
 
 export interface CartQuantityResponse {

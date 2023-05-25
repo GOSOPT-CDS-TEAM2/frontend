@@ -7,5 +7,5 @@ export const getCartData = () => {
 };
 
 export const patchCartQuantityData = (CartQuantityRequest: CartQuantityRequest) => {
-  return client.patch<CartQuantityResponse>('/api/cart', CartQuantityRequest);
+  return client.patch<CartQuantityResponse>('/api/cart/change', CartQuantityRequest);
 };

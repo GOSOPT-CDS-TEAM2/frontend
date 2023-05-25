@@ -29,10 +29,12 @@ const CartProduct = (props: CartProductProp) => {
   );
 
   const patchCartQuantity = async (change: boolean) => {
+    // { cartProductId: cartProductId, changeStatus: change }
+
     try {
       const {
         data: { data },
-      } = await patchCartQuantityData({ cartProductId: cartProductId, chagneStatus: change });
+      } = await patchCartQuantityData({ cartProductId: cartProductId, changeStatus: change });
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -49,7 +51,7 @@ const CartProduct = (props: CartProductProp) => {
       [cartProductId]: newQuantity,
     }));
 
-    // CORS error: patchCartQuantity(false);
+    patchCartQuantity(false);
 
     // 변경된 수량에 따라 이 상품의 원래 가격과 상품 가격 변경
     setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
@@ -65,7 +67,7 @@ const CartProduct = (props: CartProductProp) => {
       [cartProductId]: newQuantity,
     }));
 
-    // CORS error: patchCartQuantity(true);
+    patchCartQuantity(true);
 
     // 변경된 수량에 따라 이 상품의 원래 가격과 상품 가격 변경
     setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
