@@ -5,7 +5,13 @@ import styled from 'styled-components';
 import { CartGiftIcon, NoticeFillIcon } from '../../assets/icon';
 import { cartDataState, overallCheckState, overallQuantityState } from '../../states/cart';
 
-const PaymentDetail = () => {
+interface PaymentDetailProps {
+  totalQuantity: number;
+}
+
+const PaymentDetail = (props: PaymentDetailProps) => {
+  const { totalQuantity } = props;
+
   // 전역상태: 원본 데이터, 모든 상품의 체크 여부 정보, 모든 상품의 수량 정보
   const cartData = useRecoilValue(cartDataState);
   const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
@@ -61,7 +67,7 @@ const PaymentDetail = () => {
           <img src={CartGiftIcon} alt="선물하기 아이콘"></img>선물하기
         </button>
         <button className="pay" type="button">
-          구매하기
+          구매하기 ({totalQuantity})
         </button>
       </St.FinalButtons>
     </St.PaymentDetailContainer>

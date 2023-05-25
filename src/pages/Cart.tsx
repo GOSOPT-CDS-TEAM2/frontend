@@ -50,11 +50,11 @@ const Cart = () => {
 
   return (
     <St.CartContainer>
-      <Header cartProductsNum={totalQuantity} />
-      <CategoryNav cartProductsNum={totalQuantity} />
+      <Header totalQuantity={totalQuantity} />
+      <CategoryNav totalQuantity={totalQuantity} />
       <DeliveryCheck />
       <CartProductList />
-      <PaymentDetail />
+      <PaymentDetail totalQuantity={totalQuantity} />
     </St.CartContainer>
   );
 };

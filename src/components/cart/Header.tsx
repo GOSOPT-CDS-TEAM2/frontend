@@ -4,18 +4,18 @@ import styled from 'styled-components';
 import { BackIcon, HomeIcon } from '../../assets/icon';
 
 interface HeaderProps {
-  cartProductsNum: number;
+  totalQuantity: number;
 }
 
 const Header = (props: HeaderProps) => {
-  const { cartProductsNum } = props;
+  const { totalQuantity } = props;
   return (
     <St.HeaderContainer>
       <button type="button">
         <img src={BackIcon} alt="뒤로가기 아이콘" width={48} height={48} />
       </button>
       <h2>
-        장바구니 <span>({cartProductsNum})</span>
+        장바구니 <span>({totalQuantity})</span>
       </h2>
       <Link id="cart" to="/">
         <img src={HomeIcon} alt="홈 아이콘" width={48} height={48} />
