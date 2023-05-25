@@ -46,7 +46,7 @@ const St = {
     width : 9.5rem;
     height: 13.5rem;
     
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0rem 0rem 0.3rem  rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     
     .heart {
@@ -66,8 +66,8 @@ const St = {
       
       background-color:  ${({ theme }) => theme.colors.gray_900};
       opacity: 0.6;
-      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
+      box-shadow: 0rem 0rem 0.3rem rgba(0, 0, 0, 0.25);
+      border-radius: 0.5rem;
     }
   `,
   
@@ -76,8 +76,8 @@ const St = {
   height: 13.5rem;
   object-fit: cover;
   
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
+  box-shadow: 0rem 0rem 0.3rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
   `,
 
   Front: styled.img`
