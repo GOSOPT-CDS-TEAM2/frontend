@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { BrandNameListIcon, PremiumCardLikeIcon } from '../../assets/icon';
+import { BrandSortIcon, BrandSortReverseIcon, PremiumCardLikeIcon } from '../../assets/icon';
 import { BrandData } from '../../types/brand'; // BrandData import 추가
 import { getBrandData, postBrandData } from '../../utils/lib/brand';
 
@@ -87,7 +87,8 @@ const PremiumBrand = () => {
           좋아요
         </St.LikeButton>
         <St.SortButton type = "button" onClick = {SortBrandList}>
-          <img src={BrandNameListIcon} alt = "브랜드 이름 정렬"/>
+          {isAscending ? <img src={BrandSortIcon} alt = "브랜드 이름 정렬"/>
+            : <img src={BrandSortReverseIcon} alt = "브랜드 이름 정렬"/>}
         </St.SortButton>
       </St.SortContainer>
       <St.ImgContainer>
