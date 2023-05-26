@@ -1,23 +1,22 @@
-import { Check, Quantity } from '../types/cart';
-import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useEffect } from 'react';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import styled from 'styled-components';
 
 import CartProductList from '../components/cart/CartProductList';
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
-import Footer from '../components/common/Footer';
 import Header from '../components/cart/Header';
-import MenuBar from '../components/common/MenuBar';
 import PaymentDetail from '../components/cart/PaymentDetail';
 import Recommend from '../components/cart/Recommend';
-import styled from 'styled-components';
-import { useEffect } from 'react';
+import Footer from '../components/common/Footer';
+import MenuBar from '../components/common/MenuBar';
+import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
+import { Check, Quantity } from '../types/cart';
 
 const Cart = () => {
   const [cartData, setCartData] = useRecoilState(cartDataState);
-  const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
-  const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
-
+  const setOverallCheck = useSetRecoilState(overallCheckState);
+  const setOverallQuantity = useSetRecoilState(overallQuantityState);
   const totalQuantity = useRecoilValue(totalQuantitySelector);
 
   const getCartList = () => {

@@ -79,6 +79,7 @@ const CartProduct = (props: CartProductProp) => {
           <St.ProductDetail>
             <St.CheckLabel $isChecked={overallCheck[cartProductId]}>
               <input
+                value=""
                 type="checkbox"
                 checked={overallCheck[cartProductId]}
                 onChange={() => {

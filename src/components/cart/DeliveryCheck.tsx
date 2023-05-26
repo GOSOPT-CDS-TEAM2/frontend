@@ -27,7 +27,7 @@ const DeliveryCheck = () => {
       <St.OliveyoungDelivery>
         <St.CheckLabelContainer>
           <St.CheckLabel $deliveryCheck={deliveryCheck}>
-            <input type="checkbox" checked={deliveryCheck} onChange={onInputChange} />
+            <input value="" type="checkbox" checked={deliveryCheck} onChange={onInputChange} />
             <h2>올리브영 배송</h2>
           </St.CheckLabel>
           {deliveryCheck ? (
