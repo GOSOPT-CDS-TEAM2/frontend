@@ -31,7 +31,7 @@ const HorizontalProduct = (props: ProductProps) => {
           <St.DiscountRate>{discountRate}%</St.DiscountRate>
           <St.DiscountPrice>{discountPrice.toLocaleString()}원</St.DiscountPrice>
 
-          <St.OriginalPrice>{originalPrice.toLocaleString()}원</St.OriginalPrice>
+          <St.OriginalPrice>{originalPrice && originalPrice.toLocaleString()}원</St.OriginalPrice>
         </St.PriceContainer>
 
         <St.ProductTagContainer>{renderList}</St.ProductTagContainer>
