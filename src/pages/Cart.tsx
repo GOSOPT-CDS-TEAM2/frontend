@@ -1,18 +1,18 @@
-import { useEffect } from 'react';
+import { CartProductsData, Check, Quantity } from '../types/cart';
+import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import styled from 'styled-components';
 
 import CartProductList from '../components/cart/CartProductList';
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
+import Footer from '../components/common/Footer';
 import Header from '../components/cart/Header';
+import MenuBar from '../components/common/MenuBar';
 import PaymentDetail from '../components/cart/PaymentDetail';
 import Recommend from '../components/cart/Recommend';
-import Footer from '../components/common/Footer';
-import MenuBar from '../components/common/MenuBar';
-import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
-import { CartProductsData, Check, Quantity } from '../types/cart';
 import { getCartData } from '../utils/lib/cart';
+import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const Cart = () => {
   const [cartData, setCartData] = useRecoilState(cartDataState);
@@ -30,17 +30,15 @@ const Cart = () => {
       setCartData(data);
 
       //장바구니 데이터 수에 맞게 overallCheck 초기화
-      const tempOverallCheck: Check = {};
-      data.cartProducts.forEach((item: CartProductsData) => {
-        tempOverallCheck[item.cartProductId] = true;
-      });
+      const tempOverallCheck: Check = Object.values(data.cartProducts).reduce((acc, { cartProductId }) => {
+        return { ...acc, [cartProductId]: true };
+      }, {});
       setOverallCheck(tempOverallCheck);
 
       //장바구니 데이터 수에 맞게 overallQuantity 초기화
-      const tempOverallQuantity: Quantity = {};
-      data.cartProducts.forEach((item: CartProductsData) => {
-        tempOverallQuantity[item.cartProductId] = item.count;
-      });
+      const tempOverallQuantity: Quantity = Object.values(data.cartProducts).reduce((acc, { cartProductId, count }) => {
+        return { ...acc, [cartProductId]: count };
+      }, {});
       setOverallQuantity(tempOverallQuantity);
     } catch (e) {
       console.log(e);
