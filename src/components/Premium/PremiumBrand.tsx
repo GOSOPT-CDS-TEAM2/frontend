@@ -173,6 +173,7 @@ const St = {
     width: 100%;
 
     overflow-x: auto;
+    overflow-y: hidden; 
     &::-webkit-scrollbar {
       display: none;
     }
