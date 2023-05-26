@@ -1,9 +1,9 @@
-import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil';
-
-import { GlobalStyle } from './styles/globalStyle';
-import Router from './components/common/Router';
 import { Suspense } from 'react';
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
+
+import Router from './components/common/Router';
+import { GlobalStyle } from './styles/globalStyle';
 import theme from './styles/theme';
 
 function App() {
