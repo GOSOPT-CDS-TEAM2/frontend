@@ -7,7 +7,6 @@ import { useRecoilValue } from 'recoil';
 
 const Header = () => {
   const cartData = useRecoilValue(cartDataSelector);
-  const totalQuantity = cartData.cartProducts.length;
 
   return (
     <St.HeaderContainer>
@@ -16,7 +15,7 @@ const Header = () => {
       </button>
       <h2>멤버십/쿠폰</h2>
       <Link id="cart" to="/cart">
-        <span id="cartCnt">{totalQuantity}</span>
+        <span id="cartCnt">{cartData.cartProducts.length}</span>
         <img src={BagIcon} alt="장바구니 아이콘" width={48} height={48} />
       </Link>
     </St.HeaderContainer>
