@@ -12,16 +12,16 @@ const PremiumBrand = () => {
   // 1. API 연결하여 브랜드 리스트 받아오기
   
   const [PremiumBrandList, setBrandList] = useState<BrandData[]>([]); 
-
+  
   const getBrandList = async () => {
     try {
       const { data: { data } } = await getBrandData();
-      setBrandList(data);
+      sortBrandList(data);
     } catch (error) {
       console.log(error);
     }
   };
-
+  
   useEffect(() => {
     getBrandList();
   }, []);
@@ -30,8 +30,8 @@ const PremiumBrand = () => {
 
   const [isAscending, setIsAscending] = useState<boolean>(true);
   
-  const SortBrandList = () => {
-    const sortedList = [...PremiumBrandList].sort((a, b) => {
+  const sortBrandList = (list: BrandData[]) => {
+    const sortedList = [...list].sort((a, b) => {
       const nameA = a.name.toLowerCase();
       const nameB = b.name.toLowerCase();
 
@@ -89,7 +89,7 @@ const PremiumBrand = () => {
         <St.LikeButton type = "button" onClick = {showLike} className={showLikedOnly ? 'active' : ''}>
           좋아요
         </St.LikeButton>
-        <St.SortButton type = "button" onClick = {SortBrandList}>
+        <St.SortButton type = "button"  onClick={() => sortBrandList(PremiumBrandList)}>
           {isAscending ? <img src={BrandSortReverseIcon} alt = "브랜드 ㅎ-ㄱ 정렬"/>
             :  <img src={BrandSortIcon} alt = "브랜드 ㄱ-ㅎ 정렬"/>}
         </St.SortButton>
