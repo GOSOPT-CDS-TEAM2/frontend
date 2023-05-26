@@ -10,6 +10,7 @@ import NewPopularList from '../components/Premium/NewPopularList';
 import PremiumBrand from '../components/Premium/PremiumBrand';
 
 const PremiumPage = () => {
+  
   return (
     <St.PremiumContainer>
       <Header />
