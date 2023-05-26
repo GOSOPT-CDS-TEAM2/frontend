@@ -20,7 +20,8 @@ const Cart = () => {
   const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
 
   const totalQuantity = useRecoilValue(totalQuantitySelector);
-
+  // const cartData = useRecoilValue(cartDataState);
+  // console.log(cartData);
   const getCartList = async () => {
     try {
       const {
@@ -36,7 +37,7 @@ const Cart = () => {
       setOverallCheck(tempOverallCheck);
 
       //장바구니 데이터 수에 맞게 overallQuantity 초기화
-      const tempOverallQuantity: Quantity = Object.values(data.cartProducts).reduce((acc, { cartProductId, count }) => {
+      const tempOverallQuantity = Object.values(data.cartProducts).reduce((acc, { cartProductId, count }) => {
         return { ...acc, [cartProductId]: count };
       }, {});
       setOverallQuantity(tempOverallQuantity);
@@ -45,10 +46,23 @@ const Cart = () => {
     }
   };
 
+  // const getCartList = () => {
+  //   //장바구니 데이터 수에 맞게 overallCheck 초기화
+  //   const tempOverallCheck: Check = Object.values(cartData.cartProducts).reduce((acc, { cartProductId }) => {
+  //     return { ...acc, [cartProductId]: true };
+  //   }, {});
+  //   setOverallCheck(tempOverallCheck);
+
+  //   //장바구니 데이터 수에 맞게 overallQuantity 초기화
+  //   const tempOverallQuantity = Object.values(cartData.cartProducts).reduce((acc, { cartProductId, count }) => {
+  //     return { ...acc, [cartProductId]: count };
+  //   }, {});
+  //   setOverallQuantity(tempOverallQuantity);
+  // };
+
   useEffect(() => {
     getCartList();
   }, []);
-
   return (
     <St.CartContainer>
       <Header totalQuantity={totalQuantity} />

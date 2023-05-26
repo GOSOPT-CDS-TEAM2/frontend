@@ -1,14 +1,14 @@
 import { BackIcon, BagIcon } from '../../assets/icon';
+import { cartDataSelector, totalQuantitySelector } from '../../states/cart';
 
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { totalQuantitySelector } from '../../states/cart';
 import { useRecoilValue } from 'recoil';
 
 const Header = () => {
-  const totalQuantity = useRecoilValue(totalQuantitySelector);
+  const cartData = useRecoilValue(cartDataSelector);
+  const totalQuantity = cartData.cartProducts.length;
 
-  const cartCnt = 0;
   return (
     <St.HeaderContainer>
       <button type="button">

@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useRecoilState } from 'recoil';
-import styled from 'styled-components';
-
 import { CheckCheckedIcon, CheckNotCheckedIcon, MinusIcon, PlusIcon } from '../../assets/icon';
 import { overallCheckState, overallQuantityState } from '../../states/cart';
+
 import { CartProductsData } from '../../types/cart';
-import { patchCartQuantityData } from '../../utils/lib/cart';
 import ProductTag from '../common/ProductTag';
+import { patchCartQuantityData } from '../../utils/lib/cart';
+import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { useState } from 'react';
 
 interface CartProductProp {
   cartProduct: CartProductsData;
