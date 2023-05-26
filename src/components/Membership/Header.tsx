@@ -1,12 +1,12 @@
 import { BackIcon, BagIcon } from '../../assets/icon';
-import { cartDataSelector, totalQuantitySelector } from '../../states/cart';
 
 import { Link } from 'react-router-dom';
+import { cartDataState } from '../../states/cart';
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 
 const Header = () => {
-  const cartData = useRecoilValue(cartDataSelector);
+  const cartData = useRecoilValue(cartDataState);
 
   return (
     <St.HeaderContainer>

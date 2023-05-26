@@ -1,4 +1,4 @@
-import { CartProductsData, Check, Quantity } from '../types/cart';
+import { Check, Quantity } from '../types/cart';
 import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
@@ -10,7 +10,6 @@ import Header from '../components/cart/Header';
 import MenuBar from '../components/common/MenuBar';
 import PaymentDetail from '../components/cart/PaymentDetail';
 import Recommend from '../components/cart/Recommend';
-import { getCartData } from '../utils/lib/cart';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 
@@ -20,49 +19,30 @@ const Cart = () => {
   const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
 
   const totalQuantity = useRecoilValue(totalQuantitySelector);
-  // const cartData = useRecoilValue(cartDataState);
-  // console.log(cartData);
-  const getCartList = async () => {
-    try {
-      const {
-        data: { data },
-      } = await getCartData();
 
-      setCartData(data);
+  const getCartList = () => {
+    setCartData(cartData);
 
-      //장바구니 데이터 수에 맞게 overallCheck 초기화
-      const tempOverallCheck: Check = Object.values(data.cartProducts).reduce((acc, { cartProductId }) => {
-        return { ...acc, [cartProductId]: true };
-      }, {});
-      setOverallCheck(tempOverallCheck);
+    //장바구니 데이터 수에 맞게 overallCheck 초기화
+    const tempOverallCheck: Check = Object.values(cartData.cartProducts).reduce((acc, { cartProductId }) => {
+      return { ...acc, [cartProductId]: true };
+    }, {});
+    setOverallCheck(tempOverallCheck);
 
-      //장바구니 데이터 수에 맞게 overallQuantity 초기화
-      const tempOverallQuantity = Object.values(data.cartProducts).reduce((acc, { cartProductId, count }) => {
+    //장바구니 데이터 수에 맞게 overallQuantity 초기화
+    const tempOverallQuantity: Quantity = Object.values(cartData.cartProducts).reduce(
+      (acc, { cartProductId, count }) => {
         return { ...acc, [cartProductId]: count };
-      }, {});
-      setOverallQuantity(tempOverallQuantity);
-    } catch (e) {
-      console.log(e);
-    }
+      },
+      {},
+    );
+    setOverallQuantity(tempOverallQuantity);
   };
-
-  // const getCartList = () => {
-  //   //장바구니 데이터 수에 맞게 overallCheck 초기화
-  //   const tempOverallCheck: Check = Object.values(cartData.cartProducts).reduce((acc, { cartProductId }) => {
-  //     return { ...acc, [cartProductId]: true };
-  //   }, {});
-  //   setOverallCheck(tempOverallCheck);
-
-  //   //장바구니 데이터 수에 맞게 overallQuantity 초기화
-  //   const tempOverallQuantity = Object.values(cartData.cartProducts).reduce((acc, { cartProductId, count }) => {
-  //     return { ...acc, [cartProductId]: count };
-  //   }, {});
-  //   setOverallQuantity(tempOverallQuantity);
-  // };
 
   useEffect(() => {
     getCartList();
   }, []);
+
   return (
     <St.CartContainer>
       <Header totalQuantity={totalQuantity} />

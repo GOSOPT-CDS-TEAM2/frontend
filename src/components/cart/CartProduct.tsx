@@ -1,12 +1,12 @@
+import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import styled from 'styled-components';
+
 import { CheckCheckedIcon, CheckNotCheckedIcon, MinusIcon, PlusIcon } from '../../assets/icon';
 import { overallCheckState, overallQuantityState } from '../../states/cart';
-
 import { CartProductsData } from '../../types/cart';
-import ProductTag from '../common/ProductTag';
 import { patchCartQuantityData } from '../../utils/lib/cart';
-import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
-import { useState } from 'react';
+import ProductTag from '../common/ProductTag';
 
 interface CartProductProp {
   cartProduct: CartProductsData;
@@ -20,19 +20,17 @@ const CartProduct = (props: CartProductProp) => {
   const [overallCheck, setOverallCheck] = useRecoilState(overallCheckState);
   const [overallQuantity, setOverallQuantity] = useRecoilState(overallQuantityState);
 
-  // 지역상태: 이 상품의 원래 가격, 이 상품의 할인 가격
-  const [calcOriginalPrice, setCalcOriginalPrice] = useState(
-    cartProduct.originalPrice * overallQuantity[cartProductId],
-  );
-  const [calcDiscountPrice, setCalcDiscountPrice] = useState(
-    cartProduct.discountPrice * overallQuantity[cartProductId],
-  );
+  // // 지역상태: 이 상품의 원래 가격, 이 상품의 할인 가격
+  // const [calcOriginalPrice, setCalcOriginalPrice] = useState(
+  //   cartProduct.originalPrice * overallQuantity[cartProductId],
+  // );
+  // const [calcDiscountPrice, setCalcDiscountPrice] = useState(
+  //   cartProduct.discountPrice * overallQuantity[cartProductId],
+  // );
 
   const patchCartQuantity = async (change: boolean) => {
     try {
-      const {
-        data: { data },
-      } = await patchCartQuantityData({ cartProductId: cartProductId, changeStatus: change });
+      patchCartQuantityData({ cartProductId: cartProductId, changeStatus: change });
     } catch (err) {
       console.log(err);
     }
@@ -51,8 +49,8 @@ const CartProduct = (props: CartProductProp) => {
     patchCartQuantity(false);
 
     // 변경된 수량에 따라 이 상품의 원래 가격과 상품 가격 변경
-    setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
-    setCalcOriginalPrice(cartProduct.originalPrice * newQuantity);
+    // setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
+    // setCalcOriginalPrice(cartProduct.originalPrice * newQuantity);
   };
 
   const onQuantityIncrease = () => {
@@ -67,9 +65,12 @@ const CartProduct = (props: CartProductProp) => {
     patchCartQuantity(true);
 
     // 변경된 수량에 따라 이 상품의 원래 가격과 상품 가격 변경
-    setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
-    setCalcOriginalPrice(cartProduct.originalPrice * newQuantity);
+    // setCalcDiscountPrice(cartProduct.discountPrice * newQuantity);
+    // setCalcOriginalPrice(cartProduct.originalPrice * newQuantity);
   };
+
+  const calcOriginalPrice = cartProduct.originalPrice * overallQuantity[cartProductId];
+  const calcDiscountPrice = cartProduct.discountPrice * overallQuantity[cartProductId];
 
   return (
     <St.BoxShadow>
