@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
 
 import Router from './components/common/Router';
@@ -6,12 +8,14 @@ import theme from './styles/theme';
 
 function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Router />
-      </ThemeProvider>
-    </>
+    <RecoilRoot>
+      <Suspense fallback={<div></div>}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Router />
+        </ThemeProvider>
+      </Suspense>
+    </RecoilRoot>
   );
 }
 

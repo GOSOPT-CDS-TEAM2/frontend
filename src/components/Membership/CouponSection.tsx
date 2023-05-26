@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-
-import { DownIcon, InfoIcon } from '../../assets/icon';
 import { CouponGrayImg, CouponPinkImg } from '../../assets/image';
+import { DownIcon, InfoIcon } from '../../assets/icon';
 
-import { COUPON_LIST } from './data/COUPON_LIST';
+import { COUPON_LIST } from './constants/COUPON_LIST';
+import styled from 'styled-components';
 
 interface CouponProps {
   name: string;

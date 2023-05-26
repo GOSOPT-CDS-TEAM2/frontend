@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 interface CategoryNavProps {
-  cartProductsNum: number;
+  totalQuantity: number;
 }
 
 const CategoryNav = (props: CategoryNavProps) => {
-  const { cartProductsNum } = props;
+  const { totalQuantity } = props;
   const MenuList = ['일반 배송', '오늘드림&픽업'].map((item, idx) => {
     return (
       <St.CategoryContainer key={idx}>
         {item === '일반 배송' ? (
           <St.Category className="selected">
-            {item} ( {cartProductsNum} )
+            {item} ( {totalQuantity} )
           </St.Category>
         ) : (
           <St.Category>{item} ( 0 )</St.Category>
@@ -27,7 +27,6 @@ export default CategoryNav;
 const St = {
   CategoryNavContainer: styled.nav`
     display: flex;
-    justify-content: space-around;
 
     width: 100vw;
     height: 4.5rem;

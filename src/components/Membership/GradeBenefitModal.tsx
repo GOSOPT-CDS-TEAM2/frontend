@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-
-import { CloseIcon, InfoIcon } from '../../assets/icon';
 import { BenefitBabyImg, BenefitBlackImg, BenefitGoldImg, BenefitGreenImg, BenefitPinkImg } from '../../assets/image';
+import { CloseIcon, InfoIcon } from '../../assets/icon';
 
-import { GRADE_LIST } from './data/GRADE_LIST';
+import { GRADE_LIST } from './constants/GRADE_LIST';
+import styled from 'styled-components';
+import { useState } from 'react';
 
 interface GradeBenefitModalProps {
   onClose: () => void;

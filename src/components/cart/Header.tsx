@@ -1,21 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { BackIcon, HomeIcon } from '../../assets/icon';
 
 interface HeaderProps {
-  cartProductsNum: number;
+  totalQuantity: number;
 }
 
 const Header = (props: HeaderProps) => {
-  const { cartProductsNum } = props;
+  const { totalQuantity } = props;
+  const navigate = useNavigate();
   return (
     <St.HeaderContainer>
-      <button type="button">
+      <button type="button" onClick={() => navigate(-1)}>
         <img src={BackIcon} alt="뒤로가기 아이콘" width={48} height={48} />
       </button>
       <h2>
-        장바구니 <span>({cartProductsNum})</span>
+        장바구니 <span>({totalQuantity})</span>
       </h2>
       <Link id="cart" to="/">
         <img src={HomeIcon} alt="홈 아이콘" width={48} height={48} />
@@ -30,6 +31,7 @@ const St = {
   HeaderContainer: styled.header`
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     width: 100vw;
     height: 4.8rem;

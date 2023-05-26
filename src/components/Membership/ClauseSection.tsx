@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ArrowDownIcon } from '../../assets/icon';
 
-import { CLAUSE_LIST } from './data/CLAUSE_LIST';
+import { CLAUSE_LIST } from './constants/CLAUSE_LIST';
 
 const ClauseSection = () => {
   return (

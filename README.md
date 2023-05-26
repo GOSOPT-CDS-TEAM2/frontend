@@ -21,15 +21,20 @@ https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/97084864/1d71b7c2-5538-43e4-
 ### ✨ **프리미엄관**
 주요 기능 : **스와이프 / 브랜드 정렬 및 좋아요 / 좋아요 취소 API 연결**
 
-
-
 https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/116873401/a952f216-25d4-46ed-a4ec-d1fc8714c0be
 
 
-
 ### 🛒 **장바구니**
+주요 기능 : **장바구니 상품 조회 API 연결 / 올리브영 배송 체크 / 상품별 체크 / 상품 수량 변경 API 연결 / 체크와 수량변경에 따른 금액 변경 / 추천 상품 스와이프**
+
+https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/55528304/2ad2733f-51b3-432d-976c-16bb301b3b54
+
 
 ### 🎁 **멤버십**
+주요 기능 : **등급 관련 정보 / 등급별 혜택보기 모달 / 쿠폰 / 멤버십 이벤트 스와이프**
+
+https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/55528304/312bf46a-a65d-4911-8b6f-dd9cb166fcd2
+
 
 ## 💚 OUR TEAM
 | <img src="https://avatars.githubusercontent.com/u/97084864?v=4" width="200" height="200" /> | <img src="https://avatars.githubusercontent.com/u/55528304?v=4" width="200" height="200" /> | <img src="https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/97084864/c6d35974-8fc1-4089-93be-9430d4d33d2d" width="200" height="200" /> |

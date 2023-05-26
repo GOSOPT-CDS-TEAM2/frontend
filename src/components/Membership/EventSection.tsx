@@ -1,9 +1,9 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination } from 'swiper';
+
+import { EVENT_LIST } from './constants/EVENT_LIST';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SwiperCore, { Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import { EVENT_LIST } from './data/EVENT_LIST';
 
 const EventSection = () => {
   SwiperCore.use([Pagination]);
