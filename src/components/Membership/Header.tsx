@@ -1,16 +1,17 @@
-import { BackIcon, BagIcon } from '../../assets/icon';
-
-import { Link } from 'react-router-dom';
-import { cartDataState } from '../../states/cart';
-import styled from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
+import styled from 'styled-components';
+
+import { BackIcon, BagIcon } from '../../assets/icon';
+import { cartDataState } from '../../states/cart';
 
 const Header = () => {
   const cartData = useRecoilValue(cartDataState);
 
+  const navigate = useNavigate();
   return (
     <St.HeaderContainer>
-      <button type="button">
+      <button type="button" onClick={() => navigate(-1)}>
         <img src={BackIcon} alt="뒤로가기 아이콘" width={48} height={48} />
       </button>
       <h2>멤버십/쿠폰</h2>

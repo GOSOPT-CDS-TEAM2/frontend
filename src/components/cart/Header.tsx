@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { BackIcon, HomeIcon } from '../../assets/icon';
@@ -9,9 +9,10 @@ interface HeaderProps {
 
 const Header = (props: HeaderProps) => {
   const { totalQuantity } = props;
+  const navigate = useNavigate();
   return (
     <St.HeaderContainer>
-      <button type="button">
+      <button type="button" onClick={() => navigate(-1)}>
         <img src={BackIcon} alt="뒤로가기 아이콘" width={48} height={48} />
       </button>
       <h2>
