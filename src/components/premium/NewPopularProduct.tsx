@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
-import { BagGrayIcon, HeartIcon } from '../../assets/icon';
+import { BagGrayIcon, HeartFillIcon, HeartIcon } from '../../assets/icon';
 import { ProductProps } from '../../types/common';
 import ProductTag from '../common/ProductTag';
 
@@ -9,8 +10,10 @@ const NewPopularProduct = (props: ProductProps) => {
     productData: { name, originalPrice, discountRate, discountPrice, image, tags },
   } = props;
 
+  const [likeBtn, setLikeBtn] = useState(false);
+  
   const tagList = Object.entries(tags)
-    .filter(([value]) => value) // value가 true 인 것 filtering
+    .filter(([, value]) => value) // value가 true 인 것 filtering
     .map(([key]) => <ProductTag key={key}>{key}</ProductTag>);
 
   return (
@@ -27,7 +30,11 @@ const NewPopularProduct = (props: ProductProps) => {
       <St.Tags> {tagList} </St.Tags>
 
       <St.IconContainer>
-        <St.Icon src={HeartIcon} alt="하트 아이콘" />
+        <button onClick = {() => {setLikeBtn(!likeBtn);}}> 
+          {likeBtn ?  <St.Icon src={HeartFillIcon} alt="하트 아이콘" /> 
+            : <St.Icon src={HeartIcon} alt="하트 아이콘" /> 
+          }
+        </button>
         <St.Icon src={BagGrayIcon} alt="장바구니 아이콘" />
       </St.IconContainer>
     </St.ProductContainer>
@@ -94,6 +101,13 @@ const St = {
   IconContainer: styled.div`
     display: flex;
     margin-top: 1.1rem;
+    
+    button {
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: none;
+    }
   `,
 
   Icon: styled.img`

@@ -8,11 +8,10 @@ import { getBrandData } from '../../utils/lib/brand';
 import PremiumBrandCard from './PremiumBrandCard';
 
 const PremiumBrand = () => {
-  
-  // 1. API 연결하여 브랜드 리스트 받아오기
-  
-  const [PremiumBrandList, setBrandList] = useState<BrandData[]>([]); 
-  
+  const [premiumBrandList, setPremiumBrandList] = useState<BrandData[]>([]);
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+  const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
+
   const getBrandList = async () => {
     try {
       const { data: { data } } = await getBrandData();
@@ -21,70 +20,57 @@ const PremiumBrand = () => {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
     getBrandList();
   }, []);
-  
-  // 2. 정렬 버튼 누르면 정렬
 
-  const [isAscending, setIsAscending] = useState<boolean>(true);
-  
   const sortBrandList = (list: BrandData[]) => {
-    const sortedList = list.sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
-
-      return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+    const sortedList = [...list].sort((a, b) => {
+      return isAscending ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
     });
 
-    setBrandList(sortedList);
-    setIsAscending(!isAscending);
+    setPremiumBrandList(sortedList);
   };
 
-  // 3. 전체/좋아요 버튼 선택에 따른 랜더링
+  useEffect(() => {
+    sortBrandList(premiumBrandList);
+  }, [isAscending]);
   
-  const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
-    
   useEffect(() => {
     getBrandList();
   }, [showLikedOnly]);
 
   const filteredBrandList = showLikedOnly
-    ? PremiumBrandList.filter((brand) => brand.likeTF)
-    : PremiumBrandList;
+    ? premiumBrandList.filter((brand) => brand.likeTF)
+    : premiumBrandList;
 
-  // 4. 좋아요 / 좋아요 취소 버튼 반영 -> PremiumBrandCard
- 
   const PremiumBrands = filteredBrandList.map((brand) => {
-    return <PremiumBrandCard key ={brand.id} brand = {brand} />;
+    return <PremiumBrandCard key={brand.id} brand={brand} />;
   });
-  
+
   return (
     <St.PremiumBrandContainer>
-
       <St.Header> 프리미엄 브랜드 </St.Header>
-      
+
       <St.SortContainer>
-        <St.AllButton type = "button"  onClick = {() => setShowLikedOnly(!showLikedOnly)} className={showLikedOnly ? '' : 'active'} >
-          전체 
+        <St.AllButton type="button" onClick={() => {setShowLikedOnly(!showLikedOnly);}} className={showLikedOnly ? '' : 'active'}>
+          전체
         </St.AllButton>
-        <St.OrIcon>
-          |
-        </St.OrIcon>
-        <St.LikeButton type = "button" onClick = {() => setShowLikedOnly(!showLikedOnly)} className={showLikedOnly ? 'active' : ''}>
+        <St.OrIcon>|</St.OrIcon>
+        <St.LikeButton type="button" onClick={() => {setShowLikedOnly(!showLikedOnly);}} className={showLikedOnly ? 'active' : ''}>
           좋아요
         </St.LikeButton>
-        <St.SortButton type = "button"  onClick={() => sortBrandList(PremiumBrandList)}>
-          {isAscending ? <img src={BrandSortReverseIcon} alt = "브랜드 ㅎ-ㄱ 정렬"/>
-            :  <img src={BrandSortIcon} alt = "브랜드 ㄱ-ㅎ 정렬"/>}
+        <St.SortButton type="button" onClick={() => {setIsAscending(!isAscending);}}>
+          {isAscending ? (
+            <img src={BrandSortIcon} alt="브랜드 ㄱ-ㅎ 정렬" />
+          ) : (
+            <img src={BrandSortReverseIcon} alt="브랜드 ㅎ-ㄱ 정렬" />
+          )}
         </St.SortButton>
       </St.SortContainer>
 
-      <St.ImgContainer>
-        {PremiumBrands}
-      </St.ImgContainer>
-      
+      <St.ImgContainer>{PremiumBrands}</St.ImgContainer>
     </St.PremiumBrandContainer>
   );
 };
@@ -187,6 +173,7 @@ const St = {
     width: 100%;
 
     overflow-x: auto;
+    overflow-y: hidden; 
     &::-webkit-scrollbar {
       display: none;
     }
