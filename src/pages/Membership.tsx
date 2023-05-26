@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 import Footer from '../components/common/Footer';
 import MenuBar from '../components/common/MenuBar';
-import CategoryNav from '../components/Membership/CategoryNav';
-import ClauseSection from '../components/Membership/ClauseSection';
-import CouponSection from '../components/Membership/CouponSection';
-import CustomerGradeInfo from '../components/Membership/CustomerGradeInfo';
-import EventSection from '../components/Membership/EventSection';
-import Header from '../components/Membership/Header';
+import CategoryNav from '../components/membership/CategoryNav';
+import ClauseSection from '../components/membership/ClauseSection';
+import CouponSection from '../components/membership/CouponSection';
+import CustomerGradeInfo from '../components/membership/CustomerGradeInfo';
+import EventSection from '../components/membership/EventSection';
+import Header from '../components/membership/Header';
 
 const Membership = () => {
   return (
