@@ -25,6 +25,10 @@ https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/116873401/a952f216-25d4-46ed
 
 
 ### 🛒 **장바구니**
+주요 기능 : **장바구니 상품 조회 API 연결 / 올리브영 배송 체크 / 상품별 체크 / 상품 수량 변경 API 연결 / 체크와 수량변경에 따른 금액 변경 / 추천 상품 스와이프**
+
+https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/55528304/2ad2733f-51b3-432d-976c-16bb301b3b54
+
 
 ### 🎁 **멤버십**
 
