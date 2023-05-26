@@ -43,11 +43,11 @@ https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/55528304/312bf46a-a65d-4911-
 | [@seobbang](https://github.com/seobbang) | [@simeunseo](https://github.com/simeunseo) | [@parkheeddong](https://github.com/parkheeddong)
 
 #### 서현
-`초기세팅`, `메인 뷰`, `상품 공통 컴포넌트`
+`초기세팅`, `메인 뷰`, `상품 공통 컴포넌트`, `추천 상품 조회 서버 연결`, `카테고리 랭킹 조회 서버 연결`
 #### 은서
-`멤버십 뷰`, `장바구니 뷰`, `상품 태그 공통 컴포넌트`
+`멤버십 뷰`, `장바구니 뷰`, `상품 태그 공통 컴포넌트`, `장바구니 상품 조회 서버 연결`, `장바구니 수량 변경 서버 연결`
 #### 희정
-`프리미엄관 뷰`, `공통 푸터 & 메뉴바`
+`프리미엄관 뷰`, `공통 푸터 & 메뉴바`, `브랜드 조회 서버 연결`, `브랜드 좋아요/취소 서버 연결`
 
 ## 🕹 Convention & Folder Architecture & Branch Strategy
 👉 <a href="https://dull-sherbet-7c4.notion.site/94bcf11e943344ea85e4c1d211f254d5">**우리의컨벤션**</a>
