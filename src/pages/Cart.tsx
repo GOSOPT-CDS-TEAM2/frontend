@@ -6,6 +6,7 @@ import CartProductList from '../components/cart/CartProductList';
 import CategoryNav from '../components/cart/CategoryNav';
 import DeliveryCheck from '../components/cart/DeliveryCheck';
 import Header from '../components/cart/Header';
+import PaymentDetail from '../components/cart/PaymentDetail';
 import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
 import { CartProductsData, Check, Quantity } from '../types/cart';
 
@@ -44,18 +45,17 @@ const Cart = () => {
     }
   };
 
-  console.log(overallQuantity);
-
   useEffect(() => {
     getCartList();
   }, []);
 
   return (
     <St.CartContainer>
-      <Header cartProductsNum={totalQuantity} />
-      <CategoryNav cartProductsNum={totalQuantity} />
+      <Header totalQuantity={totalQuantity} />
+      <CategoryNav totalQuantity={totalQuantity} />
       <DeliveryCheck />
       <CartProductList />
+      <PaymentDetail totalQuantity={totalQuantity} />
     </St.CartContainer>
   );
 };
