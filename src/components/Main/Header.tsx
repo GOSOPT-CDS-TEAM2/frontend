@@ -14,7 +14,7 @@ const Header = () => {
       <button type="button">
         <img src={AddressIcon} alt="배달 주소 아이콘" width={48} height={48} />
       </button>
-      <Link to="/">
+      <Link to="/cart">
         <img src={BagIcon} alt="장바구니 아이콘" width={48} height={48} />
       </Link>
     </St.HeaderContainer>

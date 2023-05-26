@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { AdHandCareImg, AdSpringImg, MainThumbNailImg } from '../assets/image';
@@ -14,14 +13,8 @@ import Recommend from '../components/Main/Recommend';
 import SpecialPrice from '../components/Main/SpecialPrice';
 import WeeklySpecial from '../components/Main/WeeklySpecial';
 import WeightManagement from '../components/Main/WeightManagement';
-import { getRecommendData } from '../utils/lib/main';
 
 const Main = () => {
-  useEffect(() => {
-    const data = getRecommendData();
-    console.log(data);
-  }, []);
-
   return (
     <St.MainContainer>
       <Header />

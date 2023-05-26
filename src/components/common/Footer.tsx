@@ -77,7 +77,7 @@ const St = {
 
   FooterContainer: styled.div`
   width: 100vw;
-  height: 30.2rem;
+  height: 26.8rem;
   `,
 
   Footer: styled.footer`

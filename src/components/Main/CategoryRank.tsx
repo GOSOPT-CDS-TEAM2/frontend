@@ -1,67 +1,61 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ProductData } from '../../types/common';
+import { ProductServerData, TagData } from '../../types/common';
+import { getRangkingData } from '../../utils/lib/main';
 
+import { BODYCARE_TAG_LIST } from './constants/BODYCARE_TAG_LIST';
+import { FOOD_TAG_LIST } from './constants/FOOD_TAG_LIST';
+import { PERFUME_TAG_LIST } from './constants/PERFUME_TAG_LIST';
 import HorizontalProduct from './HorizontalProduct';
 
 const CATEGORY_LIST = ['바디케어', '헤어케어', '향수/디퓨저', '미용소품', '남성', '식품', '반려동물'];
 
-// 더미데이터
-const RANKING_DATA: ProductData[] = [
-  {
-    name: '[단독기획] 줄라이미 페르소나 퍼퓸 50ml 단품/기획 6종',
-    originalPrice: 49000,
-    discountRate: 24,
-    discountPrice: 36900,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: true,
-    tags: {
-      BEST: true,
-      단독: false,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    name: '[NEW] 끌로에 EDP 50ml + 바디로션 100ml 기획',
-    originalPrice: 49000,
-    discountRate: 24,
-    discountPrice: 36900,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: false,
-    tags: {
-      BEST: true,
-      단독: false,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-  {
-    name: '포맨트 시그니처 퍼퓸 코튼허그 50ml 기획 (+핸드크림 30ml 증정)',
-    originalPrice: 49000,
-    discountRate: 24,
-    discountPrice: 36900,
-    image: 'https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0017/A00000017087822ko.jpg?l=ko',
-    likeTF: true,
-    tags: {
-      BEST: true,
-      단독: false,
-      오늘드림: true,
-      증정: false,
-      '1+1': false,
-    },
-  },
-];
-
 const CategoryRank = () => {
+  const [rankData, setRankData] = useState<ProductServerData[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('향수/디퓨저');
 
   const handleOnClick = (e: React.MouseEvent<HTMLLIElement>) => {
     setSelectedCategory(e.currentTarget.id);
   };
+
+  // 데이터 조회 함수
+  const getRankingDataList = async (category: string) => {
+    try {
+      const {
+        data: { data },
+      } = await getRangkingData(category);
+      setRankData(data);
+    } catch (e) {
+      console.log(e); // 에러 처리는 나중에 에러 페이지나 섹션으로 대체할 예정
+    }
+  };
+
+  // 카테고리 버튼이 바뀌면 refetch
+  let tagData: TagData[] = PERFUME_TAG_LIST;
+  useEffect(() => {
+    let category;
+    switch (selectedCategory) {
+      case '향수/디퓨저':
+        category = 'perfumeanddefuser';
+        tagData = PERFUME_TAG_LIST;
+        break;
+      case '바디케어':
+        category = 'bodycare';
+        tagData = BODYCARE_TAG_LIST;
+        break;
+      case '식품':
+        category = 'food';
+        tagData = FOOD_TAG_LIST;
+        break;
+      default:
+        category = '';
+        break;
+    }
+    if (!category) return; // 지정된 세가지 카테고리 이외의 경우 refetch하지 않고 early return
+    getRankingDataList(category);
+  }, [selectedCategory]);
+
   const renderCategoryList = CATEGORY_LIST.map((item) => {
     return (
       <St.Category key={item} className={item === selectedCategory ? 'selected' : ''} id={item} onClick={handleOnClick}>
@@ -69,9 +63,12 @@ const CategoryRank = () => {
       </St.Category>
     );
   });
-  const renderProductList = RANKING_DATA.map((item) => {
-    return <HorizontalProduct key={item.name} productData={item} />;
+
+  const renderProductList = rankData.map((item, idx) => {
+    const productData = { ...item, ...tagData[idx] }; // 불러온 서버데이터에 tag데이터 합치기
+    return <HorizontalProduct key={item.name} productData={productData} />;
   });
+
   return (
     <St.CategoryRankContainer>
       <header>
