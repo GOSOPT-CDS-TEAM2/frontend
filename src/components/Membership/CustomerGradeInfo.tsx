@@ -1,6 +1,6 @@
 import { GradeBarImg, MemberShipSpeechBubbleImg } from '../../assets/image';
 
-import { GRADE_LIST } from './data/GRADE_LIST';
+import { GRADE_LIST } from './constants/GRADE_LIST';
 import GradeBenefitModal from './GradeBenefitModal';
 import ModalPortal from './ModalPortal';
 import styled from 'styled-components';
