@@ -12,6 +12,9 @@ import Footer from '../components/common/Footer';
 import MenuBar from '../components/common/MenuBar';
 import { cartDataState, overallCheckState, overallQuantityState, totalQuantitySelector } from '../states/cart';
 import { Check, Quantity } from '../types/cart';
+import { CartProductsData, Check, Quantity } from '../types/cart';
+
+import { getCartData } from '../utils/lib/cart';
 
 const Cart = () => {
   const [cartData, setCartData] = useRecoilState(cartDataState);

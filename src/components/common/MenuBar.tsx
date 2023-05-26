@@ -1,8 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { CategoryIcon, HistoryIcon, HomeIcon, MyIcon, NewMagazineIcon } from '../../assets/icon';
 
 const MenuBar = () => {
+
+  const navigate = useNavigate();
+  
   const MenuIconList = [
     { imgSrc: CategoryIcon, imgAlt: '카테고리아이콘' },
     { imgSrc: NewMagazineIcon, imgAlt: '매거진아이콘' },
@@ -10,7 +14,11 @@ const MenuBar = () => {
     { imgSrc: HistoryIcon, imgAlt: '히스토리아이콘' },
     { imgSrc: MyIcon, imgAlt: '마이페이지아이콘' },
   ].map(({ imgSrc, imgAlt }) => {
-    return <img key={imgSrc} src={imgSrc} alt={imgAlt} />;
+    return (
+      <button key={imgSrc} onClick = {()=> navigate('/')}>
+        <img src={imgSrc} alt={imgAlt} />
+      </button>
+    );
   });
 
   return <St.MenuBarContainer>{MenuIconList}</St.MenuBarContainer>;
@@ -33,6 +41,11 @@ const St = {
 
     background-color: ${({ theme }) => theme.colors.gray_000};
 
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+    }
     img {
       width: 4.8rem;
       height: 4.8rem;
