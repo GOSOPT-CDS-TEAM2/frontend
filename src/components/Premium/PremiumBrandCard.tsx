@@ -15,7 +15,6 @@ const PremiumBrandCard = (props: {brand: BrandData}) => {
     try {
       const response = await postBrandData(brandId);
       setLikeBtn(!likeBtn);
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }

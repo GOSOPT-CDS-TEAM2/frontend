@@ -31,19 +31,11 @@ const PremiumBrand = () => {
   const [isAscending, setIsAscending] = useState<boolean>(true);
   
   const sortBrandList = (list: BrandData[]) => {
-    const sortedList = [...list].sort((a, b) => {
+    const sortedList = list.sort((a, b) => {
       const nameA = a.name.toLowerCase();
       const nameB = b.name.toLowerCase();
 
-      if (isAscending) {
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
-      } else {
-        if (nameA > nameB) return -1;
-        if (nameA < nameB) return 1;
-      }
-
-      return 0;
+      return isAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
     });
 
     setBrandList(sortedList);
@@ -53,16 +45,10 @@ const PremiumBrand = () => {
   // 3. 전체/좋아요 버튼 선택에 따른 랜더링
   
   const [showLikedOnly, setShowLikedOnly] = useState<boolean>(false);
-  
-  const showAll = () => {
+    
+  useEffect(() => {
     getBrandList();
-    setShowLikedOnly(false);
-  };
-
-  const showLike = () => {
-    getBrandList();
-    setShowLikedOnly(true);
-  };
+  }, [showLikedOnly]);
 
   const filteredBrandList = showLikedOnly
     ? PremiumBrandList.filter((brand) => brand.likeTF)
@@ -80,13 +66,13 @@ const PremiumBrand = () => {
       <St.Header> 프리미엄 브랜드 </St.Header>
       
       <St.SortContainer>
-        <St.AllButton type = "button"  onClick = {showAll} className={showLikedOnly ? '' : 'active'} >
+        <St.AllButton type = "button"  onClick = {() => setShowLikedOnly(!showLikedOnly)} className={showLikedOnly ? '' : 'active'} >
           전체 
         </St.AllButton>
         <St.OrIcon>
           |
         </St.OrIcon>
-        <St.LikeButton type = "button" onClick = {showLike} className={showLikedOnly ? 'active' : ''}>
+        <St.LikeButton type = "button" onClick = {() => setShowLikedOnly(!showLikedOnly)} className={showLikedOnly ? 'active' : ''}>
           좋아요
         </St.LikeButton>
         <St.SortButton type = "button"  onClick={() => sortBrandList(PremiumBrandList)}>
