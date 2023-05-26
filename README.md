@@ -31,6 +31,10 @@ https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/55528304/2ad2733f-51b3-432d-
 
 
 ### 🎁 **멤버십**
+주요 기능 : **등급 관련 정보 / 등급별 혜택보기 모달 / 쿠폰 / 멤버십 이벤트 스와이프**
+
+https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/55528304/312bf46a-a65d-4911-8b6f-dd9cb166fcd2
+
 
 ## 💚 OUR TEAM
 | <img src="https://avatars.githubusercontent.com/u/97084864?v=4" width="200" height="200" /> | <img src="https://avatars.githubusercontent.com/u/55528304?v=4" width="200" height="200" /> | <img src="https://github.com/GOSOPT-CDS-TEAM2/frontend/assets/97084864/c6d35974-8fc1-4089-93be-9430d4d33d2d" width="200" height="200" /> |
