@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-
 import { GradeBarImg, MemberShipSpeechBubbleImg } from '../../assets/image';
 
 import { GRADE_LIST } from './data/GRADE_LIST';
 import GradeBenefitModal from './GradeBenefitModal';
 import ModalPortal from './ModalPortal';
+import styled from 'styled-components';
+import { useState } from 'react';
 
 const CustomerGradeInfo = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -52,7 +51,7 @@ const CustomerGradeInfo = () => {
       )}
       <St.CustomerGradeInfoContainer>
         <St.InfoDescriptionContainer>
-          <section className="customerGradeInfo">
+          <div className="customerGradeInfo">
             <div className="description">
               <h1>
                 {customerInfo.name}님의 등급
@@ -63,7 +62,7 @@ const CustomerGradeInfo = () => {
               </p>
             </div>
             <span className="point">P</span>
-          </section>
+          </div>
           <St.GradeFigureContainer>
             <aside>
               <img src={MemberShipSpeechBubbleImg} alt="회원 등급까지 남은 금액을 설명하는 말풍선" />
@@ -131,7 +130,7 @@ const St = {
       }
     }
   `,
-  InfoDescriptionContainer: styled.p`
+  InfoDescriptionContainer: styled.section`
     height: 26rem;
     padding: 1.8rem 1.5rem 2.8rem 1.5rem;
 

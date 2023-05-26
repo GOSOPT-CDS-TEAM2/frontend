@@ -1,6 +1,5 @@
-import { atom, selector } from 'recoil';
-
 import { CartData, Check, Quantity } from '../types/cart';
+import { atom, selector } from 'recoil';
 
 export const cartDataState = atom<CartData>({
   key: 'cartDataState',
@@ -13,6 +12,7 @@ export const cartDataState = atom<CartData>({
 export const totalQuantitySelector = selector({
   key: 'totalQuantitySelector',
   get: ({ get }) => {
+    console.log(get(cartDataState));
     const cartData = get(cartDataState);
     return cartData.cartProducts.length;
   },
