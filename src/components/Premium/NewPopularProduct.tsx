@@ -10,7 +10,7 @@ const NewPopularProduct = (props: ProductProps) => {
   } = props;
 
   const tagList = Object.entries(tags)
-    .filter(([value]) => value) // value가 true 인 것 filtering
+    .filter(([, value]) => value) // value가 true 인 것 filtering
     .map(([key]) => <ProductTag key={key}>{key}</ProductTag>);
 
   return (
