@@ -27,7 +27,6 @@ export default CategoryNav;
 const St = {
   CategoryNavContainer: styled.nav`
     display: flex;
-    justify-content: space-around;
 
     width: 100vw;
     height: 4.5rem;
