@@ -1,10 +1,10 @@
+import { CartGiftIcon, NoticeFillIcon } from '../../assets/icon';
+import { cartDataState, overallCheckState, overallQuantityState } from '../../states/cart';
 import { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import styled from 'styled-components';
 
-import { CartGiftIcon, NoticeFillIcon } from '../../assets/icon';
 import { CartSpeechBubbleImg } from '../../assets/image';
-import { cartDataState, overallCheckState, overallQuantityState } from '../../states/cart';
+import styled from 'styled-components';
 
 interface PaymentDetailProps {
   totalQuantity: number;
@@ -27,7 +27,7 @@ const PaymentDetail = (props: PaymentDetailProps) => {
   let sumDiscountPrice = 0;
   for (const id in overallCheck) {
     if (overallCheck[id]) {
-      const checkedProduct = cartData.cartProducts.filter((product) => product.cartProductId === Number(id))[0];
+      const checkedProduct = cartData.cartProducts.find(({ cartProductId }) => cartProductId === Number(id));
       sumOriginalPrice += checkedProduct.originalPrice * overallQuantity[id];
       sumDiscountPrice += checkedProduct.discountPrice * overallQuantity[id];
     }
