@@ -1,13 +1,19 @@
+import { CartData, Check, Quantity } from '../types/cart';
 import { atom, selector } from 'recoil';
 
-import { CartData, Check, Quantity } from '../types/cart';
+import { getCartData } from '../utils/lib/cart';
 
 export const cartDataState = atom<CartData>({
   key: 'cartDataState',
-  default: {
-    deliveryFee: 0,
-    cartProducts: [],
-  },
+  default: selector({
+    key: 'cartDataSelector',
+    get: async () => {
+      const {
+        data: { data },
+      } = await getCartData();
+      return data;
+    },
+  }),
 });
 
 export const totalQuantitySelector = selector({

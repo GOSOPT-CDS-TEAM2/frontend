@@ -27,10 +27,10 @@ const Product = (props: ProductProps) => {
     <St.ProductContainer>
       <img src={image} alt="상품 이미지" width={135} height={138} />
       <St.ProductName>{name}</St.ProductName>
-      <St.OriginalPrice>{originalPrice.toLocaleString()}원</St.OriginalPrice>
+      {originalPrice && <St.OriginalPrice>{originalPrice.toLocaleString()}원</St.OriginalPrice>}
 
       <St.DisCountContainer>
-        <St.DiscountRate>{discountRate}%</St.DiscountRate>
+        {discountRate && <St.DiscountRate>{discountRate}%</St.DiscountRate>}
         <St.DiscountPrice>{discountPrice.toLocaleString()}원</St.DiscountPrice>
       </St.DisCountContainer>
 

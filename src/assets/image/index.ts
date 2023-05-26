@@ -40,6 +40,7 @@ export { default as 봄맞이특가Img } from './봄맞이특가.png';
 export { default as 비오템옴드모이스춰라이저 } from './비오템옴드모이스춰라이저.svg';
 export { default as 비오템옴드젤로션 } from './비오템옴드젤로션.svg';
 export { default as 비원츠베스트셀러2종Img } from './비원츠베스트셀러2종.png';
+export { default as 세노비스Img } from './세노비스.png';
 export { default as 숨Img } from './숨Img.svg';
 export { default as 심드렁쿠키바Img } from './심드렁쿠키바.png';
 export { default as 안트래디언스앰플Img } from './안트래디언스앰플.png';
@@ -53,3 +54,4 @@ export { default as 콜레올로지컷팅젤리Img } from './콜레올로지컷�
 export { default as 트러블케어Img } from './트러블케어1위.png';
 export { default as 헤라Img } from './헤라Img.svg';
 export { default as 헤라파우더 } from './헤라파우더.svg';
+export { default as 히말라야숙취해소Img } from './히말라야숙취해소.png';

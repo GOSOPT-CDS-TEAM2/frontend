@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
 import { BackIcon, BagIcon } from '../../assets/icon';
 
+import { Link } from 'react-router-dom';
+import { cartDataState } from '../../states/cart';
+import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+
 const Header = () => {
-  const cartCnt = 0;
+  const cartData = useRecoilValue(cartDataState);
+
   return (
     <St.HeaderContainer>
       <button type="button">
@@ -12,7 +15,7 @@ const Header = () => {
       </button>
       <h2>멤버십/쿠폰</h2>
       <Link id="cart" to="/cart">
-        <span id="cartCnt">{cartCnt}</span>
+        <span id="cartCnt">{cartData.cartProducts.length}</span>
         <img src={BagIcon} alt="장바구니 아이콘" width={48} height={48} />
       </Link>
     </St.HeaderContainer>
